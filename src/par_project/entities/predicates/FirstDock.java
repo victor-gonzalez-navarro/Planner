@@ -5,6 +5,7 @@
  */
 package par_project.entities.predicates;
 
+import java.util.ArrayList;
 import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
@@ -19,5 +20,20 @@ public class FirstDock extends Predicate {
         this.predicateName = Constants.FIRST_DOCK;
         this.car = car;
     }
+
+    @Override
+    public boolean isInstantiated() {
+        return car.isInstantiated();
+    }
     
+    public Car getFirstCar (){
+        return car;
+    }
+
+    @Override
+    public ArrayList<Car> getCars() {
+        ArrayList<Car> cars = new ArrayList<Car>();
+        cars.add(car);
+        return cars;
+    }
 }

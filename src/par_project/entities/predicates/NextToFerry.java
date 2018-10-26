@@ -22,4 +22,8 @@ public class NextToFerry extends Predicate {
         this.car2 = car2;
     }
     
+    @Override
+    public boolean isInstantiated() {
+        return (car1.isInstantiated() && car2.isInstantiated());
+    }
 }

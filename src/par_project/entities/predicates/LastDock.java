@@ -5,6 +5,7 @@
  */
 package par_project.entities.predicates;
 
+import java.util.ArrayList;
 import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
@@ -20,4 +21,15 @@ public class LastDock extends Predicate {
         this.car = car;
     }
     
+    @Override
+    public boolean isInstantiated() {
+        return car.isInstantiated();
+    }
+    
+    @Override
+    public ArrayList<Car> getCars() {
+        ArrayList<Car> cars = new ArrayList<Car>();
+        cars.add(car);
+        return cars;
+    }
 }

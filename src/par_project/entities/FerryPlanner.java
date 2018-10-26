@@ -137,17 +137,37 @@ public class FerryPlanner {
                     stack.pop();
                 }
                 
-            // Case 3
+            // Case 3 & 4
             } else if (stack.getLast() instanceof Predicate) {
                 pred = (Predicate) stack.getLast();
-                if (curr_state.getPredicates().contains(pred)){
-                    stack.pop();
-                } else {
-                    stack.pop();
+                // Case 3
+                if (!pred.isInstantiated()){
+                    if (curr_state.getPredicates().contains(pred)){
+                        stack.pop();
+                    } else {
+                        stack.pop();
+                    }
                 }
+                // Case 4
+                else {
+                    
+                }
+                
             }
             
             counter++;
         }
-    }   
+    }
+    
+    public Car bestInstantiation (State curr_state, ArrayList<Car> possibleCars, Predicate p){
+        Car out_car = null;
+        
+        for (Predicate pred : curr_state.getPredicates()){
+            if (pred.getClass().equals(p.getClass())){
+                
+            }
+        }
+        
+        return out_car;
+    }
 }

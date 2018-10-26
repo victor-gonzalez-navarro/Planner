@@ -5,6 +5,7 @@
  */
 package par_project.entities.predicates;
 
+import java.util.ArrayList;
 import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
@@ -44,5 +45,13 @@ public class Predicate {
     
     public String getPredicateName (){
         return predicateName;
+    }
+    
+    public boolean isInstantiated (){
+        return true;
+    }
+    
+    public ArrayList<Car> getCars (){
+        return null;
     }
 }

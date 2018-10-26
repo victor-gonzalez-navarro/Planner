@@ -11,18 +11,15 @@ package par_project.entities.items;
  */
 public class Car {
     public String identifier;
-    boolean instantiated;
-    
-    public Car (){
-        instantiated = false;
-    }
     
     public Car (String name){
         identifier = name;
-        instantiated = true;
     }
     
     public boolean isInstantiated (){
-        return instantiated;
+        if (identifier.equals('X') || identifier.equals('Y') || identifier.equals('Z')) {
+            return false;
+        }
+        return true;
     }
 }
