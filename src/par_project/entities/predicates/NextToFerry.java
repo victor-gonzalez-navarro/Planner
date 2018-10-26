@@ -26,4 +26,9 @@ public class NextToFerry extends Predicate {
     public boolean isInstantiated() {
         return (car1.isInstantiated() && car2.isInstantiated());
     }
+    
+    @Override
+    public String toString(){
+        return predicateName + "(" + car1.identifier + "," + car2.identifier + ")";
+    }
 }

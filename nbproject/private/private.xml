@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/Predicate.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FirstDock.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FreeLine.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/utils/Functions.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/LastDock.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/LastFerry.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/NextToDock.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/FerryPlanner.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/operators/UnstackLeaveDock.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/NextToFerry.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/NumLinesEmpty.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/states/State.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/PAR_Project.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FirstFerry.java</file>
+        </group>
+    </open-files>
+</project-private>

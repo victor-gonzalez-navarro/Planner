@@ -43,4 +43,9 @@ public class NextToDock extends Predicate{
         cars.add(car2);
         return cars;
     }
+    
+    @Override
+    public String toString(){
+        return predicateName + "(" + car1.identifier + "," + car2.identifier + ")";
+    }
 }

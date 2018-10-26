@@ -21,6 +21,8 @@ public class Operator {
     protected List<Predicate> add2_l;
     protected List<Predicate> del_l;
     
+    protected String operatorName;
+    
     protected Car x;
     
     public Operator (Car x){

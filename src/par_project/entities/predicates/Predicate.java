@@ -54,4 +54,5 @@ public class Predicate {
     public ArrayList<Car> getCars (){
         return null;
     }
+    
 }

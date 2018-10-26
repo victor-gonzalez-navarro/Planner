@@ -32,4 +32,9 @@ public class FirstFerry extends Predicate {
         cars.add(car);
         return cars;
     }
+    
+    @Override
+    public String toString(){
+        return predicateName + "(" + car.identifier + ")";
+    }
 }

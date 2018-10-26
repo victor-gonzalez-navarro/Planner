@@ -5,9 +5,11 @@
  */
 package par_project;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import par_project.entities.FerryPlanner;
+import par_project.entities.items.Car;
 import par_project.entities.predicates.Predicate;
 import par_project.entities.states.State;
 import par_project.utils.Constants;
@@ -37,10 +39,15 @@ public class PAR_Project {
             targetState.addPredicate(Predicate.CreatePredicate(value));
         }
         
+        ArrayList<Car> cars = new ArrayList<>();
+        for (String value : statement.get(Constants.CARS)){
+            cars.add(new Car(value));
+        }
+        
         int numMaxLines = Integer.parseInt(statement.get(Constants.NUM_MAX_LINES).get(0));
         int numMaxCars = Integer.parseInt(statement.get(Constants.NUM_MAX_CARS).get(0));
         
-        FerryPlanner planner = new FerryPlanner(initState, targetState, numMaxLines, numMaxCars);
+        FerryPlanner planner = new FerryPlanner(initState, targetState, cars, numMaxLines, numMaxCars);
         
         planner.solveProblem();
     }

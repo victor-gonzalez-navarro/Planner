@@ -19,4 +19,8 @@ public class NumLinesEmpty extends Predicate {
         this.n = n;
     }
     
+    @Override
+    public String toString(){
+        return predicateName + "(" + String.valueOf(n) + ")";
+    }
 }

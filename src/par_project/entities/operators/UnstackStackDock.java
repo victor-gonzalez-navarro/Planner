@@ -11,16 +11,19 @@ import par_project.entities.predicates.FirstFerry;
 import par_project.entities.predicates.FreeLine;
 import par_project.entities.predicates.LastFerry;
 import par_project.entities.predicates.NextToDock;
+import par_project.utils.Constants;
 
 /**
  *
  * @author alarca_94
  */
 public class UnstackStackDock extends Operator{
-    private Car x, z, y;
+    private Car z, y;
     
     public UnstackStackDock (Car x, Car z, Car y){
         super(x);
+        
+        operatorName = Constants.UNSTACK_STACK_DOCK;
         
         this.z = z;
         this.y = y;
@@ -43,5 +46,10 @@ public class UnstackStackDock extends Operator{
     
     public Car getThirdCar (){
         return y;
+    }
+    
+    @Override
+    public String toString(){
+        return operatorName + "(" + x.identifier + "," + z.identifier + "," + y.identifier + ")";
     }
 }

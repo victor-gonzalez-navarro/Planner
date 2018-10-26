@@ -10,15 +10,21 @@ import par_project.entities.predicates.FirstDock;
 import par_project.entities.predicates.FreeLine;
 import par_project.entities.predicates.NextToDock;
 import par_project.entities.predicates.NumLinesEmpty;
+import par_project.utils.Constants;
 
 /**
  *
  * @author alarca_94
  */
 public class UnstackLeaveDock extends Operator{
+    private Car z;
     
     public UnstackLeaveDock (Car x, Car z){
         super(x);
+        
+        this.z = z;
+        
+        operatorName = Constants.UNSTACK_LEAVE_DOCK;
         
         precs_l.add(new FirstDock(x));
         precs_l.add(new NumLinesEmpty(2));
@@ -30,5 +36,10 @@ public class UnstackLeaveDock extends Operator{
         add_l.add(new FreeLine(z));
         
         del_l.add(new NextToDock(z,x));
+    }
+    
+    @Override
+    public String toString(){
+        return operatorName + "(" + x.identifier + "," + z.identifier + ")";
     }
 }

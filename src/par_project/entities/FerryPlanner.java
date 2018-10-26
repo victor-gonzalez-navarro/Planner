@@ -30,13 +30,16 @@ public class FerryPlanner {
     Deque<Object> stack = new ArrayDeque<>();
     State init_state, curr_state , target_state;
     List<Operator> stepsToGoal;
+    public ArrayList<Car> cars;
     public int numLinesEmpty;
     public int numMaxCars;
     
-    public FerryPlanner (State init_state, State target_state, int numLinesEmpty, int numMaxCars){
+    public FerryPlanner (State init_state, State target_state, 
+            ArrayList<Car> cars, int numLinesEmpty, int numMaxCars){
         this.init_state = init_state;
         this.target_state = target_state;
         stepsToGoal = new ArrayList<>();
+        this.cars = cars;
         this.numLinesEmpty = numLinesEmpty;
         this.numMaxCars = numMaxCars;
     }
