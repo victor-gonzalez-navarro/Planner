@@ -47,6 +47,93 @@ public class UnstackStackDock extends Operator{
     public Car getThirdCar (){
         return y;
     }
+
+    @Override
+    public void setXCar(Car x) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof FirstDock){
+                if (precs_l.get(i).getXCar().equals(x)){
+                    precs_l.get(i).setCar(x, 0);
+                }
+            } else if (precs_l.get(i) instanceof NextToDock){
+                precs_l.get(i).setCar(x, 1);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof FreeLine){
+                if (add_l.get(i).getXCar().equals(x)){
+                    add_l.get(i).setCar(x, 0);
+                }
+            } else if (add_l.get(i) instanceof NextToDock){
+                add_l.get(i).setCar(x, 1);
+            }
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof NextToDock){
+                del_l.get(i).setCar(x, 1);
+            } else if (del_l.get(i) instanceof FreeLine){
+                if (del_l.get(i).getXCar().equals(x)){
+                    del_l.get(i).setCar(x, 0);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void setYCar(Car y) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof FirstDock){
+                if (precs_l.get(i).getXCar().equals(y)){
+                    precs_l.get(i).setCar(y, 0);
+                }
+            } else if (precs_l.get(i) instanceof FreeLine){
+                precs_l.get(i).setCar(y, 0);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof NextToDock){
+                add_l.get(i).setCar(y, 0);
+            }
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof FirstDock){
+                del_l.get(i).setCar(y, 1);
+            } else if (del_l.get(i) instanceof FreeLine){
+                if (del_l.get(i).getXCar().equals(y)){
+                    del_l.get(i).setCar(y, 0);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void setZCar(Car z) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof NextToDock){
+                precs_l.get(i).setCar(z, 0);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof FreeLine){
+                if (add_l.get(i).getXCar().equals(z)){
+                    add_l.get(i).setCar(z, 0);
+                }
+            } else if (add_l.get(i) instanceof FirstDock){
+                add_l.get(i).setCar(z, 0);
+            }
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof NextToDock){
+                del_l.get(i).setCar(z, 0);
+            }
+        }
+    }
     
     @Override
     public String toString(){

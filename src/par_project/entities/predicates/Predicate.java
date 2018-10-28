@@ -55,4 +55,10 @@ public class Predicate {
         return null;
     }
     
+    public Car getXCar (){
+        return null;
+    }
+    
+    public void setCar (Car car, int idx){
+    }
 }

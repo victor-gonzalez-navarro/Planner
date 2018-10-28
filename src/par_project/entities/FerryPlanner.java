@@ -22,6 +22,7 @@ import par_project.entities.items.Car;
 import par_project.entities.operators.Operator;
 import par_project.entities.operators.UnstackStackDock;
 import par_project.entities.predicates.FreeLine;
+import par_project.entities.predicates.LastFerry;
 import par_project.entities.predicates.NextToDock;
 import par_project.entities.predicates.Predicate;
 import par_project.utils.Constants;
@@ -47,6 +48,8 @@ public class FerryPlanner {
     public void solveProblem () throws CloneNotSupportedException{
         curr_state = init_state.copy();
         
+        System.out.println(curr_state.toString());
+        
         stack.add(target_state.getPredicates());
         
         for (Predicate pred : target_state.getPredicates()){
@@ -60,6 +63,7 @@ public class FerryPlanner {
         int cars_behind_y = 0;
         
         while(!finished && counter < 3) {
+            System.out.println(stack.getLast().toString());
             // Case 1
             if (stack.getLast() instanceof Operator) {
                 Operator op = (Operator) stack.getLast();
@@ -73,9 +77,9 @@ public class FerryPlanner {
                         // TODO: Save all NextTo For Efficiency
                         for (Predicate p : curr_state.getPredicates()){
                             if (p instanceof NextToDock){
-                                if (!((NextToDock) p).firstCar(curr_car).equals(null)){
+                                if (!((NextToDock) p).previousCar(curr_car).equals(null)){
                                     cars_behind_y++;
-                                    curr_car = ((NextToDock) p).firstCar(curr_car);
+                                    curr_car = ((NextToDock) p).previousCar(curr_car);
                                     counting = true;
                                 }
                             }
@@ -145,6 +149,7 @@ public class FerryPlanner {
                 pred = (Predicate) stack.getLast();
                 // Case 3
                 if (!pred.isInstantiated()){
+                    System.out.println(pred.isInstantiated()?"True":"False");
                     if (curr_state.getPredicates().contains(pred)){
                         stack.pop();
                     } else {
@@ -153,7 +158,25 @@ public class FerryPlanner {
                 }
                 // Case 4
                 else {
-                    
+                    if (!curr_state.getPredicates().contains(pred)){
+                        Operator op = Operator.searchAddPredicate(pred);
+                        System.out.println(pred.isInstantiated()?"True":"False");
+                        System.out.println("NEW: PRED " + pred.toString());
+                        for (Car car : pred.getCars()){
+                            System.out.println("Id Car: " + car.identifier);
+                        }
+                        System.out.println("OPER " + op.toString());
+                        System.out.println("PRECS " + op.getPrecsList().toString());
+                        
+                        stack.add(op);
+                        op.getPrecsList().forEach((p) -> {
+                            stack.add(p);
+                        });
+                        
+                    } else {
+                        System.out.println("EXISTS: PRED " + pred.toString());
+                        stack.pop();
+                    }
                 }
                 
             }
@@ -162,15 +185,16 @@ public class FerryPlanner {
         }
     }
     
-    public Car bestInstantiation (State curr_state, ArrayList<Car> possibleCars, Predicate p){
-        Car out_car = null;
+    public Predicate bestInstantiation (State curr_state, ArrayList<String> possibleCarIDs, Predicate p){
+        Predicate out_pred = null;
         
-        for (Predicate pred : curr_state.getPredicates()){
-            if (pred.getClass().equals(p.getClass())){
-                
-            }
+        if (p.getXCar().identifier.equals('X')) {
+            out_pred = curr_state.getPredicate(p.getPredicateName(), possibleCarIDs);
+        } else {
+            out_pred = curr_state.getPredicate(p.getPredicateName(), p.getXCar().identifier);
         }
         
-        return out_car;
+        return out_pred;
     }
+    
 }

@@ -14,31 +14,37 @@ import par_project.utils.Constants;
  * @author alarca_94
  */
 public class FirstDock extends Predicate {
-    private Car car;
+    private Car x;
 
-    public FirstDock(Car car) {
+    public FirstDock(Car x) {
         this.predicateName = Constants.FIRST_DOCK;
-        this.car = car;
+        this.x = x;
     }
 
     @Override
     public boolean isInstantiated() {
-        return car.isInstantiated();
+        return x.isInstantiated();
     }
     
-    public Car getFirstCar (){
-        return car;
+    @Override
+    public Car getXCar (){
+        return x;
     }
 
     @Override
     public ArrayList<Car> getCars() {
         ArrayList<Car> cars = new ArrayList<Car>();
-        cars.add(car);
+        cars.add(x);
         return cars;
     }
     
     @Override
     public String toString(){
-        return predicateName + "(" + car.identifier + ")";
+        return predicateName + "(" + x.identifier + ")";
+    }
+    
+    @Override
+    public void setCar (Car car, int idx){
+        this.x = car;
     }
 }

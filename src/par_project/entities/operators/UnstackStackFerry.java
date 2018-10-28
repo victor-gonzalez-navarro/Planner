@@ -42,6 +42,73 @@ public class UnstackStackFerry extends Operator{
         del_l.add(new NextToDock(z,x));
         del_l.add(new FreeLine(x));
     }
+
+    @Override
+    public void setXCar(Car x) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof FirstDock){
+                precs_l.get(i).setCar(x, 0);
+            } else if (precs_l.get(i) instanceof NextToDock){
+                precs_l.get(i).setCar(x, 1);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof LastFerry || add_l.get(i) instanceof NextToFerry){
+                add_l.get(i).setCar(x, 0);
+            }
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof NextToDock){
+                del_l.get(i).setCar(x, 1);
+            } else if (del_l.get(i) instanceof FreeLine || del_l.get(i) instanceof FirstDock){
+                del_l.get(i).setCar(x, 0);
+            }
+        }
+    }
+
+    @Override
+    public void setYCar(Car y) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof LastFerry){
+                precs_l.get(i).setCar(y, 0);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof NextToFerry){
+                add_l.get(i).setCar(y, 1);
+            }
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof LastFerry){
+                del_l.get(i).setCar(y, 0);
+            }
+        }
+    }
+
+    @Override
+    public void setZCar(Car z) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof NextToDock){
+                precs_l.get(i).setCar(z, 0);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof FreeLine || add_l.get(i) instanceof FirstDock){
+                add_l.get(i).setCar(z, 0);
+            }
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof NextToDock){
+                del_l.get(i).setCar(z, 0);
+            }
+        }
+    }
     
     @Override
     public String toString(){

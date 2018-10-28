@@ -14,27 +14,37 @@ import par_project.utils.Constants;
  * @author alarca_94
  */
 public class LastFerry extends Predicate {
-    private Car car;
+    private Car x;
     
-    public LastFerry(Car car) {
+    public LastFerry(Car x) {
         this.predicateName = Constants.LAST_FERRY;
-        this.car = car;
+        this.x = x;
     }
     
     @Override
     public boolean isInstantiated() {
-        return car.isInstantiated();
+        return x.isInstantiated();
     }
     
     @Override
     public ArrayList<Car> getCars() {
         ArrayList<Car> cars = new ArrayList<Car>();
-        cars.add(car);
+        cars.add(x);
         return cars;
     }
     
     @Override
     public String toString(){
-        return predicateName + "(" + car.identifier + ")";
+        return predicateName + "(" + x.identifier + ")";
+    }
+    
+    @Override
+    public Car getXCar (){
+        return x;
+    }
+    
+    @Override
+    public void setCar (Car car, int idx){
+        this.x = car;
     }
 }

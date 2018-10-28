@@ -14,31 +14,41 @@ import par_project.utils.Constants;
  * @author alarca_94
  */
 public class FreeLine extends Predicate {
-    private Car car;
+    private Car x;
 
-    public FreeLine(Car car) {
+    public FreeLine(Car x) {
         this.predicateName = Constants.FREE_LINE;
-        this.car = car;
+        this.x = x;
     }
     
     public Car getCar (){
-        return car;
+        return x;
+    }
+    
+    @Override
+    public Car getXCar (){
+        return x;
     }
     
     @Override
     public boolean isInstantiated() {
-        return car.isInstantiated();
+        return x.isInstantiated();
     }
     
     @Override
     public ArrayList<Car> getCars() {
         ArrayList<Car> cars = new ArrayList<Car>();
-        cars.add(car);
+        cars.add(x);
         return cars;
     }
     
     @Override
     public String toString(){
-        return predicateName + "(" + car.identifier + ")";
+        return predicateName + "(" + x.identifier + ")";
+    }
+    
+    @Override
+    public void setCar (Car car, int idx){
+        this.x = car;
     }
 }

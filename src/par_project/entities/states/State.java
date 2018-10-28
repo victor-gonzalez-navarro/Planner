@@ -8,6 +8,7 @@ package par_project.entities.states;
 import par_project.entities.predicates.Predicate;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.StringBuilder;
 
 /**
  *
@@ -36,11 +37,42 @@ public class State {
         return predicates;
     }
     
+    public Predicate getPredicate (String predicateName, String carID){
+        for (Predicate pred : predicates){
+            if (pred.getPredicateName().equals(predicateName) && 
+                    pred.getXCar().identifier == carID) {
+                return pred;
+            }
+        }
+        return null;
+    }
+    
+    public Predicate getPredicate (String predicateName, ArrayList<String> carIDs){
+        for (String carID : carIDs){
+            if (!getPredicate (predicateName, carID).equals(null)){
+                return getPredicate (predicateName, carID);
+            }
+        }
+        return null;
+    }
+    
     public State copy (){
         State out = new State();
         for (Predicate pred : this.getPredicates()){
             out.addPredicate(pred);
         }
         return out;
+    }
+    
+    public String toString (){
+        StringBuilder out = new StringBuilder();
+        for (Predicate pred : this.getPredicates()){
+            out.append(pred.toString())
+               .append(".");
+        }
+        // Remove last dot
+        out.setLength(out.length() - 1);
+        
+        return out.toString();
     }
 }

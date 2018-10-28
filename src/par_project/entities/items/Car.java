@@ -17,7 +17,7 @@ public class Car {
     }
     
     public boolean isInstantiated (){
-        if (identifier.equals('X') || identifier.equals('Y') || identifier.equals('Z')) {
+        if (identifier.equals("X") || identifier.equals("Y") || identifier.equals("Z")) {
             return false;
         }
         return true;

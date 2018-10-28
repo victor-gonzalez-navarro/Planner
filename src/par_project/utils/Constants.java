@@ -28,10 +28,10 @@ public class Constants {
     public final static String NUM_LINES_EMPTY  = "NumLinesEmpty";
     public final static String FREE_LINE        = "FreeLine";
     
-    public final static String PICK_LEAVE_FERRY     = "FirstDock";
-    public final static String PICK_STACK_FERRY     = "FirstFerry";
-    public final static String UNSTACK_LEAVE_DOCK   = "LastDock";
-    public final static String UNSTACK_LEAVE_FERRY  = "LastFerry";
-    public final static String UNSTACK_STACK_DOCK   = "NextToDock";
-    public final static String UNSTACK_STACK_FERRY  = "NextToFerry";
+    public final static String PICK_LEAVE_FERRY     = "PickLeaveFerry";
+    public final static String PICK_STACK_FERRY     = "PickStackFerry";
+    public final static String UNSTACK_LEAVE_DOCK   = "UnstackLeaveDock";
+    public final static String UNSTACK_LEAVE_FERRY  = "UnstackLeaveFerry";
+    public final static String UNSTACK_STACK_DOCK   = "UnstackStackDock";
+    public final static String UNSTACK_STACK_FERRY  = "UnstackStackFerry";
 }

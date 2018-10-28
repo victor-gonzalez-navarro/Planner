@@ -14,18 +14,18 @@ import par_project.utils.Constants;
  * @author alarca_94
  */
 public class NextToDock extends Predicate{
-    private Car car1;
-    private Car car2;
+    private Car x;
+    private Car z;
 
-    public NextToDock(Car car1, Car car2) {
+    public NextToDock(Car z, Car x) {
         this.predicateName = Constants.NEXT_TO_DOCK;
-        this.car1 = car1;
-        this.car2 = car2;
+        this.z = z;
+        this.x = x;
     }
 
-    public Car firstCar(Car c) {
-        if (car2.equals(c)){
-            return car1;
+    public Car previousCar(Car c) {
+        if (x.equals(c)){
+            return z;
         } else {
             return null;
         }
@@ -33,19 +33,33 @@ public class NextToDock extends Predicate{
     
     @Override
     public boolean isInstantiated() {
-        return (car1.isInstantiated() && car2.isInstantiated());
+        return (x.isInstantiated() && z.isInstantiated());
     }
     
     @Override
     public ArrayList<Car> getCars() {
         ArrayList<Car> cars = new ArrayList<Car>();
-        cars.add(car1);
-        cars.add(car2);
+        cars.add(z);
+        cars.add(x);
         return cars;
     }
     
     @Override
     public String toString(){
-        return predicateName + "(" + car1.identifier + "," + car2.identifier + ")";
+        return predicateName + "(" + z.identifier + "," + x.identifier + ")";
+    }
+    
+    @Override
+    public Car getXCar (){
+        return x;
+    }
+    
+    @Override
+    public void setCar (Car car, int idx){
+        if (idx == 0){
+            this.z = car;
+        } else {
+            this.x = car;
+        }
     }
 }

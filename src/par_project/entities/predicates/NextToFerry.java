@@ -13,22 +13,36 @@ import par_project.utils.Constants;
  * @author alarca_94
  */
 public class NextToFerry extends Predicate {
-    private Car car1;
-    private Car car2;
+    private Car x;
+    private Car z;
 
-    public NextToFerry(Car car, Car car0) {
+    public NextToFerry(Car z, Car x) {
         this.predicateName = Constants.NEXT_TO_FERRY;
-        this.car1 = car1;
-        this.car2 = car2;
+        this.z = z;
+        this.x = x;
     }
     
     @Override
     public boolean isInstantiated() {
-        return (car1.isInstantiated() && car2.isInstantiated());
+        return (x.isInstantiated() && z.isInstantiated());
     }
     
     @Override
     public String toString(){
-        return predicateName + "(" + car1.identifier + "," + car2.identifier + ")";
+        return predicateName + "(" + z.identifier + "," + x.identifier + ")";
+    }
+    
+    @Override
+    public Car getXCar (){
+        return x;
+    }
+    
+    @Override
+    public void setCar (Car car, int idx){
+        if (idx == 0){
+            this.z = car;
+        } else {
+            this.x = car;
+        }
     }
 }

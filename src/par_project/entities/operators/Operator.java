@@ -8,6 +8,7 @@ package par_project.entities.operators;
 import java.util.ArrayList;
 import java.util.List;
 import par_project.entities.items.Car;
+import par_project.entities.predicates.FirstDock;
 import par_project.entities.predicates.Predicate;
 
 /**
@@ -20,6 +21,22 @@ public class Operator {
     // Just for the cases where LastFerry must not be included in the operators search
     protected List<Predicate> add2_l;
     protected List<Predicate> del_l;
+    
+    private static final List<Operator> POSSIBLE_OPERATORS;
+    static {
+        Car X = new Car("X");
+        Car Y = new Car("Y");
+        Car Z = new Car("Z");
+        
+        POSSIBLE_OPERATORS = new ArrayList<>();
+        POSSIBLE_OPERATORS.add(new PickLeaveFerry(X));
+        POSSIBLE_OPERATORS.add(new PickStackFerry(X, Z));
+        POSSIBLE_OPERATORS.add(new UnstackLeaveDock(X, Z));
+        POSSIBLE_OPERATORS.add(new UnstackLeaveFerry(X, Z));
+        POSSIBLE_OPERATORS.add(new UnstackStackDock(X, Z, Y));
+        POSSIBLE_OPERATORS.add(new UnstackStackFerry(X, Z, Y));
+    }
+    
     
     protected String operatorName;
     
@@ -34,6 +51,10 @@ public class Operator {
         this.x = x;
     }
     
+    public List<Predicate> getPrecsList (){
+        return precs_l;
+    }
+    
     public List<Predicate> getAddList (){
         return add_l;
     }
@@ -46,7 +67,43 @@ public class Operator {
         return del_l;
     }
     
-    public Car getFirstCar(){
+    public Car getFirstCar (){
         return x;
+    }
+    
+    public void setXCar (Car x){
+        this.x = x;
+    }
+    
+    public void setYCar (Car y){
+    }
+    
+    public void setZCar (Car z){
+    }
+    
+    public static Operator searchAddPredicate (Predicate in_pred){
+        for (Operator op : POSSIBLE_OPERATORS){
+            for (Predicate pred : op.getAddList()){
+                if (pred.getClass().equals(in_pred.getClass())){
+                    for (int i=0; i < pred.getCars().size(); i++){
+                        switch (pred.getCars().get(i).identifier) {
+                            case "X":
+                                op.setXCar(in_pred.getCars().get(i));
+                                break;
+                            case "Y":
+                                op.setYCar(in_pred.getCars().get(i));
+                                break;
+                            case "Z":
+                                op.setZCar(in_pred.getCars().get(i));
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    return op;
+                }
+            }
+        }
+        return null;
     }
 }

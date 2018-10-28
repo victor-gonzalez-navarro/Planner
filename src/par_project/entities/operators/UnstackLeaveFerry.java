@@ -40,6 +40,56 @@ public class UnstackLeaveFerry extends Operator{
         del_l.add(new FirstDock(x));
         del_l.add(new NextToDock(z,x));
     }
+
+    @Override
+    public void setXCar(Car x) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof FirstDock){
+                precs_l.get(i).setCar(x, 0);
+            } else if (precs_l.get(i) instanceof NextToDock){
+                precs_l.get(i).setCar(x, 1);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof FirstFerry){
+                add_l.get(i).setCar(x, 0);
+            }      
+        }
+        
+        for (int i = 0; i < add2_l.size(); i++){
+            add2_l.get(i).setCar(x, 0);   
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof FirstDock){
+                del_l.get(i).setCar(x, 0);
+            } else {
+                del_l.get(i).setCar(x, 1);
+            }
+        }
+    }
+
+    @Override
+    public void setZCar(Car z) {
+        for (int i = 0; i < precs_l.size(); i++){
+            if (precs_l.get(i) instanceof NextToDock){
+                precs_l.get(i).setCar(z, 0);
+            }
+        }
+        
+        for (int i = 0; i < add_l.size(); i++){
+            if (add_l.get(i) instanceof FreeLine || add_l.get(i) instanceof FirstDock){
+                add_l.get(i).setCar(z, 0);
+            }      
+        }
+        
+        for (int i = 0; i < del_l.size(); i++){
+            if (del_l.get(i) instanceof NextToDock){
+                del_l.get(i).setCar(z, 0);
+            }
+        }
+    }
     
     @Override
     public String toString(){
