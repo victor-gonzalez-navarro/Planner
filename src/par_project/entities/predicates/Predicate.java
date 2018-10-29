@@ -59,6 +59,16 @@ public class Predicate {
         return null;
     }
     
+    public String getCarIDs (){
+        StringBuilder out = new StringBuilder();
+        for (Car car : this.getCars()){
+            out.append(car.identifier);
+        }
+        return out.toString();
+    }
+    
     public void setCar (Car car, int idx){
     }
+    
+    public void setCars (ArrayList<Car> listCars) { }
 }

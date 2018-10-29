@@ -28,17 +28,17 @@ public class UnstackLeaveFerry extends Operator{
         
         operatorName = Constants.UNSTACK_LEAVE_FERRY;
         
-        precs_l.add(new FirstDock(x));
-        precs_l.add(new NextToDock(z,x));
+        precs_l.add(new FirstDock(this.x));
+        precs_l.add(new NextToDock(this.z,this.x));
         
-        add_l.add(new FirstFerry(x));
-        add_l.add(new FreeLine(z));
-        add_l.add(new FirstDock(z));
+        add_l.add(new FirstFerry(this.x));
+        add_l.add(new FreeLine(this.z));
+        add_l.add(new FirstDock(this.z));
         
-        add2_l.add(new LastFerry(x));
+        add2_l.add(new LastFerry(this.x));
         
-        del_l.add(new FirstDock(x));
-        del_l.add(new NextToDock(z,x));
+        del_l.add(new FirstDock(this.x));
+        del_l.add(new NextToDock(this.z,this.x));
     }
 
     @Override
@@ -68,6 +68,8 @@ public class UnstackLeaveFerry extends Operator{
                 del_l.get(i).setCar(x, 1);
             }
         }
+        
+        this.x = x;
     }
 
     @Override
@@ -89,6 +91,8 @@ public class UnstackLeaveFerry extends Operator{
                 del_l.get(i).setCar(z, 0);
             }
         }
+        
+        this.z = z;
     }
     
     @Override

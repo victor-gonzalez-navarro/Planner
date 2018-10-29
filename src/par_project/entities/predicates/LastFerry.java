@@ -47,4 +47,9 @@ public class LastFerry extends Predicate {
     public void setCar (Car car, int idx){
         this.x = car;
     }
+    
+    @Override
+    public void setCars (ArrayList<Car> listCars) {
+        this.x.identifier = listCars.get(0).identifier;
+    }
 }

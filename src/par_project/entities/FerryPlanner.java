@@ -21,9 +21,12 @@ import java.util.Map;
 import par_project.entities.items.Car;
 import par_project.entities.operators.Operator;
 import par_project.entities.operators.UnstackStackDock;
+import par_project.entities.predicates.FirstFerry;
 import par_project.entities.predicates.FreeLine;
 import par_project.entities.predicates.LastFerry;
 import par_project.entities.predicates.NextToDock;
+import par_project.entities.predicates.NextToFerry;
+import par_project.entities.predicates.NumLinesEmpty;
 import par_project.entities.predicates.Predicate;
 import par_project.utils.Constants;
 
@@ -32,7 +35,8 @@ public class FerryPlanner {
     State init_state, curr_state , target_state;
     List<Operator> stepsToGoal;
     public ArrayList<Car> cars;
-    public int numLinesEmpty;
+    public int numLinesEmpty;   // Keep track of the number of empty lines.
+                                // The predicate will only serve to update this parameter
     public int numMaxCars;
     
     public FerryPlanner (State init_state, State target_state, 
@@ -52,18 +56,17 @@ public class FerryPlanner {
         
         stack.add(target_state.getPredicates());
         
-        for (Predicate pred : target_state.getPredicates()){
+        for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
+        System.out.println(sortPredicates(target_state.getPredicates()));
         
         boolean finished = false;
         Predicate pred;
         
-        int counter = 0;
         int cars_behind_y = 0;
-        
-        while(!finished && counter < 3) {
-            System.out.println(stack.getLast().toString());
+                
+        while(!finished) {
             // Case 1
             if (stack.getLast() instanceof Operator) {
                 Operator op = (Operator) stack.getLast();
@@ -76,12 +79,11 @@ public class FerryPlanner {
                         counting = false;
                         // TODO: Save all NextTo For Efficiency
                         for (Predicate p : curr_state.getPredicates()){
-                            if (p instanceof NextToDock){
-                                if (!((NextToDock) p).previousCar(curr_car).equals(null)){
-                                    cars_behind_y++;
-                                    curr_car = ((NextToDock) p).previousCar(curr_car);
-                                    counting = true;
-                                }
+                            if ((p instanceof NextToDock) && 
+                                    !((NextToDock) p).previousCar(curr_car).equals(null)){
+                                cars_behind_y++;
+                                curr_car = ((NextToDock) p).previousCar(curr_car);
+                                counting = true;
                             }
                         }
                     }
@@ -91,7 +93,7 @@ public class FerryPlanner {
                     if (!curr_state.getPredicates().contains(p)){
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
-                                    ((FreeLine)p).getCar() == ((UnstackStackDock)op).getFirstCar()){
+                                    ((FreeLine)p).getCar().equals(((UnstackStackDock)op).getFirstCar())){
                                 if (cars_behind_y < numMaxCars){
                                     curr_state.addPredicate(p);
                                 }
@@ -114,7 +116,7 @@ public class FerryPlanner {
                     if (curr_state.getPredicates().contains(p)){
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
-                                    ((FreeLine)p).getCar() == ((UnstackStackDock)op).getFirstCar()){
+                                    ((FreeLine)p).getCar().equals(((UnstackStackDock)op).getFirstCar())){
                                 if (cars_behind_y == numMaxCars){
                                     curr_state.delPredicate(p);
                                 }
@@ -128,7 +130,6 @@ public class FerryPlanner {
                 }
                 
                 stepsToGoal.add(op);
-                System.out.println("New Operator");
                 
             // Case 2
             } else if (stack.getLast() instanceof ArrayList){
@@ -141,7 +142,7 @@ public class FerryPlanner {
                 }
                 // Delete the ArrayList
                 if (found){
-                    stack.pop();
+                    stack.removeLast();
                 }
                 
             // Case 3 & 4
@@ -149,52 +150,109 @@ public class FerryPlanner {
                 pred = (Predicate) stack.getLast();
                 // Case 3
                 if (!pred.isInstantiated()){
-                    System.out.println(pred.isInstantiated()?"True":"False");
-                    if (curr_state.getPredicates().contains(pred)){
-                        stack.pop();
-                    } else {
-                        stack.pop();
+                    Boolean endFor = false;
+                    int num = 0;
+                    while (num < curr_state.getPredicates().size() && !endFor) {
+                        Predicate p = curr_state.getPredicates().get(num);
+                        if (pred.getClass().equals(p.getClass())) { // p and pred are the same predicate
+                            ArrayList<Car> ccars_currentstate = p.getCars();
+                            ArrayList<Car> ccars_stack = pred.getCars();
+                            Boolean equality = true;
+                            Boolean enterWhile = true;
+                            int index = 0;
+                            while (index < ccars_currentstate.size() && enterWhile) {
+                                Car c_cstate = ccars_currentstate.get(index);
+                                Car c_stack = ccars_stack.get(index);
+                                if (c_stack.isInstantiated()) {
+                                    if (!((c_cstate.identifier).equals(c_stack.identifier))){
+                                        equality = false;
+                                        enterWhile = false;
+                                    }
+                                }
+                                index++;
+                            }
+                            if (equality) {
+                                pred.setCars(ccars_currentstate);
+                                endFor = true;
+                            }
+                        }
+                        num++;
                     }
                 }
                 // Case 4
                 else {
-                    if (!curr_state.getPredicates().contains(pred)){
+                    if (pred instanceof NumLinesEmpty && numLinesEmpty > 0){
+                        stack.removeLast();
+                    } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
                         Operator op = Operator.searchAddPredicate(pred);
-                        System.out.println(pred.isInstantiated()?"True":"False");
-                        System.out.println("NEW: PRED " + pred.toString());
-                        for (Car car : pred.getCars()){
-                            System.out.println("Id Car: " + car.identifier);
-                        }
-                        System.out.println("OPER " + op.toString());
-                        System.out.println("PRECS " + op.getPrecsList().toString());
-                        
                         stack.add(op);
+                        stack.add(op.getPrecsList());
                         op.getPrecsList().forEach((p) -> {
                             stack.add(p);
                         });
-                        
                     } else {
-                        System.out.println("EXISTS: PRED " + pred.toString());
-                        stack.pop();
+                        boolean found = false;
+
+                        for (int i = 0; i < curr_state.getPredicates().size() && !found; i++){
+                            Predicate pred2 = curr_state.getPredicates().get(i);
+                            if (pred2.getClass().equals(pred.getClass()) && 
+                                pred2.getCarIDs().equals(pred.getCarIDs())){
+                                found = true;
+                            }
+                        }
+
+                        if (!found){
+                            Operator op = Operator.searchAddPredicate(pred);
+                            stack.add(op);
+                            stack.add(op.getPrecsList());
+                            op.getPrecsList().forEach((p) -> {
+                                stack.add(p);
+                            });
+
+                        } else {
+                            stack.removeLast();
+                        }
                     }
                 }
                 
             }
             
-            counter++;
+            if (stack.isEmpty()){ finished = true;}
         }
     }
     
     public Predicate bestInstantiation (State curr_state, ArrayList<String> possibleCarIDs, Predicate p){
         Predicate out_pred = null;
         
-        if (p.getXCar().identifier.equals('X')) {
+        if (p.getXCar().identifier.equals("X")) {
             out_pred = curr_state.getPredicate(p.getPredicateName(), possibleCarIDs);
         } else {
             out_pred = curr_state.getPredicate(p.getPredicateName(), p.getXCar().identifier);
         }
         
         return out_pred;
+    }
+    
+    public ArrayList<Predicate> sortPredicates(ArrayList<Predicate> preds){
+        ArrayList<Predicate> sorted = new ArrayList<>();
+        
+        for (Predicate pred : preds){
+            if (pred instanceof LastFerry){
+                sorted.add(pred);
+            }
+        }
+        for (Predicate pred : preds){
+            if (pred instanceof NextToFerry){
+                sorted.add(pred);
+            }
+        }
+        for (Predicate pred : preds){
+            if (pred instanceof FirstFerry){
+                sorted.add(pred);
+            }
+        }
+        
+        return sorted;
     }
     
 }

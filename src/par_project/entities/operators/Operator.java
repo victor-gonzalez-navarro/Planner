@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import par_project.entities.items.Car;
 import par_project.entities.predicates.FirstDock;
+import par_project.entities.predicates.NumLinesEmpty;
 import par_project.entities.predicates.Predicate;
 
 /**
@@ -72,7 +73,6 @@ public class Operator {
     }
     
     public void setXCar (Car x){
-        this.x = x;
     }
     
     public void setYCar (Car y){
@@ -85,22 +85,28 @@ public class Operator {
         for (Operator op : POSSIBLE_OPERATORS){
             for (Predicate pred : op.getAddList()){
                 if (pred.getClass().equals(in_pred.getClass())){
-                    for (int i=0; i < pred.getCars().size(); i++){
-                        switch (pred.getCars().get(i).identifier) {
-                            case "X":
-                                op.setXCar(in_pred.getCars().get(i));
-                                break;
-                            case "Y":
-                                op.setYCar(in_pred.getCars().get(i));
-                                break;
-                            case "Z":
-                                op.setZCar(in_pred.getCars().get(i));
-                                break;
-                            default:
-                                break;
+                    if (pred instanceof NumLinesEmpty){
+                        if (((NumLinesEmpty)pred).n == 1){
+                            return op;
                         }
+                    } else {
+                        for (int i=0; i < pred.getCars().size(); i++){
+                            switch (pred.getCars().get(i).identifier) {
+                                case "X":
+                                    op.setXCar(in_pred.getCars().get(i));
+                                    break;
+                                case "Y":
+                                    op.setYCar(in_pred.getCars().get(i));
+                                    break;
+                                case "Z":
+                                    op.setZCar(in_pred.getCars().get(i));
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        return op;
                     }
-                    return op;
                 }
             }
         }

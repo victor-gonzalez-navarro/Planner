@@ -62,4 +62,10 @@ public class NextToDock extends Predicate{
             this.x = car;
         }
     }
+    
+    @Override
+    public void setCars (ArrayList<Car> listcars) {
+        this.z.identifier = listcars.get(0).identifier;
+        this.x.identifier = listcars.get(1).identifier;
+    }
 }

@@ -28,20 +28,20 @@ public class UnstackStackDock extends Operator{
         this.z = z;
         this.y = y;
         
-        precs_l.add(new FirstDock(x));
-        precs_l.add(new FirstDock(y));
-        precs_l.add(new NextToDock(z,x));
+        precs_l.add(new FirstDock(this.x));
+        precs_l.add(new FirstDock(this.y));
+        precs_l.add(new NextToDock(this.z,this.x));
         precs_l.add(new FreeLine(y));
         
-        add_l.add(new FreeLine(z));
-        add_l.add(new FreeLine(x));
-        add_l.add(new FirstDock(z));
-        add_l.add(new NextToDock(y,x));
+        add_l.add(new FreeLine(this.z));
+        add_l.add(new FreeLine(this.x));
+        add_l.add(new FirstDock(this.z));
+        add_l.add(new NextToDock(this.y,this.x));
         
-        del_l.add(new FirstDock(y));
-        del_l.add(new FreeLine(y));
-        del_l.add(new NextToDock(z,x));
-        del_l.add(new FreeLine(x));
+        del_l.add(new FirstDock(this.y));
+        del_l.add(new FreeLine(this.y));
+        del_l.add(new NextToDock(this.z,this.x));
+        del_l.add(new FreeLine(this.x));
     }
     
     public Car getThirdCar (){
@@ -79,6 +79,8 @@ public class UnstackStackDock extends Operator{
                 }
             }
         }
+        
+        this.x = x;
     }
 
     @Override
@@ -108,6 +110,8 @@ public class UnstackStackDock extends Operator{
                 }
             }
         }
+        
+        this.y = y;
     }
 
     @Override
@@ -133,6 +137,8 @@ public class UnstackStackDock extends Operator{
                 del_l.get(i).setCar(z, 0);
             }
         }
+        
+        this.z = z;
     }
     
     @Override

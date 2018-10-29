@@ -30,8 +30,12 @@ public class PAR_Project {
         Map<String, List<String>> statement = readInput(Constants.INPUT_PATH + Constants.INPUT_FILE_NAME);
         
         State initState = new State();
+        int counter = 0;
         for (String value : statement.get(Constants.INIT_STATE)){
             initState.addPredicate(Predicate.CreatePredicate(value));
+            if (value.startsWith("FirstDock")){
+                counter++;
+            }
         }
         
         State targetState = new State();
@@ -44,7 +48,7 @@ public class PAR_Project {
             cars.add(new Car(value));
         }
         
-        int numMaxLines = Integer.parseInt(statement.get(Constants.NUM_MAX_LINES).get(0));
+        int numMaxLines = Integer.parseInt(statement.get(Constants.NUM_MAX_LINES).get(0)) - counter;
         int numMaxCars = Integer.parseInt(statement.get(Constants.NUM_MAX_CARS).get(0));
         
         FerryPlanner planner = new FerryPlanner(initState, targetState, cars, numMaxLines, numMaxCars);

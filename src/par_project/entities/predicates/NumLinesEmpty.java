@@ -12,7 +12,7 @@ import par_project.utils.Constants;
  * @author alarca_94
  */
 public class NumLinesEmpty extends Predicate {
-    private int n;
+    public int n;
 
     public NumLinesEmpty(int n) {
         this.predicateName = Constants.NUM_LINES_EMPTY;

@@ -6,6 +6,7 @@
 package par_project.entities.predicates;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
@@ -46,5 +47,10 @@ public class FirstDock extends Predicate {
     @Override
     public void setCar (Car car, int idx){
         this.x = car;
+    }
+    
+    @Override
+    public void setCars (ArrayList<Car> listCars) {
+        this.x.identifier = listCars.get(0).identifier;
     }
 }

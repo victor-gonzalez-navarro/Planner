@@ -5,6 +5,7 @@
  */
 package par_project.entities.predicates;
 
+import java.util.ArrayList;
 import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
@@ -44,5 +45,11 @@ public class NextToFerry extends Predicate {
         } else {
             this.x = car;
         }
+    }
+    
+    @Override
+    public void setCars (ArrayList<Car> listcars) {
+        this.z.identifier = listcars.get(0).identifier;
+        this.x.identifier = listcars.get(1).identifier;
     }
 }

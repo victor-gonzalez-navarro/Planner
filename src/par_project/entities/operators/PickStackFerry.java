@@ -29,24 +29,22 @@ public class PickStackFerry extends Operator{
         
         operatorName = Constants.PICK_STACK_FERRY;
         
-        precs_l.add(new FirstDock(x));
-        precs_l.add(new LastDock(x));
-        precs_l.add(new LastFerry(z));
+        precs_l.add(new FirstDock(this.x));
+        precs_l.add(new LastDock(this.x));
+        precs_l.add(new LastFerry(this.z));
         
-        add_l.add(new NextToFerry(x, z));
+        add_l.add(new NextToFerry(this.x, this.z));
         add_l.add(new NumLinesEmpty(1));
         
-        add2_l.add(new LastFerry(x));
+        add2_l.add(new LastFerry(this.x));
         
-        del_l.add(new FirstDock(x));
-        del_l.add(new LastDock(x));
-        del_l.add(new FreeLine(x));
+        del_l.add(new FirstDock(this.x));
+        del_l.add(new LastDock(this.x));
+        del_l.add(new FreeLine(this.x));
     }
 
     @Override
     public void setXCar(Car x) {
-        super.setXCar(x);
-        
         for (int i = 0; i < precs_l.size(); i++){
             if (precs_l.get(i) instanceof FirstDock || 
                     precs_l.get(i) instanceof LastDock){
@@ -67,6 +65,8 @@ public class PickStackFerry extends Operator{
         for (int i = 0; i < del_l.size(); i++){
             del_l.get(i).setCar(x, 0);
         }
+        
+        this.x = x;
     }
 
     @Override
@@ -82,6 +82,8 @@ public class PickStackFerry extends Operator{
                 add_l.get(i).setCar(z, 1);
             }        
         }
+        
+        this.z = z;
     }
     
     @Override

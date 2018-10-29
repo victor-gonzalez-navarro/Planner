@@ -28,16 +28,17 @@ public class UnstackLeaveDock extends Operator{
         
         operatorName = Constants.UNSTACK_LEAVE_DOCK;
         
-        precs_l.add(new FirstDock(x));
+        precs_l.add(new FirstDock(this.x));
         precs_l.add(new NumLinesEmpty(2));
-        precs_l.add(new NextToDock(z,x));
+        precs_l.add(new NextToDock(this.z,this.x));
         
-        add_l.add(new FirstDock(z));
+        add_l.add(new FirstDock(this.z));
         add_l.add(new NumLinesEmpty(-1));
-        add_l.add(new FreeLine(x));
-        add_l.add(new FreeLine(z));
+        add_l.add(new FreeLine(this.x));
+        add_l.add(new FreeLine(this.z));
+        add_l.add(new LastDock(this.x));
         
-        del_l.add(new NextToDock(z,x));
+        del_l.add(new NextToDock(this.z,this.x));
     }
 
     @Override
@@ -51,14 +52,18 @@ public class UnstackLeaveDock extends Operator{
         }
         
         for (int i = 0; i < add_l.size(); i++){
-            if (add_l.get(i).getXCar().equals(x)){
+            if (add_l.get(i) instanceof FreeLine && add_l.get(i).getXCar().equals(x)){
                 add_l.get(i).setCar(x, 0);
-            }      
+            } else if (add_l.get(i) instanceof LastDock){
+                add_l.get(i).setCar(x, 0);
+            }
         }
         
         for (int i = 0; i < del_l.size(); i++){
             del_l.get(i).setCar(x, 1);
         }
+        
+        this.x = x;
     }
 
     @Override
@@ -82,6 +87,8 @@ public class UnstackLeaveDock extends Operator{
         for (int i = 0; i < del_l.size(); i++){
             del_l.get(i).setCar(z, 0);
         }
+        
+        this.z = z;
     }
     
     @Override
