@@ -6,10 +6,8 @@
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/operators/PickStackFerry.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/operators/UnstackLeaveFerry.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/Predicate.java</file>
-            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/utils/Constants.java</file>
-            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FirstDock.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FreeLine.java</file>
-            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/utils/Functions.java</file>
+            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FirstDock.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/operators/UnstackStackDock.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/LastDock.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/LastFerry.java</file>
@@ -20,9 +18,6 @@
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/operators/UnstackLeaveDock.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/operators/UnstackStackFerry.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/NextToFerry.java</file>
-            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/NumLinesEmpty.java</file>
-            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/states/State.java</file>
-            <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/PAR_Project.java</file>
             <file>file:/Users/alarca_94/Documents/BARCELONA/MASTER/1SEMESTER/PAR/LABS/PAR_Project/src/par_project/entities/predicates/FirstFerry.java</file>
         </group>
     </open-files>

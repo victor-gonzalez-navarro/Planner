@@ -67,8 +67,7 @@ public class Predicate {
         return out.toString();
     }
     
-    public void setCar (Car car, int idx){
-    }
+    public void setCar (Car car, int idx){}
     
     public void setCars (ArrayList<Car> listCars) { }
 }

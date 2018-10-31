@@ -35,8 +35,7 @@ public class PickStackFerry extends Operator{
         
         add_l.add(new NextToFerry(this.x, this.z));
         add_l.add(new NumLinesEmpty(1));
-        
-        add2_l.add(new LastFerry(this.x));
+        add_l.add(new LastFerry(this.x));
         
         del_l.add(new FirstDock(this.x));
         del_l.add(new LastDock(this.x));
@@ -53,13 +52,7 @@ public class PickStackFerry extends Operator{
         }
         
         for (int i = 0; i < add_l.size(); i++){
-            if (add_l.get(i) instanceof NextToFerry) {
-                add_l.get(i).setCar(x, 0);
-            }        
-        }
-        
-        for (int i = 0; i < add2_l.size(); i++){
-            add2_l.get(i).setCar(x, 0);
+            add_l.get(i).setCar(x, 0); 
         }
         
         for (int i = 0; i < del_l.size(); i++){

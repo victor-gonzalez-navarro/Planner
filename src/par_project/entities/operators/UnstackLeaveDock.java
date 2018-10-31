@@ -52,7 +52,7 @@ public class UnstackLeaveDock extends Operator{
         }
         
         for (int i = 0; i < add_l.size(); i++){
-            if (add_l.get(i) instanceof FreeLine && add_l.get(i).getXCar().equals(x)){
+            if (add_l.get(i) instanceof FreeLine && add_l.get(i).getXCar().identifier.equals(Constants.X_IDENTIFIER)){
                 add_l.get(i).setCar(x, 0);
             } else if (add_l.get(i) instanceof LastDock){
                 add_l.get(i).setCar(x, 0);
@@ -78,7 +78,7 @@ public class UnstackLeaveDock extends Operator{
             if (add_l.get(i) instanceof FirstDock){
                 add_l.get(i).setCar(z, 0);
             } else if (add_l.get(i) instanceof FreeLine) {
-                if (add_l.get(i).getXCar().equals(z)){
+                if (add_l.get(i).getXCar().identifier.equals(Constants.Z_IDENTIFIER)){
                     add_l.get(i).setCar(z, 0);
                 }
             }     

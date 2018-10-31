@@ -105,12 +105,6 @@ public class FerryPlanner {
                         }
                     }
                 }
-                
-                for (Predicate p : op.getAdd2List()) {
-                    if (!curr_state.getPredicates().contains(p)){
-                        curr_state.addPredicate(p);
-                    }
-                }
                
                 for (Predicate p : op.getDelList()) {
                     if (curr_state.getPredicates().contains(p)){
@@ -184,7 +178,7 @@ public class FerryPlanner {
                     if (pred instanceof NumLinesEmpty && numLinesEmpty > 0){
                         stack.removeLast();
                     } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
-                        Operator op = Operator.searchAddPredicate(pred);
+                        Operator op = Operator.searchAddPredicate(pred, curr_state);
                         stack.add(op);
                         stack.add(op.getPrecsList());
                         op.getPrecsList().forEach((p) -> {
@@ -202,7 +196,7 @@ public class FerryPlanner {
                         }
 
                         if (!found){
-                            Operator op = Operator.searchAddPredicate(pred);
+                            Operator op = Operator.searchAddPredicate(pred, curr_state);
                             stack.add(op);
                             stack.add(op.getPrecsList());
                             op.getPrecsList().forEach((p) -> {

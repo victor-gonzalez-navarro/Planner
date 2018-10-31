@@ -34,4 +34,8 @@ public class Constants {
     public final static String UNSTACK_LEAVE_FERRY  = "UnstackLeaveFerry";
     public final static String UNSTACK_STACK_DOCK   = "UnstackStackDock";
     public final static String UNSTACK_STACK_FERRY  = "UnstackStackFerry";
+
+    public final static String X_IDENTIFIER = "XXX";
+    public final static String Y_IDENTIFIER = "YYY";
+    public final static String Z_IDENTIFIER = "ZZZ";
 }

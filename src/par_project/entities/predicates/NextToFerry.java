@@ -45,8 +45,8 @@ public class NextToFerry extends Predicate {
         } else {
             this.x = car;
         }
-    }
-    
+    } 
+   
     @Override
     public void setCars (ArrayList<Car> listcars) {
         this.z.identifier = listcars.get(0).identifier;

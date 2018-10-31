@@ -52,7 +52,7 @@ public class UnstackStackDock extends Operator{
     public void setXCar(Car x) {
         for (int i = 0; i < precs_l.size(); i++){
             if (precs_l.get(i) instanceof FirstDock){
-                if (precs_l.get(i).getXCar().equals(x)){
+                if (precs_l.get(i).getXCar().identifier.equals(Constants.X_IDENTIFIER)){
                     precs_l.get(i).setCar(x, 0);
                 }
             } else if (precs_l.get(i) instanceof NextToDock){
@@ -62,7 +62,7 @@ public class UnstackStackDock extends Operator{
         
         for (int i = 0; i < add_l.size(); i++){
             if (add_l.get(i) instanceof FreeLine){
-                if (add_l.get(i).getXCar().equals(x)){
+                if (add_l.get(i).getXCar().identifier.equals(Constants.X_IDENTIFIER)){
                     add_l.get(i).setCar(x, 0);
                 }
             } else if (add_l.get(i) instanceof NextToDock){
@@ -74,7 +74,7 @@ public class UnstackStackDock extends Operator{
             if (del_l.get(i) instanceof NextToDock){
                 del_l.get(i).setCar(x, 1);
             } else if (del_l.get(i) instanceof FreeLine){
-                if (del_l.get(i).getXCar().equals(x)){
+                if (del_l.get(i).getXCar().identifier.equals(Constants.X_IDENTIFIER)){
                     del_l.get(i).setCar(x, 0);
                 }
             }
@@ -87,7 +87,7 @@ public class UnstackStackDock extends Operator{
     public void setYCar(Car y) {
         for (int i = 0; i < precs_l.size(); i++){
             if (precs_l.get(i) instanceof FirstDock){
-                if (precs_l.get(i).getXCar().equals(y)){
+                if (precs_l.get(i).getXCar().identifier.equals(Constants.Y_IDENTIFIER)){
                     precs_l.get(i).setCar(y, 0);
                 }
             } else if (precs_l.get(i) instanceof FreeLine){
@@ -105,7 +105,7 @@ public class UnstackStackDock extends Operator{
             if (del_l.get(i) instanceof FirstDock){
                 del_l.get(i).setCar(y, 1);
             } else if (del_l.get(i) instanceof FreeLine){
-                if (del_l.get(i).getXCar().equals(y)){
+                if (del_l.get(i).getXCar().identifier.equals(Constants.Y_IDENTIFIER)){
                     del_l.get(i).setCar(y, 0);
                 }
             }
@@ -124,7 +124,7 @@ public class UnstackStackDock extends Operator{
         
         for (int i = 0; i < add_l.size(); i++){
             if (add_l.get(i) instanceof FreeLine){
-                if (add_l.get(i).getXCar().equals(z)){
+                if (add_l.get(i).getXCar().identifier.equals(Constants.Z_IDENTIFIER)){
                     add_l.get(i).setCar(z, 0);
                 }
             } else if (add_l.get(i) instanceof FirstDock){

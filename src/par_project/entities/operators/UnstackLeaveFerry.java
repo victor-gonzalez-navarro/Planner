@@ -34,8 +34,7 @@ public class UnstackLeaveFerry extends Operator{
         add_l.add(new FirstFerry(this.x));
         add_l.add(new FreeLine(this.z));
         add_l.add(new FirstDock(this.z));
-        
-        add2_l.add(new LastFerry(this.x));
+        add_l.add(new LastFerry(this.x));
         
         del_l.add(new FirstDock(this.x));
         del_l.add(new NextToDock(this.z,this.x));
@@ -52,13 +51,9 @@ public class UnstackLeaveFerry extends Operator{
         }
         
         for (int i = 0; i < add_l.size(); i++){
-            if (add_l.get(i) instanceof FirstFerry){
+            if (add_l.get(i) instanceof FirstFerry || add_l.get(i) instanceof LastFerry){
                 add_l.get(i).setCar(x, 0);
             }      
-        }
-        
-        for (int i = 0; i < add2_l.size(); i++){
-            add2_l.get(i).setCar(x, 0);   
         }
         
         for (int i = 0; i < del_l.size(); i++){

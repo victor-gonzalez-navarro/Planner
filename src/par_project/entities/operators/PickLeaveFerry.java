@@ -31,8 +31,7 @@ public class PickLeaveFerry extends Operator{
         
         add_l.add(new FirstFerry(this.x));
         add_l.add(new NumLinesEmpty(1));
-        
-        add2_l.add(new LastFerry(this.x));
+        add_l.add(new LastFerry(this.x));
         
         del_l.add(new FirstDock(this.x));
         del_l.add(new LastDock(this.x));
@@ -47,10 +46,6 @@ public class PickLeaveFerry extends Operator{
         
         for (int i = 0; i < add_l.size(); i++){
             add_l.get(i).setCar(x, 0);
-        }
-        
-        for (int i = 0; i < add2_l.size(); i++){
-            add2_l.get(i).setCar(x, 0);
         }
         
         for (int i = 0; i < del_l.size(); i++){
