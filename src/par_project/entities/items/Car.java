@@ -5,6 +5,8 @@
  */
 package par_project.entities.items;
 
+import par_project.utils.Constants;
+
 /**
  *
  * @author alarca_94
@@ -17,7 +19,9 @@ public class Car {
     }
     
     public boolean isInstantiated (){
-        if (identifier.equals("X") || identifier.equals("Y") || identifier.equals("Z")) {
+        if (identifier.equals(Constants.X_IDENTIFIER) ||
+                identifier.equals(Constants.Y_IDENTIFIER) ||
+                identifier.equals(Constants.Z_IDENTIFIER)) {
             return false;
         }
         return true;

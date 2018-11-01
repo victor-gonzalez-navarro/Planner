@@ -24,7 +24,7 @@ public class NextToDock extends Predicate{
     }
 
     public Car previousCar(Car c) {
-        if (x.equals(c)){
+        if (x.identifier.equals(c.identifier)){
             return z;
         } else {
             return null;

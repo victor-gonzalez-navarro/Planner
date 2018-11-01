@@ -38,4 +38,7 @@ public class Constants {
     public final static String X_IDENTIFIER = "XXX";
     public final static String Y_IDENTIFIER = "YYY";
     public final static String Z_IDENTIFIER = "ZZZ";
+
+    public final static String DOCK     = "DOCK";
+    public final static String FERRY    = "FERRY";
 }

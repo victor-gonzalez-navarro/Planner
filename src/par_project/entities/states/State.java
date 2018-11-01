@@ -5,7 +5,12 @@
  */
 package par_project.entities.states;
 
+import par_project.entities.items.Car;
+import par_project.entities.predicates.NextToDock;
+import par_project.entities.predicates.NextToFerry;
 import par_project.entities.predicates.Predicate;
+import par_project.utils.Constants;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.StringBuilder;
@@ -63,7 +68,70 @@ public class State {
         }
         return out;
     }
-    
+
+    public int carsBehind(Car x, String dockOrFerry) {
+        int cars_behind_y = 0;
+        Car curr_car = new Car(x.identifier);
+
+        if (dockOrFerry.equals(Constants.DOCK)) {
+            for (Predicate p : this.predicates){
+                if ((p instanceof NextToDock) &&
+                        p.getCars().get(1).identifier.equals(curr_car.identifier)){
+                    cars_behind_y++;
+                    curr_car = p.getCars().get(0);
+                }
+            }
+        } else if (dockOrFerry.equals(Constants.FERRY)){
+            for (Predicate p : this.predicates){
+                if ((p instanceof NextToFerry) &&
+                        p.getCars().get(1).identifier.equals(curr_car.identifier)){
+                    cars_behind_y++;
+                    curr_car = p.getCars().get(0);
+                }
+            }
+        }
+
+
+
+        return cars_behind_y;
+    }
+
+    public int carsInFrontOf(Car x, String dockOrFerry) {
+        int cars_in_front_y = 0;
+        Car curr_car = new Car(x.identifier);
+        if (dockOrFerry.equals(Constants.DOCK)) {
+            for (Predicate p : this.predicates) {
+                if ((p instanceof NextToDock) &&
+                        p.getCars().get(0).identifier.equals(curr_car.identifier)) {
+                    cars_in_front_y++;
+                    curr_car = p.getCars().get(1);
+                }
+            }
+        } else if (dockOrFerry.equals(Constants.FERRY)) {
+            for (Predicate p : this.predicates) {
+                if ((p instanceof NextToFerry) &&
+                        p.getCars().get(0).identifier.equals(curr_car.identifier)) {
+                    cars_in_front_y++;
+                    curr_car = p.getCars().get(1);
+                }
+            }
+        }
+        return cars_in_front_y;
+    }
+
+    public boolean contains(Predicate pred){
+        for (int i = 0; i < this.predicates.size(); i++){
+            Predicate pred2 = this.predicates.get(i);
+            if (pred2.getClass().equals(pred.getClass()) &&
+                    pred2.getCarIDs().equals(pred.getCarIDs())){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
     public String toString (){
         StringBuilder out = new StringBuilder();
         for (Predicate pred : this.getPredicates()){
