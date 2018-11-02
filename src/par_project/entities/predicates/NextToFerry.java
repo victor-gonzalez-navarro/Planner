@@ -37,6 +37,14 @@ public class NextToFerry extends Predicate {
     public Car getXCar (){
         return x;
     }
+
+    @Override
+    public ArrayList<Car> getCars() {
+        ArrayList<Car> cars = new ArrayList<Car>();
+        cars.add(z);
+        cars.add(x);
+        return cars;
+    }
     
     @Override
     public void setCar (Car car, int idx){

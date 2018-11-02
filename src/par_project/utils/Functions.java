@@ -49,4 +49,16 @@ public class Functions {
         
         return statement;
     }
+
+    public static int argMax(ArrayList<Integer> ints){
+        int maxValue = 0;
+        int idx = 0;
+        for (int i = 0; i < ints.size(); i++) {
+            if (ints.get(i) > maxValue) {
+                maxValue = ints.get(i);
+                idx = i;
+            }
+        }
+        return idx;
+    }
 }

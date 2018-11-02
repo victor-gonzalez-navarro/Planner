@@ -12,12 +12,11 @@
 package par_project.entities;
 
 import par_project.entities.states.State;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
+
+import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
+
 import par_project.entities.items.Car;
 import par_project.entities.operators.Operator;
 import par_project.entities.operators.UnstackStackDock;
@@ -29,6 +28,7 @@ import par_project.entities.predicates.NextToFerry;
 import par_project.entities.predicates.NumLinesEmpty;
 import par_project.entities.predicates.Predicate;
 import par_project.utils.Constants;
+import par_project.utils.Functions;
 
 public class FerryPlanner {    
     Deque<Object> stack = new ArrayDeque<>();
@@ -230,22 +230,131 @@ public class FerryPlanner {
     
     public ArrayList<Predicate> sortPredicates(ArrayList<Predicate> preds){
         ArrayList<Predicate> sorted = new ArrayList<>();
-        
+
+        ////////////////////////
+//        Map<String, Integer> carsDepth = new HashMap<>();
+//        String id = "";
+//        String prev_car_id = "";
+//        int depth = 0;
+//        ArrayList<String> carsCurrentLayer = new ArrayList<>();
+//
+//        for (Predicate pred : this.target_state.getPredicates()){
+//            if (pred instanceof FirstFerry){
+//                id = pred.getCarIDs();
+//                depth = curr_state.carsInFrontOf(pred.getCars().get(0), Constants.DOCK);
+//                carsDepth.put(id, depth);
+//                carsCurrentLayer.add(id);
+//            }
+//        }
+//
+//
+//
+//        for (Predicate pred : this.target_state.getPredicates()){
+//            if (pred instanceof NextToFerry){
+//                prev_car_id = pred.getCarIDs().substring(1,2);
+//                if (carsCurrentLayer.contains(prev_car_id)) {
+//                    id = pred.getCarIDs().substring(0, 1);
+//                    depth = curr_state.carsInFrontOf(pred.getCars().get(0), Constants.DOCK) +
+//                            carsDepth.get(prev_car_id);
+//                    carsDepth.put(id, depth);
+//                    carsCurrentLayer.add(id);
+//                    carsCurrentLayer.remove(prev_car_id);
+//                }
+//            }
+//        }
+
+        ///////////////////////
+
+        Map<String, Integer> carsDepth = new HashMap<>();
+        ArrayList<Integer> curr_layer_depths = new ArrayList<>();
+        ArrayList<Predicate> curr_layer_preds = new ArrayList<>();
+        ArrayList<Car> future_layer_cars = new ArrayList<>();
+        ArrayList<Car> curr_layer_cars = new ArrayList<>();
+        int maximum_idx;
+
+        for (Car car : cars){
+            carsDepth.put(car.identifier, curr_state.carsInFrontOf(car, Constants.DOCK));
+        }
+
+        int maxFerryDepth = -1;
+        int currFerryDepth = 0;
         for (Predicate pred : preds){
             if (pred instanceof LastFerry){
-                sorted.add(pred);
+                curr_layer_preds.add(pred);
+                curr_layer_depths.add(carsDepth.get(pred.getCarIDs()));
+                curr_layer_cars.add(pred.getCars().get(0));
+                currFerryDepth = target_state.carsInFrontOf(pred.getCars().get(0), Constants.FERRY);
+                if (currFerryDepth > maxFerryDepth){
+                    maxFerryDepth = currFerryDepth;
+                }
             }
         }
-        for (Predicate pred : preds){
-            if (pred instanceof NextToFerry){
-                sorted.add(pred);
-            }
+
+        for (int i = 0; i < curr_layer_preds.size(); i++){
+            maximum_idx = Functions.argMax(curr_layer_depths);
+            sorted.add(curr_layer_preds.get(maximum_idx));
+            curr_layer_depths.set(maximum_idx, -1);
         }
+
+        // NextToFerry
+        for (int i = 0; i < maxFerryDepth; i++) {
+            curr_layer_preds.removeAll(curr_layer_preds);
+            curr_layer_depths.removeAll(curr_layer_depths);
+
+            for (Predicate pred : preds) {
+                if (pred instanceof NextToFerry){
+                    for (Car car : curr_layer_cars){
+                        if (car.identifier.equals(pred.getCars().get(0).identifier)){
+                            curr_layer_preds.add(pred);
+                            curr_layer_depths.add(carsDepth.get(pred.getCarIDs().substring(0,1)));
+                            future_layer_cars.add(pred.getCars().get(1));
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (int j = 0; j < curr_layer_preds.size(); j++) {
+                maximum_idx = Functions.argMax(curr_layer_depths);
+                sorted.add(curr_layer_preds.get(maximum_idx));
+                curr_layer_depths.set(maximum_idx, -1);
+            }
+
+            curr_layer_cars = new ArrayList<>(future_layer_cars);
+        }
+
+        // First Ferry
+
+        curr_layer_preds.removeAll(curr_layer_preds);
+        curr_layer_depths.removeAll(curr_layer_depths);
+
         for (Predicate pred : preds){
             if (pred instanceof FirstFerry){
-                sorted.add(pred);
+                curr_layer_preds.add(pred);
+                curr_layer_depths.add(carsDepth.get(pred.getCarIDs()));
             }
         }
+
+        for (int i = 0; i < curr_layer_preds.size(); i++){
+            maximum_idx = Functions.argMax(curr_layer_depths);
+            sorted.add(curr_layer_preds.get(maximum_idx));
+            curr_layer_depths.set(maximum_idx, -1);
+        }
+
+
+//        for (Predicate pred : preds){
+//            if (pred instanceof NextToFerry){
+//                sorted.add(pred);
+//            }
+//        }
+//        for (Predicate pred : preds){
+//            if (pred instanceof FirstFerry){
+//                carsDepth.put(pred.getCarIDs(), curr_state.carsInFrontOf(pred.getCars().get(0), Constants.DOCK));
+//                //sorted.add(pred);
+//            }
+//        }
+
+        ArrayList<Predicate> curr_preds = new ArrayList<>();
         
         return sorted;
     }

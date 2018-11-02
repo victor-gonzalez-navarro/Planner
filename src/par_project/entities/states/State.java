@@ -6,9 +6,7 @@
 package par_project.entities.states;
 
 import par_project.entities.items.Car;
-import par_project.entities.predicates.NextToDock;
-import par_project.entities.predicates.NextToFerry;
-import par_project.entities.predicates.Predicate;
+import par_project.entities.predicates.*;
 import par_project.utils.Constants;
 
 import java.util.ArrayList;
@@ -72,21 +70,40 @@ public class State {
     public int carsBehind(Car x, String dockOrFerry) {
         int cars_behind_y = 0;
         Car curr_car = new Car(x.identifier);
+        boolean keep = true;
 
         if (dockOrFerry.equals(Constants.DOCK)) {
-            for (Predicate p : this.predicates){
-                if ((p instanceof NextToDock) &&
-                        p.getCars().get(1).identifier.equals(curr_car.identifier)){
-                    cars_behind_y++;
-                    curr_car = p.getCars().get(0);
+            if (this.contains(new FirstDock(curr_car))) {
+                keep = false;
+            }
+            while(keep) {
+                for (Predicate p : this.predicates) {
+                    if ((p instanceof NextToDock) &&
+                            p.getCars().get(1).identifier.equals(curr_car.identifier)) {
+                        cars_behind_y++;
+                        curr_car = p.getCars().get(0);
+                        if (this.contains(new FirstDock(curr_car))) {
+                            keep = false;
+                        }
+                        break;
+                    }
                 }
             }
-        } else if (dockOrFerry.equals(Constants.FERRY)){
-            for (Predicate p : this.predicates){
-                if ((p instanceof NextToFerry) &&
-                        p.getCars().get(1).identifier.equals(curr_car.identifier)){
-                    cars_behind_y++;
-                    curr_car = p.getCars().get(0);
+        } else if (dockOrFerry.equals(Constants.FERRY)) {
+            if (this.contains(new FirstDock(curr_car))) {
+                keep = false;
+            }
+            while (keep) {
+                for (Predicate p : this.predicates) {
+                    if ((p instanceof NextToFerry) &&
+                            p.getCars().get(1).identifier.equals(curr_car.identifier)) {
+                        cars_behind_y++;
+                        curr_car = p.getCars().get(0);
+                        if (this.contains(new FirstFerry(curr_car))) {
+                            keep = false;
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -99,20 +116,39 @@ public class State {
     public int carsInFrontOf(Car x, String dockOrFerry) {
         int cars_in_front_y = 0;
         Car curr_car = new Car(x.identifier);
+        boolean keep = true;
         if (dockOrFerry.equals(Constants.DOCK)) {
-            for (Predicate p : this.predicates) {
-                if ((p instanceof NextToDock) &&
-                        p.getCars().get(0).identifier.equals(curr_car.identifier)) {
-                    cars_in_front_y++;
-                    curr_car = p.getCars().get(1);
+            if (this.contains(new FirstDock(curr_car))){
+                keep = false;
+            }
+            while(keep){
+                for (Predicate p : this.predicates) {
+                    if ((p instanceof NextToDock) &&
+                            p.getCars().get(0).identifier.equals(curr_car.identifier)) {
+                        cars_in_front_y++;
+                        curr_car = p.getCars().get(1);
+                        if (this.contains(new FirstDock(curr_car))) {
+                            keep = false;
+                        }
+                        break;
+                    }
                 }
             }
         } else if (dockOrFerry.equals(Constants.FERRY)) {
-            for (Predicate p : this.predicates) {
-                if ((p instanceof NextToFerry) &&
-                        p.getCars().get(0).identifier.equals(curr_car.identifier)) {
-                    cars_in_front_y++;
-                    curr_car = p.getCars().get(1);
+            if (this.contains(new FirstDock(curr_car))) {
+                keep = false;
+            }
+            while(keep) {
+                for (Predicate p : this.predicates) {
+                    if (p instanceof NextToFerry &&
+                            p.getCars().get(0).identifier.equals(curr_car.identifier)) {
+                        cars_in_front_y++;
+                        curr_car = p.getCars().get(1);
+                        if (this.contains(new FirstFerry(curr_car))) {
+                            keep = false;
+                        }
+                        break;
+                    }
                 }
             }
         }
