@@ -13,6 +13,8 @@ import par_project.entities.predicates.NextToDock;
 import par_project.entities.predicates.NextToFerry;
 import par_project.utils.Constants;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alarca_94
@@ -20,27 +22,31 @@ import par_project.utils.Constants;
 public class UnstackStackFerry extends Operator{
     private Car z, y;
     
-    public UnstackStackFerry (Car x, Car z, Car y){
-        super(x);
-        
+    public UnstackStackFerry (Car x, Car z, Car y, ArrayList<Car> cars){
+        super(x, cars);
+
         this.z = z;
         this.y = y;
         
         operatorName = Constants.UNSTACK_STACK_FERRY;
+
+        this.available_cars.remove(x.identifier);
+        this.available_cars.remove(y.identifier);
+        this.available_cars.remove(z.identifier);
+
+        precs_l.add(new LastFerry(this.y, this.available_cars));
+        precs_l.add(new NextToDock(this.z,this.x, this.available_cars));
+        precs_l.add(new FirstDock(this.x, this.available_cars));
         
-        precs_l.add(new FirstDock(this.x));
-        precs_l.add(new LastFerry(this.y));
-        precs_l.add(new NextToDock(this.z,this.x));
+        add_l.add(new FreeLine(this.z, this.available_cars));
+        add_l.add(new LastFerry(this.x, this.available_cars));
+        add_l.add(new FirstDock(this.z, this.available_cars));
+        add_l.add(new NextToFerry(this.x,this.y, this.available_cars));
         
-        add_l.add(new FreeLine(this.z));
-        add_l.add(new LastFerry(this.x));
-        add_l.add(new FirstDock(this.z));
-        add_l.add(new NextToFerry(this.x,this.y));
-        
-        del_l.add(new FirstDock(this.x));
-        del_l.add(new LastFerry(this.y));
-        del_l.add(new NextToDock(this.z,this.x));
-        del_l.add(new FreeLine(this.x));
+        del_l.add(new FirstDock(this.x, this.available_cars));
+        del_l.add(new LastFerry(this.y, this.available_cars));
+        del_l.add(new NextToDock(this.z,this.x, this.available_cars));
+        del_l.add(new FreeLine(this.x, this.available_cars));
     }
 
     @Override
@@ -68,6 +74,7 @@ public class UnstackStackFerry extends Operator{
         }
         
         this.x = x;
+        this.available_cars.remove(x.identifier);
     }
 
     @Override
@@ -91,6 +98,7 @@ public class UnstackStackFerry extends Operator{
         }
         
         this.y = y;
+        this.available_cars.remove(y.identifier);
     }
 
     @Override
@@ -114,6 +122,7 @@ public class UnstackStackFerry extends Operator{
         }
         
         this.z = z;
+        this.available_cars.remove(z.identifier);
     }
     
     @Override

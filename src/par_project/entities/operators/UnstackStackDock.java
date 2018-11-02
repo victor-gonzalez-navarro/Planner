@@ -13,6 +13,8 @@ import par_project.entities.predicates.LastFerry;
 import par_project.entities.predicates.NextToDock;
 import par_project.utils.Constants;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alarca_94
@@ -20,28 +22,32 @@ import par_project.utils.Constants;
 public class UnstackStackDock extends Operator{
     private Car z, y;
     
-    public UnstackStackDock (Car x, Car z, Car y){
-        super(x);
+    public UnstackStackDock (Car x, Car z, Car y, ArrayList<Car> cars){
+        super(x, cars);
         
         operatorName = Constants.UNSTACK_STACK_DOCK;
         
         this.z = z;
         this.y = y;
+
+        this.available_cars.remove(x.identifier);
+        this.available_cars.remove(z.identifier);
+        this.available_cars.remove(y.identifier);
+
+        precs_l.add(new FreeLine(this.y, this.available_cars));
+        precs_l.add(new FirstDock(this.y, this.available_cars));
+        precs_l.add(new FirstDock(this.x, this.available_cars));
+        precs_l.add(new NextToDock(this.z,this.x, this.available_cars));
         
-        precs_l.add(new FirstDock(this.x));
-        precs_l.add(new FirstDock(this.y));
-        precs_l.add(new NextToDock(this.z,this.x));
-        precs_l.add(new FreeLine(y));
+        add_l.add(new FreeLine(this.z, this.available_cars));
+        add_l.add(new FreeLine(this.x, this.available_cars));
+        add_l.add(new FirstDock(this.z, this.available_cars));
+        add_l.add(new NextToDock(this.y,this.x, this.available_cars));
         
-        add_l.add(new FreeLine(this.z));
-        add_l.add(new FreeLine(this.x));
-        add_l.add(new FirstDock(this.z));
-        add_l.add(new NextToDock(this.y,this.x));
-        
-        del_l.add(new FirstDock(this.y));
-        del_l.add(new FreeLine(this.y));
-        del_l.add(new NextToDock(this.z,this.x));
-        del_l.add(new FreeLine(this.x));
+        del_l.add(new FirstDock(this.y, this.available_cars));
+        del_l.add(new FreeLine(this.y, this.available_cars));
+        del_l.add(new NextToDock(this.z,this.x, this.available_cars));
+        del_l.add(new FreeLine(this.x, this.available_cars));
     }
     
     public Car getThirdCar (){
@@ -81,6 +87,7 @@ public class UnstackStackDock extends Operator{
         }
         
         this.x = x;
+        this.available_cars.remove(x.identifier);
     }
 
     @Override
@@ -112,6 +119,7 @@ public class UnstackStackDock extends Operator{
         }
         
         this.y = y;
+        this.available_cars.remove(y.identifier);
     }
 
     @Override
@@ -139,6 +147,7 @@ public class UnstackStackDock extends Operator{
         }
         
         this.z = z;
+        this.available_cars.remove(z.identifier);
     }
     
     @Override

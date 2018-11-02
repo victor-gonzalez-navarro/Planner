@@ -15,6 +15,7 @@ import par_project.utils.Constants;
  */
 public class Predicate {
     protected String predicateName;
+    ArrayList<String> available_cars;
     
     public static Predicate CreatePredicate(String predicatePlusCars){
         Predicate pred = null;
@@ -70,4 +71,16 @@ public class Predicate {
     public void setCar (Car car, int idx){}
     
     public void setCars (ArrayList<Car> listCars) { }
+
+    public void uninstantiateCar(int idx){}
+
+    public boolean areCarsAvailable(ArrayList<Car> cars) {
+        boolean available = false;
+        for (Car car : cars){
+            if (available_cars.contains(car.identifier)){
+                available = true;
+            }
+        }
+        return available;
+    }
 }

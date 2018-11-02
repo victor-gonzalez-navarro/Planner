@@ -21,21 +21,23 @@ import par_project.utils.Constants;
  */
 public class PickLeaveFerry extends Operator{
     
-    public PickLeaveFerry (Car x){
-        super(x);
+    public PickLeaveFerry (Car x, ArrayList<Car> cars){
+        super(x, cars);
         
         operatorName = Constants.PICK_LEAVE_FERRY;
+
+        this.available_cars.remove(x.identifier);
+
+        precs_l.add(new LastDock(this.x, this.available_cars));
+        precs_l.add(new FirstDock(this.x, this.available_cars));
         
-        precs_l.add(new FirstDock(this.x));
-        precs_l.add(new LastDock(this.x));
-        
-        add_l.add(new FirstFerry(this.x));
+        add_l.add(new FirstFerry(this.x, this.available_cars));
         add_l.add(new NumLinesEmpty(1));
-        add_l.add(new LastFerry(this.x));
+        add_l.add(new LastFerry(this.x, this.available_cars));
         
-        del_l.add(new FirstDock(this.x));
-        del_l.add(new LastDock(this.x));
-        del_l.add(new FreeLine(this.x));
+        del_l.add(new FirstDock(this.x, this.available_cars));
+        del_l.add(new LastDock(this.x, this.available_cars));
+        del_l.add(new FreeLine(this.x, this.available_cars));
     }
 
     @Override
@@ -53,6 +55,7 @@ public class PickLeaveFerry extends Operator{
         }
         
         this.x = x;
+        this.available_cars.remove(x.identifier);
     }
     
     @Override

@@ -14,6 +14,8 @@ import par_project.entities.predicates.NextToFerry;
 import par_project.entities.predicates.NumLinesEmpty;
 import par_project.utils.Constants;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alarca_94
@@ -21,24 +23,27 @@ import par_project.utils.Constants;
 public class UnstackLeaveDock extends Operator{
     private Car z;
     
-    public UnstackLeaveDock (Car x, Car z){
-        super(x);
+    public UnstackLeaveDock (Car x, Car z, ArrayList<Car> cars){
+        super(x, cars);
         
         this.z = z;
         
         operatorName = Constants.UNSTACK_LEAVE_DOCK;
-        
-        precs_l.add(new FirstDock(this.x));
+
+        this.available_cars.remove(x.identifier);
+        this.available_cars.remove(z.identifier);
+
         precs_l.add(new NumLinesEmpty(2));
-        precs_l.add(new NextToDock(this.z,this.x));
-        
-        add_l.add(new FirstDock(this.z));
+        precs_l.add(new FirstDock(this.x, this.available_cars));
+        precs_l.add(new NextToDock(this.z,this.x, this.available_cars));
+
+        add_l.add(new FirstDock(this.z, this.available_cars));
         add_l.add(new NumLinesEmpty(-1));
-        add_l.add(new FreeLine(this.x));
-        add_l.add(new FreeLine(this.z));
-        add_l.add(new LastDock(this.x));
+        add_l.add(new FreeLine(this.x, this.available_cars));
+        add_l.add(new FreeLine(this.z, this.available_cars));
+        add_l.add(new LastDock(this.x, this.available_cars));
         
-        del_l.add(new NextToDock(this.z,this.x));
+        del_l.add(new NextToDock(this.z,this.x, this.available_cars));
     }
 
     @Override
@@ -64,6 +69,7 @@ public class UnstackLeaveDock extends Operator{
         }
         
         this.x = x;
+        this.available_cars.remove(x.identifier);
     }
 
     @Override
@@ -89,6 +95,7 @@ public class UnstackLeaveDock extends Operator{
         }
         
         this.z = z;
+        this.available_cars.remove(z.identifier);
     }
     
     @Override

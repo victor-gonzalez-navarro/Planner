@@ -22,6 +22,12 @@ public class FirstDock extends Predicate {
         this.x = x;
     }
 
+    public FirstDock(Car x, ArrayList<String> available_cars) {
+        this.predicateName = Constants.FIRST_DOCK;
+        this.x = x;
+        this.available_cars = available_cars;
+    }
+
     @Override
     public boolean isInstantiated() {
         return x.isInstantiated();
@@ -51,6 +57,16 @@ public class FirstDock extends Predicate {
     
     @Override
     public void setCars (ArrayList<Car> listCars) {
-        this.x.identifier = listCars.get(0).identifier;
+        if (available_cars.contains(listCars.get(0).identifier)) {
+            this.x.identifier = listCars.get(0).identifier;
+            this.available_cars.remove(x.identifier);
+        }
+    }
+
+    @Override
+    public void uninstantiateCar(int idx) {
+        if (idx == 0){
+            x.identifier = Constants.X_IDENTIFIER;
+        }
     }
 }

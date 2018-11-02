@@ -22,6 +22,13 @@ public class NextToFerry extends Predicate {
         this.z = z;
         this.x = x;
     }
+
+    public NextToFerry(Car z, Car x, ArrayList<String> available_cars) {
+        this.predicateName = Constants.NEXT_TO_FERRY;
+        this.z = z;
+        this.x = x;
+        this.available_cars = available_cars;
+    }
     
     @Override
     public boolean isInstantiated() {
@@ -48,7 +55,7 @@ public class NextToFerry extends Predicate {
     
     @Override
     public void setCar (Car car, int idx){
-        if (idx == 0){
+        if (idx == 0) {
             this.z = car;
         } else {
             this.x = car;
@@ -56,8 +63,14 @@ public class NextToFerry extends Predicate {
     } 
    
     @Override
-    public void setCars (ArrayList<Car> listcars) {
-        this.z.identifier = listcars.get(0).identifier;
-        this.x.identifier = listcars.get(1).identifier;
+    public void setCars (ArrayList<Car> listCars) {
+        if (available_cars.contains(listCars.get(0).identifier)) {
+            this.z.identifier = listCars.get(0).identifier;
+            this.available_cars.remove(z.identifier);
+        }
+        if (available_cars.contains(listCars.get(1).identifier)) {
+            this.x.identifier = listCars.get(1).identifier;
+            this.available_cars.remove(x.identifier);
+        }
     }
 }

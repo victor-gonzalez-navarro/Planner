@@ -17,10 +17,11 @@ import par_project.utils.Constants;
  *
  * @author alarca_94
  */
-public class Operator implements Cloneable{
+public class Operator{
     protected List<Predicate> precs_l;
     protected List<Predicate> add_l;
     protected List<Predicate> del_l;
+    protected ArrayList<String> available_cars;
     
     private static Random rnd;
     
@@ -29,10 +30,15 @@ public class Operator implements Cloneable{
     
     protected Car x;
 
-    public Operator (Car x){
+    public Operator (Car x, ArrayList<Car> cars){
         precs_l = new ArrayList<>();
         add_l   = new ArrayList<>();
         del_l   = new ArrayList<>();
+
+        available_cars = new ArrayList<>();
+        for (Car car : cars){
+            available_cars.add(car.identifier);
+        }
         
         this.x = x;
         
@@ -64,27 +70,27 @@ public class Operator implements Cloneable{
     public void setZCar (Car z){
     }
 
-    private static List<Operator> getPossibleOperators(){
+    private static List<Operator> getPossibleOperators(ArrayList<Car> cars){
         List<Operator> possibleOperators;
         Car X = new Car(Constants.X_IDENTIFIER);
         Car Y = new Car(Constants.Y_IDENTIFIER);
         Car Z = new Car(Constants.Z_IDENTIFIER);
 
         possibleOperators = new ArrayList<>();
-        possibleOperators.add(new PickLeaveFerry(X));
-        possibleOperators.add(new PickStackFerry(X, Z));
-        possibleOperators.add(new UnstackLeaveDock(X, Z));
-        possibleOperators.add(new UnstackLeaveFerry(X, Z));
-        possibleOperators.add(new UnstackStackDock(X, Z, Y));
-        possibleOperators.add(new UnstackStackFerry(X, Z, Y));
+        possibleOperators.add(new PickLeaveFerry(X, cars));
+        possibleOperators.add(new PickStackFerry(X, Z, cars));
+        possibleOperators.add(new UnstackLeaveDock(X, Z, cars));
+        possibleOperators.add(new UnstackLeaveFerry(X, Z, cars));
+        possibleOperators.add(new UnstackStackDock(X, Z, Y, cars));
+        possibleOperators.add(new UnstackStackFerry(X, Z, Y, cars));
 
         return possibleOperators;
     }
     
-    public static Operator searchAddPredicate (Predicate in_pred, State curr_state, int numLinesEmpty){
+    public static Operator searchAddPredicate (Predicate in_pred, State curr_state, int numLinesEmpty, ArrayList<Car> cars){
         ArrayList<Operator> matched_ops = new ArrayList<>();
  
-        for (Operator op : getPossibleOperators()){
+        for (Operator op : getPossibleOperators(cars)){
             for (Predicate pred : op.getAddList()){
                 if (pred.getClass().equals(in_pred.getClass())){
                     if (pred instanceof NumLinesEmpty){

@@ -14,6 +14,8 @@ import par_project.entities.predicates.NextToDock;
 import par_project.entities.predicates.NumLinesEmpty;
 import par_project.utils.Constants;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alarca_94
@@ -21,24 +23,27 @@ import par_project.utils.Constants;
 public class UnstackLeaveFerry extends Operator{
     private Car z;
     
-    public UnstackLeaveFerry (Car x, Car z){
-        super(x);
+    public UnstackLeaveFerry (Car x, Car z, ArrayList<Car> cars){
+        super(x, cars);
         
         this.z = z;
         
         operatorName = Constants.UNSTACK_LEAVE_FERRY;
+
+        this.available_cars.remove(x.identifier);
+        this.available_cars.remove(z.identifier);
+
+        precs_l.add(new NextToDock(this.z,this.x, this.available_cars));
+        precs_l.add(new FirstDock(this.x, this.available_cars));
         
-        precs_l.add(new FirstDock(this.x));
-        precs_l.add(new NextToDock(this.z,this.x));
+        add_l.add(new FirstFerry(this.x, this.available_cars));
+        add_l.add(new FreeLine(this.z, this.available_cars));
+        add_l.add(new FirstDock(this.z, this.available_cars));
+        add_l.add(new LastFerry(this.x, this.available_cars));
         
-        add_l.add(new FirstFerry(this.x));
-        add_l.add(new FreeLine(this.z));
-        add_l.add(new FirstDock(this.z));
-        add_l.add(new LastFerry(this.x));
-        
-        del_l.add(new FirstDock(this.x));
-        del_l.add(new NextToDock(this.z,this.x));
-        del_l.add(new FreeLine(this.x));
+        del_l.add(new FirstDock(this.x, this.available_cars));
+        del_l.add(new NextToDock(this.z,this.x, this.available_cars));
+        del_l.add(new FreeLine(this.x, this.available_cars));
     }
 
     @Override
@@ -66,6 +71,7 @@ public class UnstackLeaveFerry extends Operator{
         }
         
         this.x = x;
+        this.available_cars.remove(x.identifier);
     }
 
     @Override
@@ -89,6 +95,7 @@ public class UnstackLeaveFerry extends Operator{
         }
         
         this.z = z;
+        this.available_cars.remove(z.identifier);
     }
     
     @Override

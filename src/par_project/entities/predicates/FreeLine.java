@@ -20,6 +20,12 @@ public class FreeLine extends Predicate {
         this.predicateName = Constants.FREE_LINE;
         this.x = x;
     }
+
+    public FreeLine(Car x, ArrayList<String> available_cars) {
+        this.predicateName = Constants.FREE_LINE;
+        this.x = x;
+        this.available_cars = available_cars;
+    }
     
     public Car getCar (){
         return x;
@@ -54,6 +60,9 @@ public class FreeLine extends Predicate {
     
     @Override
     public void setCars (ArrayList<Car> listCars) {
-        this.x.identifier = listCars.get(0).identifier;
+        if (available_cars.contains(listCars.get(0).identifier)) {
+            this.x.identifier = listCars.get(0).identifier;
+            this.available_cars.remove(x.identifier);
+        }
     }
 }

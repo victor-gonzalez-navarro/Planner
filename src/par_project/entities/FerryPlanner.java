@@ -121,6 +121,7 @@ public class FerryPlanner {
                 boolean found = true;
                 for (Predicate p : (ArrayList<Predicate>) stack.getLast()) {
                     if (!(p instanceof NumLinesEmpty) && !curr_state.contains(p)){
+                        p.uninstantiateCar(0);
                         stack.add(p);
                         found = false;
                     }
@@ -156,7 +157,7 @@ public class FerryPlanner {
                                 }
                                 index++;
                             }
-                            if (equality) {
+                            if (equality && pred.areCarsAvailable(ccars_currentstate)) {
                                 pred.setCars(ccars_currentstate);
                                 endFor = true;
                             }
@@ -169,7 +170,7 @@ public class FerryPlanner {
                     if (pred instanceof NumLinesEmpty && numLinesEmpty > 0){
                         stack.removeLast();
                     } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
-                        Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty);
+                        Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
                         stack.add(op);
                         stack.add(op.getPrecsList());
                         op.getPrecsList().forEach((p) -> {
@@ -187,7 +188,7 @@ public class FerryPlanner {
 //                        }
 
                         if (!curr_state.contains(pred)){
-                            Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty);
+                            Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
                             stack.add(op);
                             stack.add(op.getPrecsList());
                             op.getPrecsList().forEach((p) -> {

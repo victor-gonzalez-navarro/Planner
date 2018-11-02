@@ -20,6 +20,12 @@ public class LastFerry extends Predicate {
         this.predicateName = Constants.LAST_FERRY;
         this.x = x;
     }
+
+    public LastFerry(Car x, ArrayList<String> available_cars) {
+        this.predicateName = Constants.LAST_FERRY;
+        this.x = x;
+        this.available_cars = available_cars;
+    }
     
     @Override
     public boolean isInstantiated() {
@@ -50,6 +56,9 @@ public class LastFerry extends Predicate {
     
     @Override
     public void setCars (ArrayList<Car> listCars) {
-        this.x.identifier = listCars.get(0).identifier;
+        if (available_cars.contains(listCars.get(0).identifier)) {
+            this.x.identifier = listCars.get(0).identifier;
+            this.available_cars.remove(x.identifier);
+        }
     }
 }
