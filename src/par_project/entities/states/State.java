@@ -10,7 +10,6 @@ import par_project.entities.predicates.*;
 import par_project.utils.Constants;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.lang.StringBuilder;
 
 /**
@@ -33,7 +32,13 @@ public class State {
     }
     
     public void delPredicate (Predicate pred){
-        this.predicates.remove(pred);
+        for (int i = 0; i < this.predicates.size(); i++){
+            if(predicates.get(i).getClass().equals(pred.getClass()) &&
+                    predicates.get(i).getCarIDs().equals(pred.getCarIDs())){
+                this.predicates.remove(i);
+                break;
+            }
+        }
     }
     
     public ArrayList<Predicate> getPredicates (){
@@ -73,7 +78,7 @@ public class State {
         boolean keep = true;
 
         if (dockOrFerry.equals(Constants.DOCK)) {
-            if (this.contains(new FirstDock(curr_car))) {
+            if (this.contains(new LastDock(curr_car))) {
                 keep = false;
             }
             while(keep) {
@@ -82,7 +87,7 @@ public class State {
                             p.getCars().get(1).identifier.equals(curr_car.identifier)) {
                         cars_behind_y++;
                         curr_car = p.getCars().get(0);
-                        if (this.contains(new FirstDock(curr_car))) {
+                        if (this.contains(new LastDock(curr_car))) {
                             keep = false;
                         }
                         break;
@@ -90,7 +95,7 @@ public class State {
                 }
             }
         } else if (dockOrFerry.equals(Constants.FERRY)) {
-            if (this.contains(new FirstDock(curr_car))) {
+            if (this.contains(new LastFerry(curr_car))) {
                 keep = false;
             }
             while (keep) {
@@ -99,7 +104,7 @@ public class State {
                             p.getCars().get(1).identifier.equals(curr_car.identifier)) {
                         cars_behind_y++;
                         curr_car = p.getCars().get(0);
-                        if (this.contains(new FirstFerry(curr_car))) {
+                        if (this.contains(new LastFerry(curr_car))) {
                             keep = false;
                         }
                         break;

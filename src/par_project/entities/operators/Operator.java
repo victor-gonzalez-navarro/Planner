@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import par_project.entities.items.Car;
-import par_project.entities.predicates.FirstDock;
-import par_project.entities.predicates.NumLinesEmpty;
-import par_project.entities.predicates.Predicate;
+import par_project.entities.predicates.*;
 import par_project.entities.states.State;
 import par_project.utils.Constants;
 
@@ -83,7 +81,7 @@ public class Operator implements Cloneable{
         return possibleOperators;
     }
     
-    public static Operator searchAddPredicate (Predicate in_pred, State curr_state){
+    public static Operator searchAddPredicate (Predicate in_pred, State curr_state, int numLinesEmpty){
         ArrayList<Operator> matched_ops = new ArrayList<>();
  
         for (Operator op : getPossibleOperators()){
@@ -118,6 +116,49 @@ public class Operator implements Cloneable{
         }
         
         if (matched_ops.size() > 0){
+            if (in_pred instanceof FirstDock){
+                if (numLinesEmpty > 0){
+                    for (Operator op : matched_ops){
+                        if (op instanceof UnstackLeaveDock){
+                            return op;
+                        }
+                    }
+                } else {
+                    for (Operator op : matched_ops){
+                        if (op instanceof UnstackStackDock){
+                            return op;
+                        }
+                    }
+                }
+            } else if (in_pred instanceof FirstFerry){
+                if (curr_state.carsBehind(in_pred.getCars().get(0), Constants.DOCK) > 0){
+                    for (Operator op : matched_ops){
+                        if (op instanceof UnstackLeaveFerry){
+                            return op;
+                        }
+                    }
+                } else {
+                    for (Operator op : matched_ops){
+                        if (op instanceof PickLeaveFerry){
+                            return op;
+                        }
+                    }
+                }
+            } else if (in_pred instanceof NextToFerry){
+                if (curr_state.carsBehind(in_pred.getCars().get(0), Constants.DOCK) > 0){
+                    for (Operator op : matched_ops){
+                        if (op instanceof UnstackStackFerry){
+                            return op;
+                        }
+                    }
+                } else {
+                    for (Operator op : matched_ops){
+                        if (op instanceof PickStackFerry){
+                            return op;
+                        }
+                    }
+                }
+            }
             return matched_ops.get(rnd.nextInt(matched_ops.size()));
         }
         //for (int i = 0; i < matched_ops.size(); i++){}

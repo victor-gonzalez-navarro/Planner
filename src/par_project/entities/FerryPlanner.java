@@ -71,27 +71,14 @@ public class FerryPlanner {
             // Case 1
             if (stack.getLast() instanceof Operator) {
                 Operator op = (Operator) stack.getLast();
-                // Special case
-                if (op instanceof UnstackStackDock) {
-                    Car curr_car = ((UnstackStackDock)op).getThirdCar();
-                    cars_behind_y = curr_state.carsBehind(curr_car, Constants.DOCK);
-//                    boolean counting = true;
-//                    while (counting){
-//                        counting = false;
-//                        // TODO: Save all NextTo For Efficiency
-//                        for (Predicate p : curr_state.getPredicates()){
-//                            if ((p instanceof NextToDock) &&
-//                                    !((NextToDock) p).previousCar(curr_car).equals(null)){
-//                                cars_behind_y++;
-//                                curr_car = ((NextToDock) p).previousCar(curr_car);
-//                                counting = true;
-//                            }
-//                        }
-//                    }
+                if (op instanceof UnstackStackDock){
+                    cars_behind_y = curr_state.carsBehind(((UnstackStackDock) op).getThirdCar(), Constants.DOCK);
                 }
                 
                 for (Predicate p : op.getAddList()) {
-                    if (!curr_state.getPredicates().contains(p)){
+                    if (p instanceof NumLinesEmpty){
+                        numLinesEmpty += ((NumLinesEmpty) p).n;
+                    } else if (!curr_state.contains(p)){
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
                                     (p.getCars().get(0).identifier.equals(op.getFirstCar().identifier))){
@@ -108,7 +95,9 @@ public class FerryPlanner {
                 }
                
                 for (Predicate p : op.getDelList()) {
-                    if (curr_state.getPredicates().contains(p)){
+                    if (p instanceof NumLinesEmpty){
+                        numLinesEmpty += ((NumLinesEmpty) p).n;
+                    } else if (curr_state.contains(p)){
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
                                     (p.getCars().get(0).identifier.equals(op.getFirstCar().identifier))){
@@ -123,14 +112,15 @@ public class FerryPlanner {
                         }
                     }
                 }
-                
+
+                stack.removeLast();
                 stepsToGoal.add(op);
                 
             // Case 2
             } else if (stack.getLast() instanceof ArrayList){
                 boolean found = true;
                 for (Predicate p : (ArrayList<Predicate>) stack.getLast()) {
-                    if (!curr_state.contains(p)){
+                    if (!(p instanceof NumLinesEmpty) && !curr_state.contains(p)){
                         stack.add(p);
                         found = false;
                     }
@@ -179,7 +169,7 @@ public class FerryPlanner {
                     if (pred instanceof NumLinesEmpty && numLinesEmpty > 0){
                         stack.removeLast();
                     } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
-                        Operator op = Operator.searchAddPredicate(pred, curr_state);
+                        Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty);
                         stack.add(op);
                         stack.add(op.getPrecsList());
                         op.getPrecsList().forEach((p) -> {
@@ -197,7 +187,7 @@ public class FerryPlanner {
 //                        }
 
                         if (!curr_state.contains(pred)){
-                            Operator op = Operator.searchAddPredicate(pred, curr_state);
+                            Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty);
                             stack.add(op);
                             stack.add(op.getPrecsList());
                             op.getPrecsList().forEach((p) -> {
@@ -212,8 +202,15 @@ public class FerryPlanner {
                 
             }
             
-            if (stack.isEmpty()){ finished = true;}
+            if (stack.isEmpty()){
+                if (curr_state.getPredicates().size() != target_state.getPredicates().size()){
+                    System.out.println("Finished but current state and target state does not contain the same number of elements");
+                }
+                finished = true;
+            }
         }
+        System.out.println("Finiquitao");
+        System.out.println(curr_state.toString());
     }
     
     public Predicate bestInstantiation (State curr_state, ArrayList<String> possibleCarIDs, Predicate p){
@@ -321,6 +318,7 @@ public class FerryPlanner {
             }
 
             curr_layer_cars = new ArrayList<>(future_layer_cars);
+            future_layer_cars.removeAll(future_layer_cars);
         }
 
         // First Ferry

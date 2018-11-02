@@ -32,7 +32,9 @@ public class PAR_Project {
         State initState = new State();
         int counter = 0;
         for (String value : statement.get(Constants.INIT_STATE)){
-            initState.addPredicate(Predicate.CreatePredicate(value));
+            if (!value.startsWith("NumLinesEmpty")){
+                initState.addPredicate(Predicate.CreatePredicate(value));
+            }
             if (value.startsWith("FirstDock")){
                 counter++;
             }
