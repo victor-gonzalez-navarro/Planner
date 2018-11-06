@@ -113,13 +113,47 @@ public class Operator{
                                     break;
                             }
                         }
+                        if (in_pred instanceof FirstDock){
+                            if (numLinesEmpty > (curr_state.carsInFrontOf(in_pred.getCars().get(0), Constants.DOCK) - 1)){
+                                if (op instanceof UnstackLeaveDock){
+                                        return op;
+                                }
+                            } else {
+                                if (op instanceof UnstackStackDock){
+                                    return op;
+                                }
+                            }
+                        } else if (in_pred instanceof FirstFerry){
+                            if (curr_state.carsBehind(in_pred.getCars().get(0), Constants.DOCK) > 0){
+                                if (op instanceof UnstackLeaveFerry){
+                                    return op;
+                                }
+                            } else {
+                                if (op instanceof PickLeaveFerry){
+                                    return op;
+                                }
+                            }
+                        } else if (in_pred instanceof NextToFerry){
+                            if (curr_state.carsBehind(in_pred.getCars().get(0), Constants.DOCK) > 0){
+                                if (op instanceof UnstackStackFerry){
+                                    return op;
+                                }
+                            } else {
+                                if (op instanceof PickStackFerry){
+                                    return op;
+                                }
+                            }
+                        }
                         matched_ops.add(op);
                     }
                 }
             }
         }
-        
+
         if (matched_ops.size() > 0){
+            return matched_ops.get(rnd.nextInt(matched_ops.size()));
+        }
+            /*
             if (in_pred instanceof FirstDock){
                 if (numLinesEmpty > (curr_state.carsInFrontOf(in_pred.getCars().get(0), Constants.DOCK) - 1)){
                     for (Operator op : matched_ops){
@@ -164,7 +198,7 @@ public class Operator{
                 }
             }
             return matched_ops.get(rnd.nextInt(matched_ops.size()));
-        }
+        }*/
         
         return null;
     }
