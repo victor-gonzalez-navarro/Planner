@@ -10,9 +10,11 @@ import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
 /**
+ * NextToDock Class is a Predicate used to identify adjacent cars in the Dock.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class NextToDock extends Predicate{
     private Car x;
     private Car z;
@@ -29,14 +31,6 @@ public class NextToDock extends Predicate{
         this.x = x;
         this.available_cars = available_cars;
     }
-
-    public Car previousCar(Car c) {
-        if (x.identifier.equals(c.identifier)){
-            return z;
-        } else {
-            return null;
-        }
-    }
     
     @Override
     public boolean isInstantiated() {
@@ -45,7 +39,7 @@ public class NextToDock extends Predicate{
     
     @Override
     public ArrayList<Car> getCars() {
-        ArrayList<Car> cars = new ArrayList<Car>();
+        ArrayList<Car> cars = new ArrayList<>();
         cars.add(z);
         cars.add(x);
         return cars;
@@ -79,15 +73,6 @@ public class NextToDock extends Predicate{
         if (available_cars.contains(listCars.get(1).identifier)) {
             this.x.identifier = listCars.get(1).identifier;
             this.available_cars.remove(x.identifier);
-        }
-    }
-
-    @Override
-    public void uninstantiateCar(int idx) {
-        if (idx == 0){
-            x.identifier = Constants.X_IDENTIFIER;
-        } else if (idx == 1){
-            z.identifier = Constants.Z_IDENTIFIER;
         }
     }
 }

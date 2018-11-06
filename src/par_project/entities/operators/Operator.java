@@ -14,9 +14,12 @@ import par_project.entities.states.State;
 import par_project.utils.Constants;
 
 /**
+ * Operator Class contains 3 lists of predicates (preconditions, additions and deletions) as well as the available
+ * cars for instantiations, getters, setters and the Search Operator Algorithm including heuristics.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class Operator{
     protected List<Predicate> precs_l;
     protected List<Predicate> add_l;
@@ -153,52 +156,6 @@ public class Operator{
         if (matched_ops.size() > 0){
             return matched_ops.get(rnd.nextInt(matched_ops.size()));
         }
-            /*
-            if (in_pred instanceof FirstDock){
-                if (numLinesEmpty > (curr_state.carsInFrontOf(in_pred.getCars().get(0), Constants.DOCK) - 1)){
-                    for (Operator op : matched_ops){
-                        if (op instanceof UnstackLeaveDock){
-                            return op;
-                        }
-                    }
-                } else {
-                    for (Operator op : matched_ops){
-                        if (op instanceof UnstackStackDock){
-                            return op;
-                        }
-                    }
-                }
-            } else if (in_pred instanceof FirstFerry){
-                if (curr_state.carsBehind(in_pred.getCars().get(0), Constants.DOCK) > 0){
-                    for (Operator op : matched_ops){
-                        if (op instanceof UnstackLeaveFerry){
-                            return op;
-                        }
-                    }
-                } else {
-                    for (Operator op : matched_ops){
-                        if (op instanceof PickLeaveFerry){
-                            return op;
-                        }
-                    }
-                }
-            } else if (in_pred instanceof NextToFerry){
-                if (curr_state.carsBehind(in_pred.getCars().get(0), Constants.DOCK) > 0){
-                    for (Operator op : matched_ops){
-                        if (op instanceof UnstackStackFerry){
-                            return op;
-                        }
-                    }
-                } else {
-                    for (Operator op : matched_ops){
-                        if (op instanceof PickStackFerry){
-                            return op;
-                        }
-                    }
-                }
-            }
-            return matched_ops.get(rnd.nextInt(matched_ops.size()));
-        }*/
         
         return null;
     }

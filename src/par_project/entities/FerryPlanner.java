@@ -1,19 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author alarca_94
- */
-
 package par_project.entities;
 
 import par_project.entities.states.State;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 
@@ -23,22 +11,27 @@ import par_project.entities.operators.UnstackStackDock;
 import par_project.entities.predicates.FirstFerry;
 import par_project.entities.predicates.FreeLine;
 import par_project.entities.predicates.LastFerry;
-import par_project.entities.predicates.NextToDock;
 import par_project.entities.predicates.NextToFerry;
 import par_project.entities.predicates.NumLinesEmpty;
 import par_project.entities.predicates.Predicate;
 import par_project.utils.Constants;
 import par_project.utils.Functions;
 
+/**
+ * FerryPlanner Class contains the general logic to solve the planing problem according to a goal stack approach.
+ *
+ * @author Alejandro Ariza & Víctor González
+ */
+
 public class FerryPlanner {    
-    Deque<Object> stack = new ArrayDeque<>();
+    Deque<Object> stack = new ArrayDeque<>();    // Stack of Operators, ArrayLists of Predicates and Predicates
     State init_state, curr_state , target_state;
-    List<Operator> stepsToGoal;
-    List<Operator> accuOperators;
+    List<Operator> stepsToGoal;                  // List for storing Operators necessary to reach the goal
+    List<Operator> accuOperators;                // List for storing Operators to check for cycles
     public ArrayList<Car> cars;
-    public int numLinesEmpty;   // Keep track of the number of empty lines.
-                                // The predicate will only serve to update this parameter
-    public int numMaxCars;
+    public int numMaxCars;                       // Maximum number of Cars per line in the Dock
+    public int numLinesEmpty;                    // Keep track of the number of empty lines.
+                                                 // The predicate NumLinesEmpty will only serve to update this parameter
     
     public FerryPlanner (State init_state, State target_state, 
             ArrayList<Car> cars, int numLinesEmpty, int numMaxCars){
@@ -51,38 +44,52 @@ public class FerryPlanner {
         this.numMaxCars = numMaxCars;
     }
     
-    public void solveProblem () throws CloneNotSupportedException{
+    public void solveProblem (){
+        // Current State starts at the initial State
         curr_state = init_state.copy();
 
+        // First, add the Goal State Predicates to the Stack
         stack.add(target_state.getPredicates());
 
+<<<<<<< HEAD
         ArrayList<Predicate> s = sortPredicates(target_state.getPredicates());
+=======
+        // Add each Predicate from the Goal State properly Sorted
+>>>>>>> cd38b24e2bd645241cc5c60847739a7df30d863e
         for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
 
         boolean finished = false;
+
         Predicate pred;
         
         int cars_behind_y = 0;
-                
+
+        // While there are still elements in the stack and no impossible State has been reached
         while(!finished) {
-            //Functions.drawing(stack);
-            //////////////////////////System.out.println(stack.size());
-            // Case 1
+            Functions.drawing(stack);
+
+            // Case 1: Last Element of the Stack is an Operator
             if (stack.getLast() instanceof Operator) {
                 Operator op = (Operator) stack.getLast();
+
+                // Count the number of cars behing the car Y where car X is going to be Stacked in front
                 if (op instanceof UnstackStackDock){
                     cars_behind_y = curr_state.carsBehind(((UnstackStackDock) op).getThirdCar(), Constants.DOCK);
                 }
-                
+
+                // Add Predicates from the Operator's Add List to the current State
                 for (Predicate p : op.getAddList()) {
+                    // If Predicate is NumLinesEmpty, update the global Variable
                     if (p instanceof NumLinesEmpty){
                         numLinesEmpty += ((NumLinesEmpty) p).n;
                     } else if (!curr_state.contains(p)){
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
                                     (p.getCars().get(0).identifier.equals(op.getFirstCar().identifier))){
+                                // Only add FreeLine(X) if the number of cars behind Y is lower that the maximum number
+                                // of cars per line minus 2 (Y car and the new X car)
                                 if (cars_behind_y < (numMaxCars - 2)){
                                     curr_state.addPredicate(p);
                                 }
@@ -94,14 +101,18 @@ public class FerryPlanner {
                         }
                     }
                 }
-               
+
+                // Delete Predicates from the Operator's Del List from the current State
                 for (Predicate p : op.getDelList()) {
+                    // If Predicate is NumLinesEmpty, update the global Variable
                     if (p instanceof NumLinesEmpty){
                         numLinesEmpty += ((NumLinesEmpty) p).n;
                     } else if (curr_state.contains(p)){
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
                                     (p.getCars().get(0).identifier.equals(op.getFirstCar().identifier))){
+                                // Only Delete FreeLine(X) if the number of cars behind Y is equal to the maximum number
+                                // of cars per line minus 2
                                 if (cars_behind_y == (numMaxCars-2)){
                                     curr_state.delPredicate(p);
                                 }
@@ -114,21 +125,24 @@ public class FerryPlanner {
                     }
                 }
 
+                // Delete the Operator from the Stack and Add it to the solution
                 stack.removeLast();
                 stepsToGoal.add(op);
                 accuOperators.removeAll(accuOperators);
                 
-            // Case 2
+            // Case 2: Last Element of the Stack is an ArrayList of Predicates
             } else if (stack.getLast() instanceof ArrayList){
                 boolean found = true;
+
+                // Check that Current State still contains the Instantiated Predicates
                 for (Predicate p : (ArrayList<Predicate>) stack.getLast()) {
                     if (!(p instanceof NumLinesEmpty) && !curr_state.contains(p)){
-                        //p.uninstantiateCar(0);
                         stack.add(p);
                         found = false;
                     }
                 }
-                // Delete the ArrayList
+
+                // If all Predicates are still satisfied in the Current State, delete the ArrayList
                 if (found){
                     stack.removeLast();
                 }
@@ -136,18 +150,22 @@ public class FerryPlanner {
             // Case 3 & 4
             } else if (stack.getLast() instanceof Predicate) {
                 pred = (Predicate) stack.getLast();
-                // Case 3
+                // Case 3: Last Element of the Stack is a Predicate that is not instantiated
                 if (!pred.isInstantiated()){
                     Boolean endFor = false;
                     int num = 0;
                     while (num < curr_state.getPredicates().size() && !endFor) {
                         Predicate p = curr_state.getPredicates().get(num);
-                        if (pred.getClass().equals(p.getClass())) { // p and pred are the same predicate
+
+                        // Both predicates are instances of the same type
+                        if (pred.getClass().equals(p.getClass())) {
                             ArrayList<Car> ccars_currentstate = p.getCars();
                             ArrayList<Car> ccars_stack = pred.getCars();
                             Boolean equality = true;
                             Boolean enterWhile = true;
                             int index = 0;
+
+                            // Compare Instantiated cars from both predicates to find a match
                             while (index < ccars_currentstate.size() && enterWhile) {
                                 Car c_cstate = ccars_currentstate.get(index);
                                 Car c_stack = ccars_stack.get(index);
@@ -159,6 +177,9 @@ public class FerryPlanner {
                                 }
                                 index++;
                             }
+
+                            // If a predicate in the current state satisfies the condition, instantiate the current
+                            // predicate in the stack and propagate it
                             if (equality && pred.areCarsAvailable(ccars_currentstate)) {
                                 pred.setCars(ccars_currentstate);
                                 endFor = true;
@@ -178,39 +199,58 @@ public class FerryPlanner {
                         }
                         num++;
                     }
+
+                    if (!pred.isInstantiated()){
+                        finished = true;
+                        System.out.println("No predicate in the current state has been found to satisfy the condition");
+                    }
                 }
-                // Case 4
+                // Case 4: Last Element of the Stack is a Predicate that is instantiated
                 else {
+                    // If predicate is NumLinesEmpty, check that there are empty lines in the current state
                     if (pred instanceof NumLinesEmpty && numLinesEmpty > 0){
                         stack.removeLast();
                     } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
+                        // Search for an operator that contains the current predicate in its Add list
                         Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
 
-                        stack.add(op);
-                        accuOperators.add(op);
-                        stack.add(op.getPrecsList());
-                        for (Predicate p : op.getPrecsList()){
-                            stack.add(p);
-                        }
-                    } else {
-//                        boolean found = false;
-//
-//                        for (int i = 0; i < curr_state.getPredicates().size() && !found; i++){
-//                            Predicate pred2 = curr_state.getPredicates().get(i);
-//                            if (pred2.getClass().equals(pred.getClass()) &&
-//                                pred2.getCarIDs().equals(pred.getCarIDs())){
-//                                found = true;
-//                            }
-//                        }
-
-                        if (!curr_state.contains(pred)){
-                            Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
+                        if (op == null){
+                            System.out.println("Finished in an impossible state");
+                            finished = true;
+                        } else {
+                            // Add the Operator to the Stack
                             stack.add(op);
                             accuOperators.add(op);
 
+                            // Add the Preconditions List of the operator
                             stack.add(op.getPrecsList());
-                            for (Predicate p : op.getPrecsList()){
+
+                            // Add each Predicate of the Preconditions List
+                            op.getPrecsList().forEach((p) -> {
                                 stack.add(p);
+                            });
+                        }
+                    } else {
+                        // If the Predicate is not satisfied in the current State yet...
+                        if (!curr_state.contains(pred)){
+                            // Search for an operator that contains the current predicate in its Add list
+                            Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
+
+                            if (op == null){
+                                System.out.println("Finished in an impossible state");
+                                finished = true;
+                            } else {
+                                // Add the Operator to the Stack
+                                stack.add(op);
+                                accuOperators.add(op);
+
+                                // Add the Preconditions List of the operator
+                                stack.add(op.getPrecsList());
+
+                                // Add each Predicate of the Preconditions List
+                                op.getPrecsList().forEach((p) -> {
+                                    stack.add(p);
+                                });
                             }
                         } else {
                             stack.removeLast();
@@ -219,80 +259,49 @@ public class FerryPlanner {
                 }
                 
             }
-            
+
+            // Check if the Planner has reached the target State
             if (stack.isEmpty()){
                 if (curr_state.getPredicates().size() != target_state.getPredicates().size()){
-                    System.out.println("Finished but current state and target state does not contain the same number of elements");
+                    System.out.println("\nFinished but current state and target state does not contain the same number of elements");
+                } else {
+                    System.out.println("\nSuccessfully finished");
                 }
                 finished = true;
             }
         }
-        System.out.println("\nAll cars are in the ferry!");
-        //System.out.println(curr_state.toString());
-    }
-    
-    public Predicate bestInstantiation (State curr_state, ArrayList<String> possibleCarIDs, Predicate p){
-        Predicate out_pred = null;
-        
-        if (p.getXCar().identifier.equals(Constants.X_IDENTIFIER)) {
-            out_pred = curr_state.getPredicate(p.getPredicateName(), possibleCarIDs);
-        } else {
-            out_pred = curr_state.getPredicate(p.getPredicateName(), p.getXCar().identifier);
-        }
-        
-        return out_pred;
+
+        // Write the output file
+        Functions.writeOutput(Constants.OUTPUT_PATH + Constants.OUTPUT_FILE_NAME, stepsToGoal,
+                new int[]{stepsToGoal.size(),stepsToGoal.size()});
     }
     
     public ArrayList<Predicate> sortPredicates(ArrayList<Predicate> preds){
+        // ArrayList with the initial Predicates sorted
         ArrayList<Predicate> sorted = new ArrayList<>();
 
-        ////////////////////////
-//        Map<String, Integer> carsDepth = new HashMap<>();
-//        String id = "";
-//        String prev_car_id = "";
-//        int depth = 0;
-//        ArrayList<String> carsCurrentLayer = new ArrayList<>();
-//
-//        for (Predicate pred : this.target_state.getPredicates()){
-//            if (pred instanceof FirstFerry){
-//                id = pred.getCarIDs();
-//                depth = curr_state.carsInFrontOf(pred.getCars().get(0), Constants.DOCK);
-//                carsDepth.put(id, depth);
-//                carsCurrentLayer.add(id);
-//            }
-//        }
-//
-//
-//
-//        for (Predicate pred : this.target_state.getPredicates()){
-//            if (pred instanceof NextToFerry){
-//                prev_car_id = pred.getCarIDs().substring(1,2);
-//                if (carsCurrentLayer.contains(prev_car_id)) {
-//                    id = pred.getCarIDs().substring(0, 1);
-//                    depth = curr_state.carsInFrontOf(pred.getCars().get(0), Constants.DOCK) +
-//                            carsDepth.get(prev_car_id);
-//                    carsDepth.put(id, depth);
-//                    carsCurrentLayer.add(id);
-//                    carsCurrentLayer.remove(prev_car_id);
-//                }
-//            }
-//        }
-
-        ///////////////////////
-
+        // HashMap to store the car IDs and their depth (Cars in front of it) at the Dock
         Map<String, Integer> carsDepth = new HashMap<>();
+
+        // ArrayList to keep the depth of the cars that are being analyzed at each step
         ArrayList<Integer> curr_layer_depths = new ArrayList<>();
+
+        // ArrayLists to keep track of the Cars from NextToFerry(X,Y) to NextToFerry(Y,Z)
         ArrayList<Predicate> curr_layer_preds = new ArrayList<>();
         ArrayList<Car> future_layer_cars = new ArrayList<>();
         ArrayList<Car> curr_layer_cars = new ArrayList<>();
+
         int maximum_idx;
 
+        // Count, for each Car, its depth in the DOCK
         for (Car car : cars){
             carsDepth.put(car.identifier, curr_state.carsInFrontOf(car, Constants.DOCK));
         }
 
         int maxFerryDepth = -1;
         int currFerryDepth = 0;
+
+        // LastFerry Predicates will be the last ones in the Stack
         for (Predicate pred : preds){
             if (pred instanceof LastFerry){
                 curr_layer_preds.add(pred);
@@ -305,13 +314,14 @@ public class FerryPlanner {
             }
         }
 
+        // At the bottom of the Stack, LastFerries with cars that are deeper in the Dock
         for (int i = 0; i < curr_layer_preds.size(); i++){
             maximum_idx = Functions.argMax(curr_layer_depths);
             sorted.add(curr_layer_preds.get(maximum_idx));
             curr_layer_depths.set(maximum_idx, -1);
         }
 
-        // NextToFerry
+        // Next, NextToFerry will be sorted
         for (int i = 0; i < maxFerryDepth; i++) {
             curr_layer_preds.removeAll(curr_layer_preds);
             curr_layer_depths.removeAll(curr_layer_depths);
@@ -329,6 +339,7 @@ public class FerryPlanner {
                 }
             }
 
+            // Deeper Cars will be behind at the Stack
             for (int j = 0; j < curr_layer_preds.size(); j++) {
                 maximum_idx = Functions.argMax(curr_layer_depths);
                 sorted.add(curr_layer_preds.get(maximum_idx));
@@ -339,11 +350,10 @@ public class FerryPlanner {
             future_layer_cars.removeAll(future_layer_cars);
         }
 
-        // First Ferry
-
         curr_layer_preds.removeAll(curr_layer_preds);
         curr_layer_depths.removeAll(curr_layer_depths);
 
+        // The predicates that will go at the top of the Stack will be First Ferry
         for (Predicate pred : preds){
             if (pred instanceof FirstFerry){
                 curr_layer_preds.add(pred);
@@ -351,14 +361,12 @@ public class FerryPlanner {
             }
         }
 
+        // Deeper Cars will be behind at the Stack
         for (int i = 0; i < curr_layer_preds.size(); i++){
             maximum_idx = Functions.argMax(curr_layer_depths);
             sorted.add(curr_layer_preds.get(maximum_idx));
             curr_layer_depths.set(maximum_idx, -1);
         }
-
-
-        ArrayList<Predicate> curr_preds = new ArrayList<>();
         
         return sorted;
     }

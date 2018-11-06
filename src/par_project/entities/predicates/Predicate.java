@@ -10,13 +10,21 @@ import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
 /**
+ * Predicate Class contains a predicate name, a list of available cars for Operator purposes, a general Generator method
+ * as well as getters and setters for their children.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class Predicate {
     protected String predicateName;
     ArrayList<String> available_cars;
-    
+
+    /**
+     * Alternative Generator depending on the String it receives
+     * @param predicatePlusCars --> e.g. FirstDock(A)
+     * @return
+     */
     public static Predicate CreatePredicate(String predicatePlusCars){
         Predicate pred = null;
         int parenthesisIdx = predicatePlusCars.indexOf("(");
@@ -47,7 +55,11 @@ public class Predicate {
     public String getPredicateName (){
         return predicateName;
     }
-    
+
+    /**
+     * IsInstantiated method returns true if all its cars are instantiated
+     * @return
+     */
     public boolean isInstantiated (){
         return true;
     }
@@ -72,8 +84,11 @@ public class Predicate {
     
     public void setCars (ArrayList<Car> listCars) { }
 
-    public void uninstantiateCar(int idx){}
-
+    /**
+     * AreCarsAvailable is useful to know which cars are available for instantiation
+     * @param cars
+     * @return available
+     */
     public boolean areCarsAvailable(ArrayList<Car> cars) {
         boolean available = false;
         for (Car car : cars){

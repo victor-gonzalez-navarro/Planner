@@ -10,9 +10,11 @@ import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
 /**
+ * FreeLine Class is a Predicate used to identify a car that has a free spot in front.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class FreeLine extends Predicate {
     private Car x;
 

@@ -8,9 +8,11 @@ package par_project.entities.items;
 import par_project.utils.Constants;
 
 /**
+ * Car Class contains an identifier which allow to identify the Car and detect whether it is instantiated or not.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class Car {
     public String identifier;
     

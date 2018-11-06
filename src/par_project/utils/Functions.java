@@ -1,23 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package par_project.utils;
 
-import par_project.entities.predicates.Predicate;
 import par_project.entities.operators.Operator;
+import par_project.entities.predicates.Predicate;
+import par_project.entities.states.State;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /**
+ * Functions Class contain several global functions for reading input files, write output files and calculate the
+ * argument that contains the maximum value.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class Functions {
+
+    /**
+     * Function to read an input file and transform the statement into a map of item name, item value
+     *
+     * @param pathToFile
+     * @return statement
+     */
     public static Map<String, List<String>> readInput (String pathToFile) {
         Map<String, List<String>> statement = new HashMap<String, List<String>>();
         
@@ -25,8 +29,8 @@ public class Functions {
             FileReader in = new FileReader(pathToFile);
             BufferedReader br = new BufferedReader(in);
             String line = "";
-            String[] parts = new String[2];
-            String[] items;
+            String[] parts = new String[2];                 // Parts will contain pairs such as [NumLines, 3]
+            String[] items;                                 // Items will contain the separated content of parts[1]
             
             while ((line = br.readLine()) != null){
                 line = line.replace(";", "");
@@ -50,6 +54,44 @@ public class Functions {
         return statement;
     }
 
+    /**
+     * WriteOutput is responsible for writing the output file
+     *
+     * @param pathToFile
+     * @param stepsToGoal
+     * @param n_ops_states
+     */
+    public static void writeOutput(String pathToFile, List<Operator> stepsToGoal, int[] n_ops_states//,
+                                   //ArrayList<State> curr_state, String fail_reason
+                                   ) {
+        FileWriter fw;
+        StringBuilder sb = new StringBuilder();
+        try {
+            fw = new FileWriter(new File(pathToFile));
+
+            sb.append(String.valueOf(n_ops_states[0]));
+            sb.append(System.lineSeparator());
+            sb.append(String.valueOf(n_ops_states[1]));
+            sb.append(System.lineSeparator());
+            for (Operator op : stepsToGoal){
+                sb.append(op.toString() + ", ");
+            }
+            sb.setLength(sb.length()-2);
+
+            fw.write(sb.toString());
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * ArgMax will return the index where the maximum value is located in the input array
+     *
+     * @param ints
+     * @return idx
+     */
     public static int argMax(ArrayList<Integer> ints){
         int maxValue = -1;
         int idx = 0;
@@ -62,6 +104,10 @@ public class Functions {
         return idx;
     }
 
+    /**
+     * Drawing draws the Stack Elements in the console
+     * @param stack
+     */
     public static void drawing(Deque<Object> stack){
         System.out.println("\n\n");
         ArrayList list = new ArrayList(stack);

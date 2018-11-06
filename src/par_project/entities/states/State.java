@@ -13,9 +13,11 @@ import java.util.ArrayList;
 import java.lang.StringBuilder;
 
 /**
+ * State Class contains a list of Predicates and some methods useful to deal with it.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class State {
     private ArrayList<Predicate> predicates;
      
@@ -55,15 +57,6 @@ public class State {
         return null;
     }
     
-    public Predicate getPredicate (String predicateName, ArrayList<String> carIDs){
-        for (String carID : carIDs){
-            if (!getPredicate (predicateName, carID).equals(null)){
-                return getPredicate (predicateName, carID);
-            }
-        }
-        return null;
-    }
-    
     public State copy (){
         State out = new State();
         for (Predicate pred : this.getPredicates()){
@@ -72,21 +65,32 @@ public class State {
         return out;
     }
 
+    /**
+     * CarsBehind method counts the number of cars behind X by counting the number of consecutive adjacent cars
+     * via NextToDock/Ferry
+     * @param x
+     * @param dockOrFerry --> Possible values: Constants.DOCK, Constants.FERRY
+     * @return
+     */
     public int carsBehind(Car x, String dockOrFerry) {
         int cars_behind_y = 0;
         Car curr_car = new Car(x.identifier);
         boolean keep = true;
 
         if (dockOrFerry.equals(Constants.DOCK)) {
+            // First check if it is Last in its line
             if (this.contains(new LastDock(curr_car))) {
                 keep = false;
             }
             while(keep) {
                 for (Predicate p : this.predicates) {
+                    // Comparing the Predicate instance with NextToDock class and Car identifier of the second car with
+                    // last car stored
                     if ((p instanceof NextToDock) &&
                             p.getCars().get(1).identifier.equals(curr_car.identifier)) {
                         cars_behind_y++;
                         curr_car = p.getCars().get(0);
+                        // If this State contains a LastDock of the Current Car, stop
                         if (this.contains(new LastDock(curr_car))) {
                             keep = false;
                         }
@@ -118,11 +122,19 @@ public class State {
         return cars_behind_y;
     }
 
+    /**
+     * CarsInFrontOf method counts the number of cars in front of X by counting the number of consecutive adjacent cars
+     * via NextToDock/Ferry
+     * @param x
+     * @param dockOrFerry --> Possible values: Constants.DOCK, Constants.FERRY
+     * @return
+     */
     public int carsInFrontOf(Car x, String dockOrFerry) {
         int cars_in_front_y = 0;
         Car curr_car = new Car(x.identifier);
         boolean keep = true;
-        if (dockOrFerry.equals(Constants.DOCK)) {
+        if (dockOrFerry.equals(Constants.DOCK)){
+            // First check if it is First in its line
             if (this.contains(new FirstDock(curr_car))){
                 keep = false;
             }

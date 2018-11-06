@@ -18,9 +18,11 @@ import par_project.utils.Constants;
 import java.util.ArrayList;
 
 /**
+ * PickStackFerry Class is an Operator that picks Car X from the Dock and puts it behind Car Z in the Ferry.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class PickStackFerry extends Operator{
     private Car z;
     
