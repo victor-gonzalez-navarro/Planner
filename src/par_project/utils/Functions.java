@@ -6,6 +6,7 @@
 package par_project.utils;
 
 import par_project.entities.predicates.Predicate;
+import par_project.entities.operators.Operator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -62,13 +63,14 @@ public class Functions {
     }
 
     public static void drawing(Deque<Object> stack){
-        // Deque<Object> stackcop = new ArrayDeque<>();
-        System.out.println("-------------");
-        for (int i = 0; i < stack.size(); i++){
-            Object ob = stack.removeFirst();
-            if (ob instanceof Predicate){
-                System.out.println(ob.toString());
-            }
+        System.out.println("\n\n");
+        ArrayList list = new ArrayList(stack);
+        for (int i = list.size()-1; i >= 0; i--){
+            //if (list.get(i) instanceof Predicate || list.get(i) instanceof Operator){
+            System.out.println(list.get(i).toString());
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+            //}
         }
+
     }
 }

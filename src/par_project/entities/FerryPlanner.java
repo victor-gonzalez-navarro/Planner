@@ -51,16 +51,16 @@ public class FerryPlanner {
     
     public void solveProblem () throws CloneNotSupportedException{
         curr_state = init_state.copy();
-        
-        System.out.println(curr_state.toString());
-        
+
+        //System.out.println(curr_state.toString());
+
         stack.add(target_state.getPredicates());
         
         for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
-        System.out.println(sortPredicates(target_state.getPredicates()));
-        
+        //System.out.println(sortPredicates(target_state.getPredicates()));
+
         boolean finished = false;
         Predicate pred;
         
@@ -210,8 +210,8 @@ public class FerryPlanner {
                 finished = true;
             }
         }
-        System.out.println("Finiquitao");
-        System.out.println(curr_state.toString());
+        System.out.println("All cars are in the ferry!");
+        //System.out.println(curr_state.toString());
     }
     
     public Predicate bestInstantiation (State curr_state, ArrayList<String> possibleCarIDs, Predicate p){
