@@ -34,6 +34,7 @@ public class FerryPlanner {
     Deque<Object> stack = new ArrayDeque<>();
     State init_state, curr_state , target_state;
     List<Operator> stepsToGoal;
+    List<Operator> accuOperators;
     public ArrayList<Car> cars;
     public int numLinesEmpty;   // Keep track of the number of empty lines.
                                 // The predicate will only serve to update this parameter
@@ -44,6 +45,7 @@ public class FerryPlanner {
         this.init_state = init_state;
         this.target_state = target_state;
         stepsToGoal = new ArrayList<>();
+        accuOperators = new ArrayList<>();
         this.cars = cars;
         this.numLinesEmpty = numLinesEmpty;
         this.numMaxCars = numMaxCars;
@@ -116,6 +118,7 @@ public class FerryPlanner {
 
                 stack.removeLast();
                 stepsToGoal.add(op);
+                accuOperators.removeAll(accuOperators);
                 
             // Case 2
             } else if (stack.getLast() instanceof ArrayList){
@@ -161,6 +164,18 @@ public class FerryPlanner {
                             if (equality && pred.areCarsAvailable(ccars_currentstate)) {
                                 pred.setCars(ccars_currentstate);
                                 endFor = true;
+
+                                int counter = 0;
+                                for (int idx = accuOperators.size()-1; idx > accuOperators.size()-20 && idx >= 0; idx--){
+                                    Operator operator = accuOperators.get(idx);
+                                    if (accuOperators.get(accuOperators.size()-1).toString().equals(operator.toString())){
+                                        counter++;
+                                    }
+                                }
+                                if (counter > 5){
+                                    System.out.println("You may have enter in a loop, we decide to stop the code");
+                                    finished = true;
+                                }
                             }
                         }
                         num++;
@@ -172,7 +187,9 @@ public class FerryPlanner {
                         stack.removeLast();
                     } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
                         Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
+
                         stack.add(op);
+                        accuOperators.add(op);
                         stack.add(op.getPrecsList());
                         for (Predicate p : op.getPrecsList()){
                             stack.add(p);
@@ -191,6 +208,8 @@ public class FerryPlanner {
                         if (!curr_state.contains(pred)){
                             Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
                             stack.add(op);
+                            accuOperators.add(op);
+
                             stack.add(op.getPrecsList());
                             for (Predicate p : op.getPrecsList()){
                                 stack.add(p);
