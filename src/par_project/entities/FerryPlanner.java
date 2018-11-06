@@ -54,14 +54,11 @@ public class FerryPlanner {
     public void solveProblem () throws CloneNotSupportedException{
         curr_state = init_state.copy();
 
-        //System.out.println(curr_state.toString());
-
         stack.add(target_state.getPredicates());
         
         for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
-        //System.out.println(sortPredicates(target_state.getPredicates()));
 
         boolean finished = false;
         Predicate pred;
@@ -69,7 +66,7 @@ public class FerryPlanner {
         int cars_behind_y = 0;
                 
         while(!finished) {
-            Functions.drawing(stack);
+            //Functions.drawing(stack);
             //////////////////////////System.out.println(stack.size());
             // Case 1
             if (stack.getLast() instanceof Operator) {
@@ -229,7 +226,7 @@ public class FerryPlanner {
                 finished = true;
             }
         }
-        System.out.println("All cars are in the ferry!");
+        System.out.println("\nAll cars are in the ferry!");
         //System.out.println(curr_state.toString());
     }
     
@@ -359,18 +356,6 @@ public class FerryPlanner {
             curr_layer_depths.set(maximum_idx, -1);
         }
 
-
-//        for (Predicate pred : preds){
-//            if (pred instanceof NextToFerry){
-//                sorted.add(pred);
-//            }
-//        }
-//        for (Predicate pred : preds){
-//            if (pred instanceof FirstFerry){
-//                carsDepth.put(pred.getCarIDs(), curr_state.carsInFrontOf(pred.getCars().get(0), Constants.DOCK));
-//                //sorted.add(pred);
-//            }
-//        }
 
         ArrayList<Predicate> curr_preds = new ArrayList<>();
         

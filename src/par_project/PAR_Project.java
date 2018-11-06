@@ -26,7 +26,7 @@ public class PAR_Project {
      */
     public static void main(String[] args) throws CloneNotSupportedException {
         // TODO code application logic here
-        
+        long startTime = System.currentTimeMillis();
         Map<String, List<String>> statement = readInput(Constants.INPUT_PATH + Constants.INPUT_FILE_NAME);
         
         State initState = new State();
@@ -56,6 +56,8 @@ public class PAR_Project {
         FerryPlanner planner = new FerryPlanner(initState, targetState, cars, numMaxLines, numMaxCars);
         
         planner.solveProblem();
+        long finishTime = System.currentTimeMillis();
+        System.out.println("Time of execution: " + String.valueOf((finishTime-startTime)/1000.0));
     }
     
 }
