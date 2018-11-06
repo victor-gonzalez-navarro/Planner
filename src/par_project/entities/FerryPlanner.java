@@ -173,9 +173,9 @@ public class FerryPlanner {
                         Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
                         stack.add(op);
                         stack.add(op.getPrecsList());
-                        op.getPrecsList().forEach((p) -> {
+                        for (Predicate p : op.getPrecsList()){
                             stack.add(p);
-                        });
+                        }
                     } else {
 //                        boolean found = false;
 //
@@ -191,10 +191,9 @@ public class FerryPlanner {
                             Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
                             stack.add(op);
                             stack.add(op.getPrecsList());
-                            op.getPrecsList().forEach((p) -> {
+                            for (Predicate p : op.getPrecsList()){
                                 stack.add(p);
-                            });
-
+                            }
                         } else {
                             stack.removeLast();
                         }
