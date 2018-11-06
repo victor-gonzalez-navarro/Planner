@@ -13,8 +13,10 @@ public class Constants {
     public final static String INPUT_PATH       = "src/par_project/resources/";
     //public final static String INPUT_FILE_NAME  = "example1.txt";
     //public final static String INPUT_FILE_NAME  = "example2.txt";
-    public final static String INPUT_FILE_NAME  = "our_example3.txt";
-    
+    //public final static String INPUT_FILE_NAME  = "our_example3.txt";
+    //public final static String INPUT_FILE_NAME  = "our_example4.txt";
+    public final static String INPUT_FILE_NAME  = "our_example5.txt";
+
     public final static String INIT_STATE       = "InitialState";
     public final static String TARGET_STATE     = "GoalState";
     public final static String CARS             = "Blocks";

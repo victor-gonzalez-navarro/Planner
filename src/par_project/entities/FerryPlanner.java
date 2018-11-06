@@ -55,7 +55,8 @@ public class FerryPlanner {
         curr_state = init_state.copy();
 
         stack.add(target_state.getPredicates());
-        
+
+        ArrayList<Predicate> s = sortPredicates(target_state.getPredicates());
         for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
@@ -320,7 +321,7 @@ public class FerryPlanner {
                     for (Car car : curr_layer_cars){
                         if (car.identifier.equals(pred.getCars().get(0).identifier)){
                             curr_layer_preds.add(pred);
-                            curr_layer_depths.add(carsDepth.get(pred.getCarIDs().substring(0,1)));
+                            curr_layer_depths.add(carsDepth.get(pred.getCars().get(0).identifier));
                             future_layer_cars.add(pred.getCars().get(1));
                             break;
                         }

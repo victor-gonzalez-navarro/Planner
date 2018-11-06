@@ -1,0 +1,5 @@
+NumLines=4;
+MaxColumns=7;
+Blocks=1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22;
+InitialState=FirstDock(6).FirstDock(13).FirstDock(12).FirstDock(22).LastDock(1).LastDock(7).LastDock(14).LastDock(18).FreeLine(13).FreeLine(22).NextToDock(1,2).NextToDock(2,3).NextToDock(3,4).NextToDock(4,5).NextToDock(5,6).NextToDock(7,8).NextToDock(8,9).NextToDock(9,10).NextToDock(10,11).NextToDock(11,12).NextToDock(14,15).NextToDock(15,16).NextToDock(16,17).NextToDock(17,13).NextToDock(18,19).NextToDock(19,20).NextToDock(20,21).NextToDock(21,22);
+GoalState=FirstFerry(5).FirstFerry(21).FirstFerry(20).LastFerry(7).LastFerry(18).LastFerry(14).NextToFerry(7,1).NextToFerry(1,17).NextToFerry(17,2).NextToFerry(2,3).NextToFerry(3,13).NextToFerry(13,5).NextToFerry(18,19).NextToFerry(19,8).NextToFerry(8,10).NextToFerry(10,9).NextToFerry(9,11).NextToFerry(11,12).NextToFerry(12,21).NextToFerry(14,15).NextToFerry(15,16).NextToFerry(16,4).NextToFerry(4,6).NextToFerry(6,22).NextToFerry(22,20);
