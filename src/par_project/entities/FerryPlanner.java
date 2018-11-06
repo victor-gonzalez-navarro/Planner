@@ -82,7 +82,7 @@ public class FerryPlanner {
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
                                     (p.getCars().get(0).identifier.equals(op.getFirstCar().identifier))){
-                                if (cars_behind_y < numMaxCars){
+                                if (cars_behind_y < (numMaxCars - 2)){
                                     curr_state.addPredicate(p);
                                 }
                             } else {
@@ -101,7 +101,7 @@ public class FerryPlanner {
                         if (op instanceof UnstackStackDock){
                             if (p instanceof FreeLine &&
                                     (p.getCars().get(0).identifier.equals(op.getFirstCar().identifier))){
-                                if (cars_behind_y == numMaxCars){
+                                if (cars_behind_y == (numMaxCars-2)){
                                     curr_state.delPredicate(p);
                                 }
                             } else {
