@@ -51,7 +51,7 @@ public class Functions {
     }
 
     public static int argMax(ArrayList<Integer> ints){
-        int maxValue = 0;
+        int maxValue = -1;
         int idx = 0;
         for (int i = 0; i < ints.size(); i++) {
             if (ints.get(i) > maxValue) {

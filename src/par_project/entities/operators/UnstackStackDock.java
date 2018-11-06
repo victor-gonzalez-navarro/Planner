@@ -34,8 +34,8 @@ public class UnstackStackDock extends Operator{
         this.available_cars.remove(z.identifier);
         this.available_cars.remove(y.identifier);
 
-        precs_l.add(new FreeLine(this.y, this.available_cars));
         precs_l.add(new FirstDock(this.y, this.available_cars));
+        precs_l.add(new FreeLine(this.y, this.available_cars));
         precs_l.add(new FirstDock(this.x, this.available_cars));
         precs_l.add(new NextToDock(this.z,this.x, this.available_cars));
         

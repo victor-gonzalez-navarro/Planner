@@ -121,7 +121,7 @@ public class FerryPlanner {
                 boolean found = true;
                 for (Predicate p : (ArrayList<Predicate>) stack.getLast()) {
                     if (!(p instanceof NumLinesEmpty) && !curr_state.contains(p)){
-                        p.uninstantiateCar(0);
+                        //p.uninstantiateCar(0);
                         stack.add(p);
                         found = false;
                     }

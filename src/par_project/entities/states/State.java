@@ -140,7 +140,7 @@ public class State {
                 }
             }
         } else if (dockOrFerry.equals(Constants.FERRY)) {
-            if (this.contains(new FirstDock(curr_car))) {
+            if (this.contains(new FirstFerry(curr_car))) {
                 keep = false;
             }
             while(keep) {
