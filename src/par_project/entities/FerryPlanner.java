@@ -26,7 +26,8 @@ import par_project.utils.Functions;
 public class FerryPlanner {    
     Deque<Object> stack = new ArrayDeque<>();    // Stack of Operators, ArrayLists of Predicates and Predicates
     State init_state, curr_state , target_state;
-    List<Operator> stepsToGoal;                  // ArrayList for storing Operators necessary to reach the goal
+    List<Operator> stepsToGoal;                  // List for storing Operators necessary to reach the goal
+    List<Operator> accuOperators;                // List for storing Operators to check for cycles
     public ArrayList<Car> cars;
     public int numMaxCars;                       // Maximum number of Cars per line in the Dock
     public int numLinesEmpty;                    // Keep track of the number of empty lines.
@@ -37,6 +38,7 @@ public class FerryPlanner {
         this.init_state = init_state;
         this.target_state = target_state;
         stepsToGoal = new ArrayList<>();
+        accuOperators = new ArrayList<>();
         this.cars = cars;
         this.numLinesEmpty = numLinesEmpty;
         this.numMaxCars = numMaxCars;
@@ -53,7 +55,7 @@ public class FerryPlanner {
         for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
-        
+
         boolean finished = false;
 
         Predicate pred;
@@ -62,6 +64,7 @@ public class FerryPlanner {
 
         // While there are still elements in the stack and no impossible State has been reached
         while(!finished) {
+            //Functions.drawing(stack);
 
             // Case 1: Last Element of the Stack is an Operator
             if (stack.getLast() instanceof Operator) {
@@ -121,6 +124,7 @@ public class FerryPlanner {
                 // Delete the Operator from the Stack and Add it to the solution
                 stack.removeLast();
                 stepsToGoal.add(op);
+                accuOperators.removeAll(accuOperators);
                 
             // Case 2: Last Element of the Stack is an ArrayList of Predicates
             } else if (stack.getLast() instanceof ArrayList){
@@ -175,6 +179,18 @@ public class FerryPlanner {
                             if (equality && pred.areCarsAvailable(ccars_currentstate)) {
                                 pred.setCars(ccars_currentstate);
                                 endFor = true;
+
+                                int counter = 0;
+                                for (int idx = accuOperators.size()-1; idx > accuOperators.size()-20 && idx >= 0; idx--){
+                                    Operator operator = accuOperators.get(idx);
+                                    if (accuOperators.get(accuOperators.size()-1).toString().equals(operator.toString())){
+                                        counter++;
+                                    }
+                                }
+                                if (counter > 5){
+                                    System.out.println("You may have enter in a loop, we decide to stop the code");
+                                    finished = true;
+                                }
                             }
                         }
                         num++;
@@ -200,6 +216,7 @@ public class FerryPlanner {
                         } else {
                             // Add the Operator to the Stack
                             stack.add(op);
+                            accuOperators.add(op);
 
                             // Add the Preconditions List of the operator
                             stack.add(op.getPrecsList());
@@ -221,6 +238,7 @@ public class FerryPlanner {
                             } else {
                                 // Add the Operator to the Stack
                                 stack.add(op);
+                                accuOperators.add(op);
 
                                 // Add the Preconditions List of the operator
                                 stack.add(op.getPrecsList());
@@ -230,7 +248,6 @@ public class FerryPlanner {
                                     stack.add(p);
                                 });
                             }
-
                         } else {
                             stack.removeLast();
                         }
@@ -242,9 +259,9 @@ public class FerryPlanner {
             // Check if the Planner has reached the target State
             if (stack.isEmpty()){
                 if (curr_state.getPredicates().size() != target_state.getPredicates().size()){
-                    System.out.println("Finished but current state and target state does not contain the same number of elements");
+                    System.out.println("\nFinished but current state and target state does not contain the same number of elements");
                 } else {
-                    System.out.println("Successfully finished");
+                    System.out.println("\nSuccessfully finished");
                 }
                 finished = true;
             }

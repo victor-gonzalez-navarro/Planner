@@ -25,7 +25,7 @@ import static par_project.utils.Functions.readInput;
 public class PAR_Project {
 
     public static void main(String[] args){
-
+        long startTime = System.currentTimeMillis();
         Map<String, List<String>> statement = readInput(Constants.INPUT_PATH + Constants.INPUT_FILE_NAME);
 
         // Initialize the initial state by adding the initial predicates to it
@@ -63,6 +63,8 @@ public class PAR_Project {
 
         // Solve the planning problem and write the output file
         planner.solveProblem();
+        long finishTime = System.currentTimeMillis();
+        System.out.println("Time of execution: " + String.valueOf((finishTime-startTime)/1000.0));
     }
     
 }

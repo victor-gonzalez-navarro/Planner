@@ -4,10 +4,7 @@ import par_project.entities.operators.Operator;
 import par_project.entities.states.State;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Functions Class contain several global functions for reading input files, write output files and calculate the
@@ -104,5 +101,21 @@ public class Functions {
             }
         }
         return idx;
+    }
+
+    public static void drawing(Deque<Object> stack){
+        System.out.println("\n\n");
+        ArrayList list = new ArrayList(stack);
+        for (int i = list.size()-1; i >= 0; i--){
+            if (list.get(i) instanceof Predicate || list.get(i) instanceof Operator){
+            System.out.println(list.get(i).toString());
+            System.out.println("-----------------------------");
+            } else {
+                System.out.println("List of Predicates");
+                System.out.println("-----------------------------");
+            }
+
+        }
+
     }
 }
