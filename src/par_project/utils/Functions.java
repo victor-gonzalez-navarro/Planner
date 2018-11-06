@@ -5,6 +5,8 @@
  */
 package par_project.utils;
 
+import par_project.entities.predicates.Predicate;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -59,10 +61,14 @@ public class Functions {
         return idx;
     }
 
-    /*public static void drawing(Deque<Object> stack){
+    public static void drawing(Deque<Object> stack){
+        // Deque<Object> stackcop = new ArrayDeque<>();
         System.out.println("-------------");
         for (int i = 0; i < stack.size(); i++){
-            System.out.println(stack.);
+            Object ob = stack.removeFirst();
+            if (ob instanceof Predicate){
+                System.out.println(ob.toString());
+            }
         }
-    }*/
+    }
 }

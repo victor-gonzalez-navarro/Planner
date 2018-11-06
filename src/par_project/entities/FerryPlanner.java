@@ -67,6 +67,7 @@ public class FerryPlanner {
         int cars_behind_y = 0;
                 
         while(!finished) {
+            Functions.drawing(stack);
             //////////////////////////System.out.println(stack.size());
             // Case 1
             if (stack.getLast() instanceof Operator) {
