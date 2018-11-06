@@ -8,10 +8,7 @@ package par_project.utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -61,4 +58,11 @@ public class Functions {
         }
         return idx;
     }
+
+    /*public static void drawing(Deque<Object> stack){
+        System.out.println("-------------");
+        for (int i = 0; i < stack.size(); i++){
+            System.out.println(stack.);
+        }
+    }*/
 }
