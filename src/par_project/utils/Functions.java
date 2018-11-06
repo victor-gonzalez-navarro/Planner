@@ -66,10 +66,14 @@ public class Functions {
         System.out.println("\n\n");
         ArrayList list = new ArrayList(stack);
         for (int i = list.size()-1; i >= 0; i--){
-            //if (list.get(i) instanceof Predicate || list.get(i) instanceof Operator){
+            if (list.get(i) instanceof Predicate || list.get(i) instanceof Operator){
             System.out.println(list.get(i).toString());
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-            //}
+            System.out.println("-----------------------------");
+            } else {
+                System.out.println("List of Predicates");
+                System.out.println("-----------------------------");
+            }
+
         }
 
     }
