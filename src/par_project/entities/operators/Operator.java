@@ -113,9 +113,7 @@ public class Operator{
                                     break;
                             }
                         }
-                        //return op;
                         matched_ops.add(op);
-
                     }
                 }
             }
@@ -123,7 +121,7 @@ public class Operator{
         
         if (matched_ops.size() > 0){
             if (in_pred instanceof FirstDock){
-                if (numLinesEmpty > 0){
+                if (numLinesEmpty > (curr_state.carsInFrontOf(in_pred.getCars().get(0), Constants.DOCK) - 1)){
                     for (Operator op : matched_ops){
                         if (op instanceof UnstackLeaveDock){
                             return op;
@@ -167,7 +165,6 @@ public class Operator{
             }
             return matched_ops.get(rnd.nextInt(matched_ops.size()));
         }
-        //for (int i = 0; i < matched_ops.size(); i++){}
         
         return null;
     }
