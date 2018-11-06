@@ -51,11 +51,8 @@ public class FerryPlanner {
         // First, add the Goal State Predicates to the Stack
         stack.add(target_state.getPredicates());
 
-<<<<<<< HEAD
         ArrayList<Predicate> s = sortPredicates(target_state.getPredicates());
-=======
         // Add each Predicate from the Goal State properly Sorted
->>>>>>> cd38b24e2bd645241cc5c60847739a7df30d863e
         for (Predicate pred : sortPredicates(target_state.getPredicates())){
             stack.add(pred);
         }
@@ -68,7 +65,7 @@ public class FerryPlanner {
 
         // While there are still elements in the stack and no impossible State has been reached
         while(!finished) {
-            Functions.drawing(stack);
+            // Functions.drawing(stack);
 
             // Case 1: Last Element of the Stack is an Operator
             if (stack.getLast() instanceof Operator) {
@@ -226,9 +223,9 @@ public class FerryPlanner {
                             stack.add(op.getPrecsList());
 
                             // Add each Predicate of the Preconditions List
-                            op.getPrecsList().forEach((p) -> {
+                            for (Predicate p : op.getPrecsList()){
                                 stack.add(p);
-                            });
+                            }
                         }
                     } else {
                         // If the Predicate is not satisfied in the current State yet...
@@ -248,9 +245,9 @@ public class FerryPlanner {
                                 stack.add(op.getPrecsList());
 
                                 // Add each Predicate of the Preconditions List
-                                op.getPrecsList().forEach((p) -> {
+                                for (Predicate p : op.getPrecsList()){
                                     stack.add(p);
-                                });
+                                }
                             }
                         } else {
                             stack.removeLast();
