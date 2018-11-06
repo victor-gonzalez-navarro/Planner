@@ -2,50 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1039c7ca-01c3-4778-9ee2-e8b40670adac" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/PAR_Project.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/PAR_Project.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/FerryPlanner.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/FerryPlanner.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/items/Car.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/items/Car.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/Operator.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/Operator.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickLeaveFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickLeaveFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickStackFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickStackFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveDock.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackDock.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstDock.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FreeLine.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FreeLine.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastDock.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToDock.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToFerry.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NumLinesEmpty.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NumLinesEmpty.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/Predicate.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/Predicate.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/states/State.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/states/State.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Constants.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Constants.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Functions.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Functions.class" />
       <change beforePath="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" afterPath="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/items/Car.java" afterPath="$PROJECT_DIR$/src/par_project/entities/items/Car.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/Operator.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/Operator.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/entities/states/State.java" afterPath="$PROJECT_DIR$/src/par_project/entities/states/State.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/utils/Functions.java" afterPath="$PROJECT_DIR$/src/par_project/utils/Functions.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/resources/output/out_example1.txt" afterPath="$PROJECT_DIR$/src/par_project/resources/output/out_example1.txt" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/utils/Constants.java" afterPath="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,113 +45,13 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="FirstDock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="16" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Operator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PickLeaveFerry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/items/Car.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="112" lean-forward="false" selection-start-line="10" selection-start-column="112" selection-end-line="10" selection-end-column="112" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PAR_Project.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PickStackFerry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnstackLeaveDock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnstackLeaveFerry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnstackStackDock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnstackStackFerry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>getXCar().eq</find>
       <find>substr</find>
+      <find>Next</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,9 +68,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/par_project/resources/example1.txt" />
         <option value="$PROJECT_DIR$/src/par_project/resources/our_example3.txt" />
-        <option value="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
         <option value="$PROJECT_DIR$/src/par_project/PAR_Project.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
         <option value="$PROJECT_DIR$/src/par_project/utils/Functions.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/states/State.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java" />
@@ -231,6 +88,9 @@
         <option value="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/items/Car.java" />
+        <option value="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/par_project/resources/input/our_example4.txt" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
       </list>
     </option>
   </component>
@@ -267,6 +127,26 @@
               <item name="PAR_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAR_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAR_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAR_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="par_project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAR_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAR_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="par_project" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAR_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAR_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="par_project" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -335,7 +215,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -346,7 +225,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9682997" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -482,16 +361,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-          <folding>
-            <element signature="e#2171#2172#0" expanded="false" />
-            <element signature="e#2207#2208#0" expanded="false" />
-            <element signature="e#2352#2353#0" expanded="false" />
-            <element signature="e#2379#2380#0" expanded="false" />
-            <element signature="e#2422#2423#0" expanded="false" />
-            <element signature="e#2449#2450#0" expanded="false" />
-            <element signature="e#2481#2482#0" expanded="false" />
-            <element signature="e#2508#2509#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -623,26 +493,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="85" lean-forward="false" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/states/State.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/resources/input/our_example4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="161" lean-forward="false" selection-start-line="3" selection-start-column="161" selection-end-line="3" selection-end-column="161" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="59" column="74" lean-forward="false" selection-start-line="59" selection-start-column="74" selection-end-line="59" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -655,26 +541,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="59" column="74" lean-forward="false" selection-start-line="59" selection-start-column="74" selection-end-line="59" selection-end-column="74" />
-          <folding>
-            <element signature="e#2171#2172#0" expanded="false" />
-            <element signature="e#2207#2208#0" expanded="false" />
-            <element signature="e#2352#2353#0" expanded="false" />
-            <element signature="e#2379#2380#0" expanded="false" />
-            <element signature="e#2422#2423#0" expanded="false" />
-            <element signature="e#2449#2450#0" expanded="false" />
-            <element signature="e#2481#2482#0" expanded="false" />
-            <element signature="e#2508#2509#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
+        <state relative-caret-position="210">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
@@ -682,8 +551,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
+        <state relative-caret-position="240">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -696,18 +565,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -722,56 +591,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="16" selection-end-column="3" />
+        <state relative-caret-position="195">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+        <state relative-caret-position="180">
+          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -784,6 +613,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/items/Car.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -792,10 +661,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        <state relative-caret-position="262">
+          <caret line="66" column="12" lean-forward="false" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
           <folding />
         </state>
       </provider>

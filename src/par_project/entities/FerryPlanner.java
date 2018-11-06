@@ -64,7 +64,7 @@ public class FerryPlanner {
 
         // While there are still elements in the stack and no impossible State has been reached
         while(!finished) {
-            //Functions.drawing(stack);
+            Functions.drawing(stack);
 
             // Case 1: Last Element of the Stack is an Operator
             if (stack.getLast() instanceof Operator) {
