@@ -11,9 +11,11 @@ import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
 /**
+ * FirstDock Class is a Predicate used to identify the first car in a line of the Dock.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class FirstDock extends Predicate {
     private Car x;
 
@@ -60,13 +62,6 @@ public class FirstDock extends Predicate {
         if (available_cars.contains(listCars.get(0).identifier)) {
             this.x.identifier = listCars.get(0).identifier;
             this.available_cars.remove(x.identifier);
-        }
-    }
-
-    @Override
-    public void uninstantiateCar(int idx) {
-        if (idx == 0){
-            x.identifier = Constants.X_IDENTIFIER;
         }
     }
 }

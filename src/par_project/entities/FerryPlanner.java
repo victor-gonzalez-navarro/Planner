@@ -273,21 +273,31 @@ public class FerryPlanner {
     }
     
     public ArrayList<Predicate> sortPredicates(ArrayList<Predicate> preds){
+        // ArrayList with the initial Predicates sorted
         ArrayList<Predicate> sorted = new ArrayList<>();
 
+        // HashMap to store the car IDs and their depth (Cars in front of it) at the Dock
         Map<String, Integer> carsDepth = new HashMap<>();
+
+        // ArrayList to keep the depth of the cars that are being analyzed at each step
         ArrayList<Integer> curr_layer_depths = new ArrayList<>();
+
+        // ArrayLists to keep track of the Cars from NextToFerry(X,Y) to NextToFerry(Y,Z)
         ArrayList<Predicate> curr_layer_preds = new ArrayList<>();
         ArrayList<Car> future_layer_cars = new ArrayList<>();
         ArrayList<Car> curr_layer_cars = new ArrayList<>();
+
         int maximum_idx;
 
+        // Count, for each Car, its depth in the DOCK
         for (Car car : cars){
             carsDepth.put(car.identifier, curr_state.carsInFrontOf(car, Constants.DOCK));
         }
 
         int maxFerryDepth = -1;
         int currFerryDepth = 0;
+
+        // LastFerry Predicates will be the last ones in the Stack
         for (Predicate pred : preds){
             if (pred instanceof LastFerry){
                 curr_layer_preds.add(pred);
@@ -300,13 +310,14 @@ public class FerryPlanner {
             }
         }
 
+        // At the bottom of the Stack, LastFerries with cars that are deeper in the Dock
         for (int i = 0; i < curr_layer_preds.size(); i++){
             maximum_idx = Functions.argMax(curr_layer_depths);
             sorted.add(curr_layer_preds.get(maximum_idx));
             curr_layer_depths.set(maximum_idx, -1);
         }
 
-        // NextToFerry
+        // Next, NextToFerry will be sorted
         for (int i = 0; i < maxFerryDepth; i++) {
             curr_layer_preds.removeAll(curr_layer_preds);
             curr_layer_depths.removeAll(curr_layer_depths);
@@ -324,6 +335,7 @@ public class FerryPlanner {
                 }
             }
 
+            // Deeper Cars will be behind at the Stack
             for (int j = 0; j < curr_layer_preds.size(); j++) {
                 maximum_idx = Functions.argMax(curr_layer_depths);
                 sorted.add(curr_layer_preds.get(maximum_idx));
@@ -334,11 +346,10 @@ public class FerryPlanner {
             future_layer_cars.removeAll(future_layer_cars);
         }
 
-        // First Ferry
-
         curr_layer_preds.removeAll(curr_layer_preds);
         curr_layer_depths.removeAll(curr_layer_depths);
 
+        // The predicates that will go at the top of the Stack will be First Ferry
         for (Predicate pred : preds){
             if (pred instanceof FirstFerry){
                 curr_layer_preds.add(pred);
@@ -346,6 +357,7 @@ public class FerryPlanner {
             }
         }
 
+        // Deeper Cars will be behind at the Stack
         for (int i = 0; i < curr_layer_preds.size(); i++){
             maximum_idx = Functions.argMax(curr_layer_depths);
             sorted.add(curr_layer_preds.get(maximum_idx));

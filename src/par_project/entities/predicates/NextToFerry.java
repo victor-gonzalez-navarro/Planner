@@ -10,9 +10,11 @@ import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
 /**
+ * NextToFerry Class is a Predicate used to identify adjacent cars in the Ferry.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class NextToFerry extends Predicate {
     private Car x;
     private Car z;

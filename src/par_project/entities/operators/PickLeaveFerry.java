@@ -16,9 +16,11 @@ import par_project.entities.predicates.NumLinesEmpty;
 import par_project.utils.Constants;
 
 /**
+ * PickLeaveFerry Class is an Operator that picks Car X from the Dock and puts it in an empty line of the Ferry.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class PickLeaveFerry extends Operator{
     
     public PickLeaveFerry (Car x, ArrayList<Car> cars){

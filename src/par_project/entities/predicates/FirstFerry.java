@@ -10,9 +10,11 @@ import par_project.entities.items.Car;
 import par_project.utils.Constants;
 
 /**
+ * FirstFerry Class is a Predicate used to identify the first car in a line of the Ferry.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class FirstFerry extends Predicate {
     private Car x;
     

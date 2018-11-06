@@ -17,9 +17,12 @@ import par_project.utils.Constants;
 import java.util.ArrayList;
 
 /**
+ * UnstackLeaveDock Class is an Operator that Unstacks Car X from Car Z in the Dock and puts it in an empty line of
+ * the Dock.
  *
- * @author alarca_94
+ * @author Alejandro Ariza & Víctor González
  */
+
 public class UnstackLeaveDock extends Operator{
     private Car z;
     

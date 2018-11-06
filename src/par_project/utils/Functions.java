@@ -1,6 +1,7 @@
 package par_project.utils;
 
 import par_project.entities.operators.Operator;
+import par_project.entities.predicates.Predicate;
 import par_project.entities.states.State;
 
 import java.io.*;
@@ -103,6 +104,10 @@ public class Functions {
         return idx;
     }
 
+    /**
+     * Drawing draws the Stack Elements in the console
+     * @param stack
+     */
     public static void drawing(Deque<Object> stack){
         System.out.println("\n\n");
         ArrayList list = new ArrayList(stack);

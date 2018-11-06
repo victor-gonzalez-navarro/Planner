@@ -1,31 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="1039c7ca-01c3-4778-9ee2-e8b40670adac" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/PAR_Project.class" afterPath="$PROJECT_DIR$/out/production/PAR_Project/par_project/PAR_Project.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/entities/FerryPlanner.class" afterPath="$PROJECT_DIR$/out/production/PAR_Project/par_project/entities/FerryPlanner.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/entities/operators/Operator.class" afterPath="$PROJECT_DIR$/out/production/PAR_Project/par_project/entities/operators/Operator.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/resources/example1.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/resources/example2.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/resources/our_example3.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/utils/Constants.class" afterPath="$PROJECT_DIR$/out/production/PAR_Project/par_project/utils/Constants.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAR_Project/par_project/utils/Functions.class" afterPath="$PROJECT_DIR$/out/production/PAR_Project/par_project/utils/Functions.class" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/PAR_Project.java" afterPath="$PROJECT_DIR$/src/par_project/PAR_Project.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/PAR_Project.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/PAR_Project.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/FerryPlanner.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/FerryPlanner.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/items/Car.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/items/Car.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/Operator.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/Operator.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickLeaveFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickLeaveFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickStackFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/PickStackFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveDock.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackLeaveFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackDock.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/operators/UnstackStackFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstDock.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FirstFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FreeLine.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/FreeLine.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastDock.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/LastFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToDock.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToDock.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToFerry.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NextToFerry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NumLinesEmpty.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/NumLinesEmpty.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/Predicate.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/predicates/Predicate.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/entities/states/State.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/entities/states/State.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Constants.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Constants.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Functions.class" afterPath="$PROJECT_DIR$/out/production/PAR/par_project/utils/Functions.class" />
       <change beforePath="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" afterPath="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/items/Car.java" afterPath="$PROJECT_DIR$/src/par_project/entities/items/Car.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/Operator.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/Operator.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java" />
       <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/resources/example1.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/resources/example2.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/resources/our_example3.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/par_project/utils/Constants.java" afterPath="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java" afterPath="$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java" />
+      <change beforePath="$PROJECT_DIR$/src/par_project/entities/states/State.java" afterPath="$PROJECT_DIR$/src/par_project/entities/states/State.java" />
       <change beforePath="$PROJECT_DIR$/src/par_project/utils/Functions.java" afterPath="$PROJECT_DIR$/src/par_project/utils/Functions.java" />
     </list>
-=======
-    <list default="true" id="794e2c40-0b1c-4739-ab0a-44679f1ae6bd" name="Default Changelist" comment="" />
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,82 +86,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FerryPlanner.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1039">
-              <caret line="301" column="96" lean-forward="false" selection-start-line="301" selection-start-column="96" selection-end-line="301" selection-end-column="96" />
-              <folding />
-=======
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
+      <file leaf-file-name="FirstDock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4965">
-              <caret line="357" selection-start-line="357" selection-end-line="357" />
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Predicate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-423">
-              <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NextToDock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="47" column="44" lean-forward="false" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnstackStackDock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PAR_Project.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-228">
-              <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Functions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/utils/Functions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="out_example1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/resources/output/out_example1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="16" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -146,61 +100,89 @@
       <file leaf-file-name="Operator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1452">
-              <caret line="115" column="44" lean-forward="false" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="44" />
+            <state relative-caret-position="75">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="3" />
               <folding />
-=======
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-355">
-              <caret line="153" column="12" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/utils/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="195">
-              <caret line="17" column="85" lean-forward="false" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
-              <folding />
-=======
-            <state relative-caret-position="8">
-              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="PickLeaveFerry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="90">
+              <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/items/Car.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="10" column="112" lean-forward="false" selection-start-line="10" selection-start-column="112" selection-end-line="10" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PAR_Project.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+            <state relative-caret-position="467">
+              <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/par_project/utils/Functions.java">
+      <file leaf-file-name="PickStackFerry.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
+            <state relative-caret-position="90">
+              <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnstackLeaveDock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnstackLeaveFerry.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnstackStackDock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnstackStackFerry.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -209,55 +191,46 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-<<<<<<< HEAD
       <find>getXCar().eq</find>
       <find>substr</find>
-=======
-      <find>ste</find>
-      <find>stepsToGoal</find>
-      <find>counter</find>
-      <find>best</find>
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/par_project/entities/items/Car.java" />
         <option value="$PROJECT_DIR$/src/par_project/resources/example1.txt" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/resources/our_example3.txt" />
+        <option value="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/par_project/PAR_Project.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
+        <option value="$PROJECT_DIR$/src/par_project/utils/Functions.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/states/State.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/states/State.java" />
-        <option value="$PROJECT_DIR$/src/par_project/resources/our_example3.txt" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/operators/Operator.java" />
-        <option value="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/src/par_project/utils/Functions.java" />
-        <option value="$PROJECT_DIR$/src/par_project/PAR_Project.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
-=======
-        <option value="$PROJECT_DIR$/src/par_project/utils/Functions.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java" />
         <option value="$PROJECT_DIR$/src/par_project/entities/operators/Operator.java" />
-        <option value="$PROJECT_DIR$/src/par_project/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java" />
-        <option value="$PROJECT_DIR$/src/par_project/PAR_Project.java" />
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
+        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java" />
+        <option value="$PROJECT_DIR$/src/par_project/entities/items/Car.java" />
       </list>
     </option>
   </component>
@@ -267,64 +240,40 @@
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="PAR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAR" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="par_project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="par_project" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="par_project" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="operators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="par_project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
+              <item name="PAR_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAR_Project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAR_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAR_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="par_project" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,23 +293,32 @@
   </component>
   <component name="RunManager">
     <configuration name="PAR_Project" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="par_project.PAR_Project" />
-      <module name="PAR" />
-      <extension name="coverage">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="par_project.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="MAIN_CLASS_NAME" value="par_project.PAR_Project" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PAR" />
+      <envs />
     </configuration>
     <recent_temporary>
-      <list>
-        <item itemvalue="Application.PAR_Project" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.PAR_Project" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -376,70 +334,60 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3681592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2746781" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3681592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3299363" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16433121" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.44968152" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-<<<<<<< HEAD
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="53" />
@@ -456,6 +404,24 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/par_project/utils/Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="116" column="13" lean-forward="true" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+          <folding>
+            <element signature="e#758#780#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="676" column="21" lean-forward="false" selection-start-line="676" selection-start-column="21" selection-end-line="676" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -508,10 +474,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="76" column="46" lean-forward="false" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
-          <folding>
-            <element signature="e#1172#1173#0" expanded="false" />
-            <element signature="e#1205#1206#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -520,8 +483,14 @@
         <state relative-caret-position="705">
           <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
           <folding>
-            <element signature="e#1974#1975#0" expanded="false" />
-            <element signature="e#2001#2002#0" expanded="false" />
+            <element signature="e#2171#2172#0" expanded="false" />
+            <element signature="e#2207#2208#0" expanded="false" />
+            <element signature="e#2352#2353#0" expanded="false" />
+            <element signature="e#2379#2380#0" expanded="false" />
+            <element signature="e#2422#2423#0" expanded="false" />
+            <element signature="e#2449#2450#0" expanded="false" />
+            <element signature="e#2481#2482#0" expanded="false" />
+            <element signature="e#2508#2509#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -535,30 +504,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java">
-=======
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/par_project/utils/Functions.java">
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-171">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-355">
-          <caret line="153" column="12" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
+          <caret line="153" column="12" lean-forward="false" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -572,13 +535,12 @@
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4965">
-          <caret line="357" selection-start-line="357" selection-end-line="357" />
+          <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="315">
           <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding />
@@ -613,10 +575,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="e#3072#3073#0" expanded="false" />
-            <element signature="e#3155#3156#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -636,14 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/items/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -651,150 +602,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
-          <folding>
-            <element signature="e#3072#3073#0" expanded="false" />
-            <element signature="e#3155#3156#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding>
-            <element signature="e#1235#1236#0" expanded="false" />
-            <element signature="e#1263#1264#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="53" column="21" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#1227#1228#0" expanded="false" />
-            <element signature="e#1255#1256#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="57" column="8" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-          <folding>
-            <element signature="e#1268#1269#0" expanded="false" />
-            <element signature="e#1296#1297#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding>
-            <element signature="e#1217#1218#0" expanded="false" />
-            <element signature="e#1245#1246#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/resources/example1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="164" lean-forward="false" selection-start-line="3" selection-start-column="164" selection-end-line="3" selection-end-column="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="37" column="72" lean-forward="false" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/resources/example2.txt">
+    <entry file="file://$PROJECT_DIR$/src/par_project/resources/example1.txt" />
+    <entry file="file://$PROJECT_DIR$/src/par_project/resources/example2.txt" />
+    <entry file="file://$PROJECT_DIR$/src/par_project/resources/our_example3.txt" />
+    <entry file="file://$PROJECT_DIR$/src/par_project/resources/output/out_example1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#1222#1223#0" expanded="false" />
-            <element signature="e#1250#1251#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/states/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding>
-            <element signature="e#1172#1173#0" expanded="false" />
-            <element signature="e#1205#1206#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="121" column="9" lean-forward="false" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/resources/our_example3.txt">
+    <entry file="file://$PROJECT_DIR$/src/par_project/utils/Functions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="238">
+          <caret line="107" column="20" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+          <folding>
+            <element signature="e#758#780#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -806,71 +631,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/utils/Functions.java">
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="3" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/states/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="115" column="44" lean-forward="false" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="44" />
+        <state relative-caret-position="75">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="18" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NumLinesEmpty.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/resources/output/out_example1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        <state relative-caret-position="90">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/Predicate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-423">
-          <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="207">
+          <caret line="59" column="74" lean-forward="false" selection-start-line="59" selection-start-column="74" selection-end-line="59" selection-end-column="74" />
+          <folding>
+            <element signature="e#2171#2172#0" expanded="false" />
+            <element signature="e#2207#2208#0" expanded="false" />
+            <element signature="e#2352#2353#0" expanded="false" />
+            <element signature="e#2379#2380#0" expanded="false" />
+            <element signature="e#2422#2423#0" expanded="false" />
+            <element signature="e#2449#2450#0" expanded="false" />
+            <element signature="e#2481#2482#0" expanded="false" />
+            <element signature="e#2508#2509#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/NextToDock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="47" column="44" lean-forward="false" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+        <state relative-caret-position="75">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/par_project/entities/FerryPlanner.java">
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/LastFerry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1039">
-          <caret line="301" column="96" lean-forward="false" selection-start-line="301" selection-start-column="96" selection-end-line="301" selection-end-column="96" />
+        <state relative-caret-position="150">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
-=======
-        <state relative-caret-position="295">
-          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
->>>>>>> 2004d014b89e93fa3483e7f15ea6ba7f9d8e0db8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FreeLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/LastDock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/predicates/FirstDock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/Operator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackStackDock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/UnstackLeaveDock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickStackFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/operators/PickLeaveFerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/entities/items/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="112" lean-forward="false" selection-start-line="10" selection-start-column="112" selection-end-line="10" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/par_project/PAR_Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
