@@ -45,7 +45,7 @@ public class NextToDock extends Predicate{
     
     @Override
     public ArrayList<Car> getCars() {
-        ArrayList<Car> cars = new ArrayList<Car>();
+        ArrayList<Car> cars = new ArrayList<>();
         cars.add(z);
         cars.add(x);
         return cars;

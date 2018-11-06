@@ -10,10 +10,13 @@ package par_project.utils;
  * @author alarca_94
  */
 public class Constants {
-    public final static String INPUT_PATH       = "src/par_project/resources/";
-    //public final static String INPUT_FILE_NAME  = "example1.txt";
+    public final static String INPUT_PATH       = "src/par_project/resources/input/";
+    public final static String INPUT_FILE_NAME  = "example1.txt";
     //public final static String INPUT_FILE_NAME  = "example2.txt";
-    public final static String INPUT_FILE_NAME  = "our_example3.txt";
+    //public final static String INPUT_FILE_NAME  = "our_example3.txt";
+
+    public final static String OUTPUT_PATH       = "src/par_project/resources/output/";
+    public final static String OUTPUT_FILE_NAME  = "out_example1.txt";
     
     public final static String INIT_STATE       = "InitialState";
     public final static String TARGET_STATE     = "GoalState";
