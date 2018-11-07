@@ -1,3 +1,3 @@
-32
-32
-UnstackStackDock(22,21,6), UnstackLeaveFerry(21,20), UnstackStackDock(22,6,17), UnstackStackDock(6,5,20), UnstackLeaveFerry(5,4), UnstackStackDock(6,20,22), UnstackLeaveFerry(20,19), UnstackStackDock(13,12,6), UnstackStackFerry(12,11,21), UnstackStackDock(13,6,4), UnstackStackDock(6,22,19), UnstackStackFerry(22,17,20), UnstackStackFerry(13,4,5), UnstackStackFerry(11,10,12), UnstackStackFerry(6,19,22), UnstackStackDock(4,3,17), UnstackStackFerry(3,2,13), UnstackStackDock(10,9,4), UnstackStackFerry(9,8,11), UnstackStackDock(10,4,19), UnstackStackFerry(4,17,6), UnstackStackFerry(10,19,9), UnstackStackFerry(2,1,3), UnstackStackFerry(17,16,2), UnstackStackFerry(16,15,4), UnstackStackFerry(8,7,10), UnstackStackFerry(15,14,16), UnstackStackFerry(19,18,8), PickStackFerry(1,17), PickStackFerry(14,15), PickStackFerry(18,19), PickStackFerry(7,1)
+8
+8
+UnstackLeaveFerry(B,C), UnstackStackDock(D,E,A), UnstackStackDock(E,F,C), PickLeaveFerry(F), UnstackStackFerry(D,A,B), UnstackStackFerry(E,C,F), PickStackFerry(A,D), PickStackFerry(C,E)

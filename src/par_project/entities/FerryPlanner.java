@@ -30,6 +30,7 @@ public class FerryPlanner {
     List<Operator> accuOperators;                // List for storing Operators to check for cycles
     public ArrayList<Car> cars;
     public int numMaxCars;                       // Maximum number of Cars per line in the Dock
+    boolean finished;
     public int numLinesEmpty;                    // Keep track of the number of empty lines.
                                                  // The predicate NumLinesEmpty will only serve to update this parameter
     
@@ -37,14 +38,17 @@ public class FerryPlanner {
             ArrayList<Car> cars, int numLinesEmpty, int numMaxCars){
         this.init_state = init_state;
         this.target_state = target_state;
-        stepsToGoal = new ArrayList<>();
-        accuOperators = new ArrayList<>();
+        this.stepsToGoal = new ArrayList<>();
+        this.accuOperators = new ArrayList<>();
         this.cars = cars;
         this.numLinesEmpty = numLinesEmpty;
         this.numMaxCars = numMaxCars;
+        this.finished = false;
     }
     
     public void solveProblem (){
+        int cars_behind_y = 0;
+
         // Current State starts at the initial State
         curr_state = init_state.copy();
 
@@ -52,19 +56,15 @@ public class FerryPlanner {
         stack.add(target_state.getPredicates());
 
         // Add each Predicate from the Goal State properly Sorted
-        for (Predicate pred : sortPredicates(target_state.getPredicates())){
+        for (Predicate pred : sortPredicates(target_state.getPredicates())) {
             stack.add(pred);
         }
 
-        boolean finished = false;
-
         Predicate pred;
-        
-        int cars_behind_y = 0;
 
         // While there are still elements in the stack and no impossible State has been reached
         while(!finished) {
-            Functions.drawing(stack);
+            //Functions.drawing(stack);
 
             // Case 1: Last Element of the Stack is an Operator
             if (stack.getLast() instanceof Operator) {
@@ -124,8 +124,7 @@ public class FerryPlanner {
                 // Delete the Operator from the Stack and Add it to the solution
                 stack.removeLast();
                 stepsToGoal.add(op);
-                accuOperators.removeAll(accuOperators);
-                
+
             // Case 2: Last Element of the Stack is an ArrayList of Predicates
             } else if (stack.getLast() instanceof ArrayList){
                 boolean found = true;
@@ -189,6 +188,9 @@ public class FerryPlanner {
                                 }
                                 if (counter > 5){
                                     System.out.println("You may have enter in a loop, we decide to stop the code");
+                                    for (Operator op : accuOperators) {
+                                        System.out.println(op.toString());
+                                    }
                                     finished = true;
                                 }
                             }
@@ -198,7 +200,8 @@ public class FerryPlanner {
 
                     if (!pred.isInstantiated()){
                         finished = true;
-                        System.out.println("No predicate in the current state has been found to satisfy the condition");
+                        System.out.println("No predicate in the current state has been found to satisfy the condition " +
+                        pred.toString());
                     }
                 }
                 // Case 4: Last Element of the Stack is a Predicate that is instantiated
@@ -288,10 +291,18 @@ public class FerryPlanner {
         ArrayList<Car> curr_layer_cars = new ArrayList<>();
 
         int maximum_idx;
+        int cars_in_front;
 
         // Count, for each Car, its depth in the DOCK
         for (Car car : cars){
-            carsDepth.put(car.identifier, curr_state.carsInFrontOf(car, Constants.DOCK));
+            cars_in_front = curr_state.carsInFrontOf(car, Constants.DOCK);
+            if (cars_in_front != -1) {
+                carsDepth.put(car.identifier, cars_in_front);
+            } else {
+                setFinished(true);
+                System.out.println("Error in the input file: Look for the car " + car.identifier + " in the Initial state");
+                return sorted;
+            }
         }
 
         int maxFerryDepth = -1;
@@ -366,5 +377,8 @@ public class FerryPlanner {
         
         return sorted;
     }
-    
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
 }

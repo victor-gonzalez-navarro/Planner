@@ -97,6 +97,10 @@ public class State {
                         break;
                     }
                 }
+                // Given Y is not the Last in its Line, if no cars are behind Y, there is an error in the input file
+                if (cars_behind_y == 0) {
+                    return -1;
+                }
             }
         } else if (dockOrFerry.equals(Constants.FERRY)) {
             if (this.contains(new LastFerry(curr_car))) {
@@ -113,6 +117,10 @@ public class State {
                         }
                         break;
                     }
+                }
+                // Given Y is not the Last in its Line, if no cars are behind Y, there is an error in the input file
+                if (cars_behind_y == 0) {
+                    return -1;
                 }
             }
         }
@@ -150,6 +158,10 @@ public class State {
                         break;
                     }
                 }
+                // Given Y is not the Last in its Line, if no cars are in front of Y, there is an error in the input file
+                if (cars_in_front_y == 0) {
+                    return -1;
+                }
             }
         } else if (dockOrFerry.equals(Constants.FERRY)) {
             if (this.contains(new FirstFerry(curr_car))) {
@@ -166,6 +178,10 @@ public class State {
                         }
                         break;
                     }
+                }
+                // Given Y is not the Last in its Line, if no cars are in front of Y, there is an error in the input file
+                if (cars_in_front_y == 0) {
+                    return -1;
                 }
             }
         }

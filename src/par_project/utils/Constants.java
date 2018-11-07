@@ -16,10 +16,13 @@ public class Constants {
     //public final static String INPUT_FILE_NAME  = "example1.txt";
     //public final static String INPUT_FILE_NAME  = "example2.txt";
     //public final static String INPUT_FILE_NAME  = "our_example3.txt";
-    public final static String INPUT_FILE_NAME  = "our_example4.txt";
+    //public final static String INPUT_FILE_NAME  = "our_example4.txt";
+    //public final static String INPUT_FILE_NAME  = "our_example5.txt";
+    //public final static String INPUT_FILE_NAME  = "our_example6.txt";
+    public final static String INPUT_FILE_NAME  = "our_example7.txt";
 
     public final static String OUTPUT_PATH       = "src/par_project/resources/output/";
-    public final static String OUTPUT_FILE_NAME  = "out_example1.txt";
+    public final static String OUTPUT_FILE_NAME  = "out_" + INPUT_FILE_NAME;
     
     public final static String INIT_STATE       = "InitialState";
     public final static String TARGET_STATE     = "GoalState";

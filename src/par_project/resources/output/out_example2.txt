@@ -1,0 +1,3 @@
+9
+9
+UnstackLeaveFerry(B,A), UnstackStackFerry(D,E,B), UnstackStackDock(A,C,E), UnstackStackDock(C,F,A), PickStackFerry(F,D), UnstackStackFerry(C,A,F), UnstackLeaveDock(A,E), PickStackFerry(E,C), PickStackFerry(A,E)
