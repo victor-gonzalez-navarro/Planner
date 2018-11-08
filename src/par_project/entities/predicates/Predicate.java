@@ -98,4 +98,10 @@ public class Predicate {
         }
         return available;
     }
+
+    public ArrayList<String> getCarsAvailable() {
+        return available_cars;
+    }
+
+
 }

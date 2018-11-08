@@ -30,7 +30,9 @@ public class FerryPlanner {
     List<Operator> accuOperators;                // List for storing Operators to check for cycles
     public ArrayList<Car> cars;
     public int numMaxCars;                       // Maximum number of Cars per line in the Dock
-    boolean finished;
+    boolean finished;                            // Indicates whether the planner needs to stop (SUCCESS, ERROR)
+    boolean printStack;                          // It enables the debug of the Stack in the Console
+    String fail_reason;                          // Reason why the planner fails, if any
     public int numLinesEmpty;                    // Keep track of the number of empty lines.
                                                  // The predicate NumLinesEmpty will only serve to update this parameter
     
@@ -44,6 +46,9 @@ public class FerryPlanner {
         this.numLinesEmpty = numLinesEmpty;
         this.numMaxCars = numMaxCars;
         this.finished = false;
+        this.fail_reason = "";
+
+        this.printStack = true;
     }
     
     public void solveProblem (){
@@ -55,7 +60,6 @@ public class FerryPlanner {
         // First, add the Goal State Predicates to the Stack
         stack.add(target_state.getPredicates());
 
-        ArrayList<Predicate> s = sortPredicates(target_state.getPredicates());
         // Add each Predicate from the Goal State properly Sorted
         for (Predicate pred : sortPredicates(target_state.getPredicates())) {
             stack.add(pred);
@@ -65,11 +69,19 @@ public class FerryPlanner {
 
         // While there are still elements in the stack and no impossible State has been reached
         while(!finished) {
-            // Functions.drawing(stack);
+            if (printStack) {
+                Functions.drawing(stack);
+                System.out.println(System.lineSeparator());
+            }
 
             // Case 1: Last Element of the Stack is an Operator
             if (stack.getLast() instanceof Operator) {
                 Operator op = (Operator) stack.getLast();
+
+                if (printStack) {
+                    System.out.println("Updating State with Add/Del Lists of Operator " + op.toString() + ". Then, " +
+                            "delete it from the Stack");
+                }
 
                 // Count the number of cars behing the car Y where car X is going to be Stacked in front
                 if (op instanceof UnstackStackDock){
@@ -141,6 +153,13 @@ public class FerryPlanner {
                 // If all Predicates are still satisfied in the Current State, delete the ArrayList
                 if (found){
                     stack.removeLast();
+                    if (printStack) {
+                        System.out.println("Removing ArrayList of Predicates from the Stack");
+                    }
+                } else {
+                    if (printStack) {
+                        System.out.println("Adding unsatisfied Predicates from the ArrayList to the Stack");
+                    }
                 }
                 
             // Case 3 & 4
@@ -148,6 +167,11 @@ public class FerryPlanner {
                 pred = (Predicate) stack.getLast();
                 // Case 3: Last Element of the Stack is a Predicate that is not instantiated
                 if (!pred.isInstantiated()){
+
+                    if (printStack) {
+                        System.out.println("Instantiating " + pred.toString());
+                    }
+
                     Boolean endFor = false;
                     int num = 0;
                     while (num < curr_state.getPredicates().size() && !endFor) {
@@ -188,7 +212,8 @@ public class FerryPlanner {
                                     }
                                 }
                                 if (counter > 5){
-                                    System.out.println("You may have enter in a loop, we decide to stop the code");
+                                    fail_reason = "You may have enter in a loop, we decide to stop the code";
+                                    System.out.println(fail_reason);
                                     for (Operator op : accuOperators) {
                                         System.out.println(op.toString());
                                     }
@@ -201,21 +226,35 @@ public class FerryPlanner {
 
                     if (!pred.isInstantiated()){
                         finished = true;
-                        System.out.println("No predicate in the current state has been found to satisfy the condition " +
-                        pred.toString());
+                        String notAvailableCars = Functions.differenceCars(this.cars, pred.getCarsAvailable());
+                        fail_reason = "No predicate in the current state has been found to satisfy the condition " +
+                                pred.toString() + (notAvailableCars.isEmpty()?"":". Note cars [" + notAvailableCars +
+                                "] are unavailable for instantiating the Predicate");
+                        System.out.println(fail_reason);
                     }
                 }
                 // Case 4: Last Element of the Stack is a Predicate that is instantiated
                 else {
                     // If predicate is NumLinesEmpty, check that there are empty lines in the current state
                     if (pred instanceof NumLinesEmpty && numLinesEmpty > 0){
+
+                        if (printStack) {
+                            System.out.println("Removing NumLinesEmpty from the Stack");
+                        }
+
                         stack.removeLast();
                     } else if (pred instanceof NumLinesEmpty && numLinesEmpty == 0){
                         // Search for an operator that contains the current predicate in its Add list
                         Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
 
+                        if (printStack) {
+                            System.out.println("Searching for an Operator to get " + pred.toString());
+                        }
+
                         if (op == null){
-                            System.out.println("Finished in an impossible state");
+                            fail_reason = "Finished in an impossible state. No operator could be found that contains " +
+                                    pred.toString() + " in the Add List.";
+                            System.out.println(fail_reason);
                             finished = true;
                         } else {
                             // Add the Operator to the Stack
@@ -236,8 +275,14 @@ public class FerryPlanner {
                             // Search for an operator that contains the current predicate in its Add list
                             Operator op = Operator.searchAddPredicate(pred, curr_state, numLinesEmpty, cars);
 
+                            if (printStack) {
+                                System.out.println("Searching for an Operator to get " + pred.toString());
+                            }
+
                             if (op == null){
-                                System.out.println("Finished in an impossible state");
+                                fail_reason = "Finished in an impossible state. No operator could be found that contains " +
+                                        pred.toString() + " in the Add List.";
+                                System.out.println(fail_reason);
                                 finished = true;
                             } else {
                                 // Add the Operator to the Stack
@@ -253,6 +298,9 @@ public class FerryPlanner {
                                 }
                             }
                         } else {
+                            if (printStack) {
+                                System.out.println("Removing " + pred.toString() + " from the Stack");
+                            }
                             stack.removeLast();
                         }
                     }
@@ -263,7 +311,9 @@ public class FerryPlanner {
             // Check if the Planner has reached the target State
             if (stack.isEmpty()){
                 if (curr_state.getPredicates().size() != target_state.getPredicates().size()){
-                    System.out.println("\nFinished but current state and target state does not contain the same number of elements");
+                    fail_reason = "\nStack empty but current state and target state does not contain the same " +
+                            "number of elements";
+                    System.out.println(fail_reason);
                 } else {
                     System.out.println("\nSuccessfully finished");
                 }
@@ -273,7 +323,7 @@ public class FerryPlanner {
 
         // Write the output file
         Functions.writeOutput(Constants.OUTPUT_PATH + Constants.OUTPUT_FILE_NAME, stepsToGoal,
-                new int[]{stepsToGoal.size(),stepsToGoal.size()});
+                new int[]{stepsToGoal.size(),stepsToGoal.size()}, curr_state, fail_reason);
     }
     
     public ArrayList<Predicate> sortPredicates(ArrayList<Predicate> preds){
@@ -301,7 +351,8 @@ public class FerryPlanner {
                 carsDepth.put(car.identifier, cars_in_front);
             } else {
                 setFinished(true);
-                System.out.println("Error in the input file: Look for the car " + car.identifier + " in the Initial state");
+                fail_reason = "Error in the input file: Look for the car " + car.identifier + " in the Initial state";
+                System.out.println(fail_reason);
                 return sorted;
             }
         }
@@ -313,6 +364,12 @@ public class FerryPlanner {
         for (Predicate pred : preds){
             if (pred instanceof LastFerry){
                 curr_layer_preds.add(pred);
+                if (carsDepth.get(pred.getCarIDs()) == null){
+                    setFinished(true);
+                    fail_reason = "Error in the input file: Car " + pred.getCarIDs() + " is not in the Blocks parameter";
+                    System.out.println(fail_reason);
+                    return sorted;
+                }
                 curr_layer_depths.add(carsDepth.get(pred.getCarIDs()));
                 curr_layer_cars.add(pred.getCars().get(0));
                 currFerryDepth = target_state.carsInFrontOf(pred.getCars().get(0), Constants.FERRY);
@@ -339,6 +396,13 @@ public class FerryPlanner {
                     for (Car car : curr_layer_cars){
                         if (car.identifier.equals(pred.getCars().get(0).identifier)){
                             curr_layer_preds.add(pred);
+                            if (carsDepth.get(pred.getCars().get(0).identifier) == null){
+                                setFinished(true);
+                                fail_reason = "Error in the input file: Car " + pred.getCarIDs() +
+                                        " is not in the Blocks parameter";
+                                System.out.println(fail_reason);
+                                return sorted;
+                            }
                             curr_layer_depths.add(carsDepth.get(pred.getCars().get(0).identifier));
                             future_layer_cars.add(pred.getCars().get(1));
                             break;
@@ -365,6 +429,12 @@ public class FerryPlanner {
         for (Predicate pred : preds){
             if (pred instanceof FirstFerry){
                 curr_layer_preds.add(pred);
+                if (carsDepth.get(pred.getCarIDs()) == null){
+                    setFinished(true);
+                    fail_reason = "Error in the input file: Car " + pred.getCarIDs() + " is not in the Blocks parameter";
+                    System.out.println(fail_reason);
+                    return sorted;
+                }
                 curr_layer_depths.add(carsDepth.get(pred.getCarIDs()));
             }
         }

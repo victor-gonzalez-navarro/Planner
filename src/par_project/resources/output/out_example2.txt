@@ -1,3 +1,3 @@
-9
-9
-UnstackLeaveFerry(B,A), UnstackStackFerry(D,E,B), UnstackStackDock(A,C,E), UnstackStackDock(C,F,A), PickStackFerry(F,D), UnstackStackFerry(C,A,F), UnstackLeaveDock(A,E), PickStackFerry(E,C), PickStackFerry(A,E)
+Number of Operators of the plan: 9
+Number of States Generated to solve the problem: 9
+Sequence of Operators: UnstackLeaveFerry(B,A), UnstackStackFerry(D,E,B), UnstackStackDock(A,C,E), UnstackStackDock(C,F,A), PickStackFerry(F,D), UnstackStackFerry(C,A,F), UnstackLeaveDock(A,E), PickStackFerry(E,C), PickStackFerry(A,E)

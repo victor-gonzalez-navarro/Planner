@@ -1,3 +1,7 @@
-1
-1
-UnstackStackDock(C,B,E)
+Number of Operators of the plan: 1
+Number of States Generated to solve the problem: 1
+Sequence of Operators: UnstackStackDock(C,B,E)
+-----------------------------
+Current State: FirstDock(C).NextToDock(A,B).NextToDock(D,E).LastDock(A).LastDock(D).FreeLine(B).FirstDock(B).NextToDock(E,C)
+Reason of Failure: No predicate in the current state has been found to satisfy the condition FreeLine(YYY). Note cars [A, B] are unavailable for instantiating the Predicate
+-----------------------------
