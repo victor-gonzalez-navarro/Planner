@@ -1,0 +1,5 @@
+NumLines=4;
+MaxColumns=5;
+Blocks=A.B.C.D.E.F.G.H.I.J.K.L.M.N.O.P;
+InitialState=FirstDock(A).FirstDock(P).FirstDock(N).FirstDock(O).LastDock(C).LastDock(D).LastDock(F).LastDock(I).FreeLine(A).FreeLine(P).FreeLine(O).NextToDock(C,B).NextToDock(B,A).NextToDock(D,E).NextToDock(E,H).NextToDock(F,G).NextToDock(H,P).NextToDock(G,K).NextToDock(K,M).NextToDock(M,N).NextToDock(I,J).NextToDock(J,L).NextToDock(L,O);
+GoalState=FirstFerry(C).FirstFerry(P).LastFerry(E).LastFerry(I).NextToFerry(E,J).NextToFerry(J,K).NextToFerry(K,M).NextToFerry(M,D).NextToFerry(D,C).NextToFerry(I,A).NextToFerry(A,B).NextToFerry(B,N).NextToFerry(N,O).NextToFerry(O,F).NextToFerry(F,G).NextToFerry(G,H).NextToFerry(H,L).NextToFerry(L,P);

@@ -48,7 +48,7 @@ public class FerryPlanner {
         this.finished = false;
         this.fail_reason = "";
 
-        this.printStack = true;
+        this.printStack = false;
     }
     
     public void solveProblem (){
@@ -226,10 +226,10 @@ public class FerryPlanner {
 
                     if (!pred.isInstantiated()){
                         finished = true;
-                        String notAvailableCars = Functions.differenceCars(this.cars, pred.getCarsAvailable());
+                        //String notAvailableCars = Functions.differenceCars(this.cars, pred.getCarsAvailable());
                         fail_reason = "No predicate in the current state has been found to satisfy the condition " +
-                                pred.toString() + (notAvailableCars.isEmpty()?"":". Note cars [" + notAvailableCars +
-                                "] are unavailable for instantiating the Predicate");
+                                pred.toString(); //+ (notAvailableCars.isEmpty()?"":". Note cars [" + notAvailableCars +
+                                //"] are unavailable for instantiating the Predicate");
                         System.out.println(fail_reason);
                     }
                 }
@@ -381,7 +381,7 @@ public class FerryPlanner {
 
         // At the bottom of the Stack, LastFerries with cars that are deeper in the Dock
         for (int i = 0; i < curr_layer_preds.size(); i++){
-            maximum_idx = Functions.argMax(curr_layer_depths);
+            maximum_idx = Functions.argMax(curr_layer_depths, curr_layer_cars, curr_state);
             sorted.add(curr_layer_preds.get(maximum_idx));
             curr_layer_depths.set(maximum_idx, -1);
         }
@@ -413,7 +413,7 @@ public class FerryPlanner {
 
             // Deeper Cars will be behind at the Stack
             for (int j = 0; j < curr_layer_preds.size(); j++) {
-                maximum_idx = Functions.argMax(curr_layer_depths);
+                maximum_idx = Functions.argMax(curr_layer_depths, curr_layer_cars, curr_state);
                 sorted.add(curr_layer_preds.get(maximum_idx));
                 curr_layer_depths.set(maximum_idx, -1);
             }
@@ -441,7 +441,7 @@ public class FerryPlanner {
 
         // Deeper Cars will be behind at the Stack
         for (int i = 0; i < curr_layer_preds.size(); i++){
-            maximum_idx = Functions.argMax(curr_layer_depths);
+            maximum_idx = Functions.argMax(curr_layer_depths, curr_layer_cars, curr_state);
             sorted.add(curr_layer_preds.get(maximum_idx));
             curr_layer_depths.set(maximum_idx, -1);
         }

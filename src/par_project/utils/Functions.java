@@ -110,13 +110,20 @@ public class Functions {
      * @param ints
      * @return idx
      */
-    public static int argMax(ArrayList<Integer> ints){
+    public static int argMax(ArrayList<Integer> ints, ArrayList<Car> cars, State curr_state){
         int maxValue = -1;
         int idx = 0;
         for (int i = 0; i < ints.size(); i++) {
             if (ints.get(i) > maxValue) {
                 maxValue = ints.get(i);
                 idx = i;
+            } else if (ints.get(i) == maxValue){
+                int cars_b1 = curr_state.carsBehind(cars.get(idx), Constants.DOCK);
+                int cars_b2 = curr_state.carsBehind(cars.get(i), Constants.DOCK);
+                if (cars_b1 < cars_b2){
+                    maxValue = ints.get(i);
+                    idx = i;
+                }
             }
         }
         return idx;
@@ -163,7 +170,9 @@ public class Functions {
             }
         }
 
-        sb.setLength(sb.length()-2);
+        if (sb.length() > 2) {
+            sb.setLength(sb.length() - 2);
+        }
 
         return sb.toString();
     }

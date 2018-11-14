@@ -1,0 +1,7 @@
+Number of Operators of the plan: 0
+Number of States Generated to solve the problem: 0
+Sequence of Operators: 
+-----------------------------
+Current State: FirstDock(C).FirstDock(F).FirstDock(J).NextToDock(B,C).NextToDock(A,B).NextToDock(E,F).NextToDock(D,E).NextToDock(H,J).NextToDock(G,H).LastDock(A).LastDock(D).LastDock(G)
+Reason of Failure: No predicate in the current state has been found to satisfy the condition FreeLine(YYY)
+-----------------------------

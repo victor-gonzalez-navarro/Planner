@@ -1,0 +1,7 @@
+Number of Operators of the plan: 9
+Number of States Generated to solve the problem: 9
+Sequence of Operators: UnstackStackDock(JC,IC,JA), UnstackStackDock(IC,HC,JB), UnstackStackDock(HC,GC,JD), UnstackLeaveFerry(GC,FC), UnstackStackDock(HC,JD,FC), UnstackStackDock(JD,ID,HC), UnstackStackDock(ID,HD,JD), UnstackStackDock(HD,GD,ID), UnstackStackDock(GD,FD,HD)
+-----------------------------
+Current State: FirstDock(JC).NextToDock(IA,JA).NextToDock(HA,IA).NextToDock(GA,HA).NextToDock(FA,GA).NextToDock(EA,FA).NextToDock(DA,EA).NextToDock(IB,JB).NextToDock(HB,IB).NextToDock(GB,HB).NextToDock(FB,GB).NextToDock(EB,FB).NextToDock(DB,EB).NextToDock(EC,FC).NextToDock(DC,EC).NextToDock(ED,FD).NextToDock(DD,ED).LastDock(DA).LastDock(DB).LastDock(DC).LastDock(DD).FirstDock(IC).NextToDock(JA,JC).NextToDock(JB,IC).FirstFerry(GC).LastFerry(GC).NextToDock(FC,HC).NextToDock(HC,JD).NextToDock(JD,ID).FirstDock(GD).NextToDock(ID,HD).FreeLine(FD).FirstDock(FD).NextToDock(HD,GD)
+Reason of Failure: No predicate in the current state has been found to satisfy the condition FreeLine(YYY)
+-----------------------------

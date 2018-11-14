@@ -18,7 +18,7 @@ import static par_project.utils.Functions.readInput;
  */
 
 public class CarTransportPlanning {
-    public final static String INPUT_FILE_NAME  = "our_example7.txt";
+    public final static String INPUT_FILE_NAME  = "Test3.txt";
 
     public static void main(String[] args){
         long startTime = System.currentTimeMillis();
